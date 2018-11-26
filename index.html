@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="en"><head>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="Content-Script-Type" content="text/javascript">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <meta http-equiv="pragma" content="no-cache">
+  <meta http-equiv="Cache-Control" content="no-cache">
+  <!--<link rel="shortcut icon" href="http://tohosort.comoj.com/yinyang.ico" type="image/x-icon">
+  <link rel="icon" href="http://tohosort.comoj.com/yinyang.ico" type="image/x-icon">-->
+  <meta name="author" content="haru">
+  <meta name="description" content="Touhou Song Sorting">
+  <meta name="keywords" content="">
+  <meta name="generator" content="notepad"><title>Touhou Song Sorting</title>  
+  
+  <noscript></noscript>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/json2/20110223/json2.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+  <script src="src/jstorage.js"></script>
+  <script> /* $.jStorage is now available */ </script>
+  <script type="text/javascript" src="src/mod_k-factory.js"></script>  
+  <script type="text/javascript" src="src/fnc_data_song.js"></script>
+  <script type="text/javascript" src="src/fnc_main_song.js"></script>
+  <script type="text/javascript" src="src/op.js"></script>
+  <link rel="stylesheet" type="text/css" href="src/tcs_style_song.css">
+  <style type="text/css">
+.style4 {
+	font-family: Arial, Helvetica, sans-serif;
+	color: #000000;
+	font-weight: normal;
+	font-size: 11px;
+}
+a:link {
+	color: #990000;
+	text-decoration: none;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+}
+a {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+}
+a:visited {
+	text-decoration: none;
+	color: #6600FF;
+	font-size: 11px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+a:hover {
+	text-decoration: none;
+	color: #FF6600;
+	font-size: 11px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+a:active {
+	text-decoration: none;
+	font-size: 11px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+  </style>
+  </head><body onload="startup()">
+  <div align="center">
+   <table id="mainTable">
+    <thead>
+     <tr>
+      <td colspan="5" class="tb_header">Battle No. <span id="lblCount">-</span><br>
+       <span id="lblProgress">0</span>% sorted.<br>
+       <div align="center"><span id="GaGprog"></span></div>
+      </td>
+     </tr>
+    </thead>
+    <tbody>
+     <tr>
+      <td id="fldLeft" onclick="fnc_Sort(-1);" rowspan="2"><img src="images/Kw2uOqV.jpg" title="Left"></td>
+	  <td style="border: 0px; width: 7px;"></td>
+      <td id="fldMiddleT" onclick="fnc_Sort(0);"><p>Touhou</p>
+        <p>Song Sort</p></td>
+	  <td style="border: 0px; width: 7px;"></td>
+      <td id="fldRight" onclick="fnc_Sort(1);" rowspan="2"><img src="images/FI9IsdC.jpg" title="Right"></td>
+     </tr>
+     <tr>
+	  <td style="border: 0px; width: 7px;"></td>
+      <td id="fldMiddleB" onclick="fnc_Undo();">Click to start!</td>
+	  <td style="border: 0px; width: 7px;"></td>
+      </tr>
+     <tr>
+     <td id="texLeft" onclick="fnc_Sort(-1);" rowspan="2"><span id="nameLeft">Song here!</span><br><span id="gameLeft">This song's game!</span><br><br><span id="detailLeft">This song's description!</span></td>
+      <td style="border: 0px; width: 7px;"></td>
+      <td id="fldMiddleS" onclick="fnc_Save();">Save Progress</td>
+	  <td style="border: 0px; width: 7px;"></td>
+     <td id="texRight" onclick="fnc_Sort(1);" rowspan="2"><span id="nameRight">Another song here!</span><br><span id="gameRight">The other song's game!</span><br><br><span id="detailRight">The other song's description!</span></td>
+     </tr>
+     <tr>
+	  <td style="border: 0px; width: 7px;"></td>
+      <td id="fldMiddleL" onclick="fnc_Load();">Load Progress</td>
+	  <td style="border: 0px; width: 7px;"></td>
+      </tr>
+     <tr>
+     <td id="youLeft"><span></span></td>
+     <td id="youMiddle" colspan="3"></td>
+     <td id="youRight"><span></span></td>
+     </tr>
+    </tbody>
+    <tfoot>
+     <tr>
+      <td colspan="5"><div align="center">
+        <input id="optImage" checked="checked" type="checkbox">
+        <span class="tb_lower">Embed videos while sorting (warning: may be slow on some computers!)</span></div></td>
+     </tr>
+     <tr>
+      <td colspan="5"><div align="center">
+        <input id="optArrange" checked="checked" type="checkbox">
+        <span class="tb_lower">Include arranges (uncheck to only include original songs).</span></div></td>
+     </tr>
+     <tr>
+      <td colspan="5"><div align="center">
+        <span class="tb_lower">Sort: </span>
+        <select name="optSortType" id="optSortType">
+          <option value="0" selected>Everything</option>
+          <option value="1">Only Boss themes and Stage themes</option>
+          <option value="2">Only Boss themes</option>
+          <option value="3">Only Stage themes</option>
+        </select>
+      </div></td>
+     </tr>
+    </tfoot>
+
+   </table>
+  </div>
+  <br>
+   <table id="optTable" align="center" width="510"></table>
+  <br>
+  <div id="ranTable" width="640px" class="tb" style="display:none;" align="center">
+<div>
+<form>
+      <input value="Raw Text Results" onclick="OpenWnd()" type="button">
+      <input value="Switch Display Type" onclick="fnc_ShowData()" type="button">
+	  <p class="style7" style="font-size:8px;">Full screenshot: Firefox: Press Shift+F2, type in "screenshot --fullpage filename.png".
+	  <br>Chrome: Use the Screen Capture extension from the Chrome extensions webstore.</p>
+</form> 	
+</div>
+</div>
+  <div class="style4" id="resultField" style="text-align:center;">
+    <p class="style7">If any albums/games are missing, please press CTRL+F5 first before reporting!</p>
+    <p class="style7">Sorter for Touhou songs. Pick your sources, and hit the Start button.<br>
+Click on the song you like better from the two, or tie them if you like them equally or don't know them.<br> 
+Unlike the character sorter, very few songs are shared between games/CDs. This means that it will take a much longer time than the character sorter.<br>
+Since you may also want to listen to the songs, if you are sorting lots of games then it is wise to set aside a couple of hours.<br>
+It may take 5000-6000 battles to finish a sort with all songs, depending on how many ties you use.<br>
+      There'll be a table at the end of the picks with your favorites sorted 
+      out, plus a button to click for raw text to copy and paste.<br>
+      <br>
+      Extended code from the current English sorter (stolen with permission!)<br>
+    Youtube Videos: Primarily <a href="https://www.youtube.com/user/ScarletFlameFlandre">ScarletFlameFlandre</a> and <a href="https://www.youtube.com/user/FlandresOldWorld">FlandresOldWorld</a>.<br>
+    'Trojan Green Asteriod', 'Unknown Flower, Mesmerizing Journey', 'Neo-traditionalism of Japan', 'Dr. Latency's Freak Report', and 'Dateless Bar "Old Adam"' unfortunately do not (and will not) have videos.<br>
+    The original Highly Responsive to Prayers tracks are not included.
+    <br>
+    <br>
+    <a href="mailto:t3h.twili@yahoo.co.uk">Email me</a> if there are any issues.<br><br>
+    - relick</p>
+</div>
+</body></html>
