@@ -76,20 +76,20 @@ function startup() {
       // Col[0]
       var new_cell = new_row.insertCell(new_row.childNodes.length);
       var new_CheckBox = cE('input');
+      var new_CheckBoxID = 'optSelect' + i;
       new_CheckBox.setAttribute('type', 'checkbox', 0);
       new_CheckBox.setAttribute('checked', 'true', 0);
       new_CheckBox.value = ary_TitleData[i];
       new_CheckBox.title = ary_TitleData[i];
-      new_CheckBox.id = 'optSelect' + i;
+      new_CheckBox.id = new_CheckBoxID;
       new_cell.appendChild(new_CheckBox);
 
-      var new_span = cE('span');
-      new_span.appendChild(cT(ary_TitleData[i]));
-      new_span.title = ary_TitleData[i];
-      new_span.id = i;
-      sC(new_span, 'cbox');
-      new_span.onclick = function() {chgFlag(this.id);}
-      new_cell.appendChild(new_span);
+      var new_label = cE('label');
+      new_label.appendChild(cT(ary_TitleData[i]));
+      new_label.title = ary_TitleData[i];
+      new_label.setAttribute('for', new_CheckBoxID);
+      sC(new_label, 'cbox');
+      new_cell.appendChild(new_label);
    }
 
    gID('optImage').disabled = false;
