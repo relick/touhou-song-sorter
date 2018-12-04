@@ -227,10 +227,12 @@ function init(){
    } else {
       for (i=0; i<ary_TitleData.length; i++) {
          gID('optSelect' + i).disabled = true;
-         gID('optSelect' + i).style.dsiplay = 'none';
       }
+      gID('optSelect_all').disabled = true;
+      $('.opt_foot').hide();
       gID('optImage').disabled = true;
-	  gID('optArrange').disabled = true;
+      gID('optArrange').disabled = true;
+      sC(gID('optTable'), 'optTable-disabled');
    }
 
    int_Total = 0;

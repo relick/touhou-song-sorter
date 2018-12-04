@@ -150,6 +150,10 @@
 .opt_foot label {
 	cursor: pointer;
 }
+.optTable-disabled .cbox,
+.optTable-disabled .opt_foot {
+	cursor: default;
+}
 
 div#resultField {
     display: block;
