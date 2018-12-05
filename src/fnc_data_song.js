@@ -740,6 +740,10 @@ var ary_CharacterData = [
 	[1, "Magus Night",									[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0], "Kw2uOqV.jpg", "bL3KnIqMfAU", "Oriental Sacred Place", "OSP", "Album 3 - Track 1", 1, 0],
 	[1, "Staking Your Life on a Prank",					[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0], "Kw2uOqV.jpg", "PLsgoWJOJB4", "Oriental Sacred Place", "OSP", "Album 3 - Track 2", 1, 0],
 	//[1, "Old Yuanxian",								[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0], "QrUdIZd.jpg", "K96VIem5os4", "Ten Desires", "TD", "", 0, 0],
+	//Forbidden Scrollery
+	[1, "Bibliophile with a Deciphering Eye",			[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0], "fs.jpg", "i0Wt3lN7-mk", "Forbidden Scrollery", "FS", "Track 1", 0, 0],
+	[1, "Humans and Youkai Traversing the Canal",		[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0], "fs.jpg", "m3S9Nsd1puU", "Forbidden Scrollery", "FS", "Track 2", 1, 0],
+	[1, "The Rabbit Has Landed",						[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0], "fs.jpg", "na", "Forbidden Scrollery", "FS", "Track 3", 1, 0],
 	
 	//Urban Legend in Limbo
 	[1, "Heart-Stirring Urban Legends",							[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0], "arjGI4C.jpg?1", "ZsManu7kdGo", "Urban Legend in Limbo", "ULiL", "Title/Menu Screen", 0, 0],
