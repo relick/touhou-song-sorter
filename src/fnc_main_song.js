@@ -76,20 +76,20 @@ function startup() {
       // Col[0]
       var new_cell = new_row.insertCell(new_row.childNodes.length);
       var new_CheckBox = cE('input');
+      var new_CheckBoxID = 'optSelect' + i;
       new_CheckBox.setAttribute('type', 'checkbox', 0);
       new_CheckBox.setAttribute('checked', 'true', 0);
       new_CheckBox.value = ary_TitleData[i];
       new_CheckBox.title = ary_TitleData[i];
-      new_CheckBox.id = 'optSelect' + i;
+      new_CheckBox.id = new_CheckBoxID;
       new_cell.appendChild(new_CheckBox);
 
-      var new_span = cE('span');
-      new_span.appendChild(cT(ary_TitleData[i]));
-      new_span.title = ary_TitleData[i];
-      new_span.id = i;
-      sC(new_span, 'cbox');
-      new_span.onclick = function() {chgFlag(this.id);}
-      new_cell.appendChild(new_span);
+      var new_label = cE('label');
+      new_label.appendChild(cT(ary_TitleData[i]));
+      new_label.title = ary_TitleData[i];
+      new_label.setAttribute('for', new_CheckBoxID);
+      sC(new_label, 'cbox');
+      new_cell.appendChild(new_label);
    }
 
    gID('optImage').disabled = false;
@@ -105,17 +105,19 @@ function startup() {
    var new_cell = new_row.insertCell(new_row.childNodes.length);
    new_cell.setAttribute('colspan', int_Colspan, 0);
    var new_CheckBox = cE('input');
+   var new_CheckBoxID = 'optSelect_all';
    new_CheckBox.setAttribute('type', 'checkbox', 0);
    new_CheckBox.setAttribute('checked', 'true', 0);
    new_CheckBox.value = "All";
    new_CheckBox.title = "All boxes are checked/unchecked at the same time.";
-   new_CheckBox.id = 'optSelect_all';
+   new_CheckBox.id = new_CheckBoxID;
    new_CheckBox.onclick = function() {chgAll();}
    new_cell.appendChild(new_CheckBox);
 
-   var new_span = cE('span');
-   new_span.appendChild(cT("Select All"));
-   new_cell.appendChild(new_span);
+   var new_label = cE('label');
+   new_label.setAttribute('for', new_CheckBoxID);
+   new_label.appendChild(cT("Select All"));
+   new_cell.appendChild(new_label);
 
 
    if (!bln_ProgessBar) fCG(sID, iGM, iGM);
@@ -225,10 +227,12 @@ function init(){
    } else {
       for (i=0; i<ary_TitleData.length; i++) {
          gID('optSelect' + i).disabled = true;
-         gID('optSelect' + i).style.dsiplay = 'none';
       }
+      gID('optSelect_all').disabled = true;
+      $('.opt_foot').hide();
       gID('optImage').disabled = true;
-	  gID('optArrange').disabled = true;
+      gID('optArrange').disabled = true;
+      sC(gID('optTable'), 'optTable-disabled');
    }
 
    int_Total = 0;
