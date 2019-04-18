@@ -38,6 +38,7 @@
 	border: 1px solid #333333;
 	cursor:pointer;
 	font-family: Arial, Helvetica, sans-serif;
+	line-height: 0;
 }
 #fldRight   {
 	text-align: center;
@@ -47,6 +48,7 @@
 	border: 1px solid #333333;
 	cursor:pointer;
 	font-family: Arial, Helvetica, sans-serif;
+	line-height: 0;
 }
 
 #texLeft    {
@@ -57,6 +59,7 @@
 	border: 1px solid #333333;
 	cursor:pointer;
 	font-family: Arial, Helvetica, sans-serif;
+	line-height: 100%;
 }
 #texRight   {
 	text-align: center;
@@ -66,6 +69,7 @@
 	border: 1px solid #333333;
 	cursor:pointer;
 	font-family: Arial, Helvetica, sans-serif;
+	line-height: 100%;
 }
 
 #gameLeft    {
@@ -80,7 +84,7 @@
 #fldMiddleT {
 	text-align: center;
 	width: 150px;
-	height: 90px;
+	height: 88px;
 	padding:0px;
 	border: 1px solid #333333;
 	cursor:pointer;
@@ -122,7 +126,7 @@
 #fldMiddleB {
 	text-align: center;
 	width: 150px;
-	height: 90px;
+	height: 88px;
 	padding:0px;
 	border: 1px solid #333333;
 	cursor:pointer;
@@ -131,7 +135,7 @@
 #fldMiddleS {
 	text-align: center;
 	width: 150px;
-	height: 90px;
+	height: 88px;
 	padding:0px;
 	border: 1px solid #333333;
 	cursor:pointer;
@@ -140,7 +144,7 @@
 #fldMiddleL {
 	text-align: center;
 	width: 150px;
-	height: 90px;
+	height: 88px;
 	padding:0px;
 	border: 1px solid #333333;
 	cursor:pointer;
@@ -148,6 +152,7 @@
 }
 
 #optTable {
+	line-height: 100%;
 	margin-left: auto;
 	margin-right: auto;
 	width: 510px;
