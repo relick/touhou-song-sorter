@@ -28,7 +28,7 @@ var bln_ProgessBar = 1;
 var maxRows = 42;
 
 // * タイトル情報（編集可能。最後の行に”,”を付けないようにしてください）
-var int_Colspan = 4;
+var int_Colspan = 3;
 var ary_TitleData = [
    "1: The Highly Responsive to Prayers",
    "2: The Story of Eastern Wonderland",
