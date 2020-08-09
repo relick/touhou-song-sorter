@@ -236,13 +236,32 @@ div#resultField {
 a       {
 	text-decoration:none;
 	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+}
+a:link {
+	color: #6600FF;
+}
+a:visited {
+	color: #6600FF;
 }
 a:hover {
-	color:#99ccff;
-	font-family: Arial, Helvetica, sans-serif;
+	color: #FF6600;
 }
 
 #ranTable {
 	text-align: center;
 	width: 640px;
+}
+
+.screenshot-info {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:12px;
+}
+
+.bottom-text {
+	font-family: Arial, Helvetica, sans-serif;
+	color: #000000;
+	font-weight: normal;
+	font-size: 11px;
+	text-align:center;
 }

@@ -750,6 +750,7 @@ function fnc_ShowData()
 		}
 
 		// TODO: If want to disable sort buttons, do that here.
+		getID("ranTable").style.display = 'inline';
 
 		// v2a start
 		

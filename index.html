@@ -1,68 +1,36 @@
 <!DOCTYPE html>
-<html lang="en"><head>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="shortcut icon" href="src/yinyang.ico" type="image/x-icon">
+	<link rel="icon" href="src/yinyang.ico" type="image/x-icon">
+	<meta name="author" content="relick">
+	<meta name="description" content="Sorter for Touhou songs. Pick your sources, and hit the Start button.">
+	<meta name="keywords" content="touhou song sorting">
+	<meta name="generator" content="notepad">
 
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <!--<link rel="shortcut icon" href="http://tohosort.comoj.com/yinyang.ico" type="image/x-icon">
-  <link rel="icon" href="http://tohosort.comoj.com/yinyang.ico" type="image/x-icon">-->
-  <meta name="author" content="haru">
-  <meta name="description" content="Sorter for Touhou songs. Pick your sources, and hit the Start button.">
-  <meta name="keywords" content="touhou song sorting">
-  <meta name="generator" content="notepad">
+	<meta property="og:title" content="Touhou Song Sorting">
+	<meta property="og:type" content="website">
+	<meta property="og:image" content="https://relick.me/song/images/FI9IsdC.jpg">
+	<meta property="og:url" content="https://relick.me/song/">
+	<meta property="og:description" content="Sorter for Touhou songs. Pick your sources, and hit the Start button.">
 
-  <meta property="og:title" content="Touhou Song Sorting">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="https://relick.me/song/images/FI9IsdC.jpg">
-  <meta property="og:url" content="https://relick.me/song/">
-  <meta property="og:description" content="Sorter for Touhou songs. Pick your sources, and hit the Start button.">
+	<title>Touhou Song Sorting</title>
 
-  <title>Touhou Song Sorting</title>
+	<noscript></noscript>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/json2/20110223/json2.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+	<script src="src/jstorage.js"></script>
+	<script> /* $.jStorage is now available */ </script>
+	<script src="src/helpers.js"></script>
+	<script src="src/fnc_data_song.js"></script>
+	<script src="src/fnc_main_song.js"></script>
+	<script src="src/op.js"></script>
 
-  <noscript></noscript>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/json2/20110223/json2.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
-  <script src="src/jstorage.js"></script>
-  <script> /* $.jStorage is now available */ </script>
-  <script src="src/helpers.js"></script>
-  <script src="src/fnc_data_song.js"></script>
-  <script src="src/fnc_main_song.js"></script>
-  <script src="src/op.js"></script>
-  <link rel="stylesheet" type="text/css" href="src/tcs_style_song.css">
-  <style>
-.style4 {
-	font-family: Arial, Helvetica, sans-serif;
-	color: #000000;
-	font-weight: normal;
-	font-size: 11px;
-}
-a:link {
-	color: #990000;
-	text-decoration: none;
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 11px;
-}
-a {
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 11px;
-}
-a:visited {
-	text-decoration: none;
-	color: #6600FF;
-	font-size: 11px;
-	font-family: Arial, Helvetica, sans-serif;
-}
-a:hover {
-	text-decoration: none;
-	color: #FF6600;
-	font-size: 11px;
-	font-family: Arial, Helvetica, sans-serif;
-}
-a:active {
-	text-decoration: none;
-	font-size: 11px;
-	font-family: Arial, Helvetica, sans-serif;
-}
-  </style>
-  </head><body onload="startup()">
+	<link rel="stylesheet" type="text/css" href="src/tcs_style_song.css">
+</head>
+
+<body onload="startup()">
   <div class="center">
    <table id="mainTable">
     <thead>
@@ -133,18 +101,16 @@ a:active {
   <br>
    <table id="optTable"></table>
   <br>
-  <div id="ranTable" class="tb" style="display:none;">
-<div>
-<form>
-      <input value="Raw Text Results" onclick="OpenWnd()" type="button">
-      <input value="Switch Display Type" onclick="fnc_ShowData()" type="button">
-	  <p class="style7" style="font-size:12px;">Full screenshot: Firefox: Press Shift+F2, type in "screenshot --fullpage filename.png".
-	  <br>Chrome: Use the Screen Capture extension from the Chrome extensions webstore.</p>
-</form> 	
-</div>
-</div>
-  <div class="style4" id="resultField" style="text-align:center;">
-    <p class="style7">If any albums/games are missing, please press CTRL+F5 first before reporting!<br><br>
+	<div id="ranTable" class="tb" style="display:none;">
+	<form>
+		<input value="Raw Text Results" onclick="OpenWnd()" type="button">
+		<input value="Switch Display Type" onclick="fnc_ShowData()" type="button">
+		<p class="screenshot-info">Full screenshot: Firefox: Press Shift+F2, type in "screenshot --fullpage filename.png".
+		<br>Chrome: Use the Screen Capture extension from the Chrome extensions webstore.</p>
+	</form>
+	</div>
+  <div class="bottom-text" id="resultField">
+    <p>If any albums/games are missing, please press CTRL+F5 first before reporting!<br><br>
       Sorter for Touhou songs. Pick your sources, and hit the Start button.<br>
 Click on the song you like better from the two, or tie them if you like them equally or don't know them.<br> 
 Unlike the character sorter, very few songs are shared between games/CDs. This means that it will take a much longer time than the character sorter.<br>
