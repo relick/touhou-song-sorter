@@ -31,101 +31,108 @@
 </head>
 
 <body onload="startup()">
-  <div class="center">
-   <table id="mainTable">
-    <thead>
-     <tr>
-      <td colspan="5" class="tb_header">Battle No. <span id="lblCount">-</span><br>
-       <div id="GaGprog"><div id="progressText"><span id="lblProgress">0</span>% sorted.</div></div>
-      </td>
-     </tr>
-    </thead>
-    <tbody>
-     <tr>
-      <td id="fldLeft" onclick="fnc_Sort(-1);" rowspan="2"><img src="images/Kw2uOqV.jpg" title="Left"></td>
-	  <td style="border: 0; width: 7px;"></td>
-      <td id="fldMiddleT" onclick="fnc_Sort(0);"><p>Touhou</p>
-        <p>Song Sort</p></td>
-	  <td style="border: 0; width: 7px;"></td>
-      <td id="fldRight" onclick="fnc_Sort(1);" rowspan="2"><img src="images/FI9IsdC.jpg" title="Right"></td>
-     </tr>
-     <tr>
-	  <td style="border: 0; width: 7px;"></td>
-      <td id="fldMiddleB" onclick="fnc_Undo();">Click to start!</td>
-	  <td style="border: 0; width: 7px;"></td>
-      </tr>
-     <tr>
-     <td id="texLeft" onclick="fnc_Sort(-1);" rowspan="2"><span id="nameLeft">Song here!</span><br><span id="gameLeft">This song's game!</span><br><br><span id="detailLeft">This song's description!</span></td>
-      <td style="border: 0; width: 7px;"></td>
-      <td id="fldMiddleS" onclick="fnc_Save();">Save Progress</td>
-	  <td style="border: 0; width: 7px;"></td>
-     <td id="texRight" onclick="fnc_Sort(1);" rowspan="2"><span id="nameRight">Another song here!</span><br><span id="gameRight">The other song's game!</span><br><br><span id="detailRight">The other song's description!</span></td>
-     </tr>
-     <tr>
-	  <td style="border: 0; width: 7px;"></td>
-      <td id="fldMiddleL" onclick="fnc_Load();">Load Progress</td>
-	  <td style="border: 0; width: 7px;"></td>
-      </tr>
-     <tr>
-     <td id="youLeft"><span></span></td>
-     <td id="youMiddle" colspan="3"></td>
-     <td id="youRight"><span></span></td>
-     </tr>
-    </tbody>
-    <tfoot>
-     <tr>
-      <td colspan="5"><div class="center">
-        <input id="optImage" checked="checked" type="checkbox">
-          <span class="tb_lower"><label for="optImage">Embed videos while sorting</label> (warning: may be slow on some computers!)</span></div></td>
-     </tr>
-     <tr>
-      <td colspan="5"><div class="center">
-        <input id="optArrange" checked="checked" type="checkbox">
-          <span class="tb_lower"><label for="optArrange">Include arranges</label> (uncheck to only include original songs).</span></div></td>
-     </tr>
-     <tr>
-      <td colspan="5"><div class="center">
-          <label class="tb_lower" for="optSortType">Sort:</label>
-        <select name="optSortType" id="optSortType">
-          <option value="0" selected>Everything</option>
-          <option value="1">Only Boss themes and Stage themes</option>
-          <option value="2">Only Boss themes</option>
-          <option value="3">Only Stage themes</option>
-        </select>
-      </div></td>
-     </tr>
-    </tfoot>
+	<div class="center">
+		<table id="mainTable">
+			<thead>
+				<tr>
+					<td colspan="5" class="tb_header">Battle No. <span id="lblCount">-</span><br>
+						<div id="GaGprog"><div id="progressText"><span id="lblProgress">0</span>% sorted.</div></div>
+					</td>
+				</tr>
+			</thead>
 
-   </table>
-  </div>
-  <br>
-   <table id="optTable"></table>
-  <br>
-	<div id="ranTable" class="tb" style="display:none;">
-	<form>
-		<input value="Raw Text Results" onclick="OpenWnd()" type="button">
-		<input value="Switch Display Type" onclick="fnc_ShowData()" type="button">
-		<p class="screenshot-info">Full screenshot: Firefox: Press Shift+F2, type in "screenshot --fullpage filename.png".
-		<br>Chrome: Use the Screen Capture extension from the Chrome extensions webstore.</p>
-	</form>
+			<tbody>
+				<tr>
+					<td id="fldLeft" onclick="fnc_Sort(-1);" rowspan="2"><img src="images/Kw2uOqV.jpg" title="Left"></td>
+					<td style="border: 0; width: 7px;"></td>
+					<td id="fldMiddleT" onclick="fnc_Sort(0);"><p>Touhou</p><p>Song Sort</p></td>
+					<td style="border: 0; width: 7px;"></td>
+					<td id="fldRight" onclick="fnc_Sort(1);" rowspan="2"><img src="images/FI9IsdC.jpg" title="Right"></td>
+				</tr>
+				<tr>
+					<td style="border: 0; width: 7px;"></td>
+					<td id="fldMiddleB" onclick="fnc_Undo();">Click to start!</td>
+					<td style="border: 0; width: 7px;"></td>
+				</tr>
+				<tr>
+					<td id="texLeft" onclick="fnc_Sort(-1);" rowspan="2"><span id="nameLeft">Song here!</span><br><span id="gameLeft">This song's game!</span><br><br><span id="detailLeft">This song's description!</span></td>
+					<td style="border: 0; width: 7px;"></td>
+					<td id="fldMiddleS" onclick="fnc_Save();">Save Progress</td>
+					<td style="border: 0; width: 7px;"></td>
+					<td id="texRight" onclick="fnc_Sort(1);" rowspan="2"><span id="nameRight">Another song here!</span><br><span id="gameRight">The other song's game!</span><br><br><span id="detailRight">The other song's description!</span></td>
+				</tr>
+				<tr>
+					<td style="border: 0; width: 7px;"></td>
+					<td id="fldMiddleL" onclick="fnc_Load();">Load Progress</td>
+					<td style="border: 0; width: 7px;"></td>
+				</tr>
+				<tr>
+					<td id="youLeft"><span></span></td>
+					<td id="youMiddle" colspan="3"></td>
+					<td id="youRight"><span></span></td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td colspan="5"><div class="center">
+						<input id="optImage" checked="checked" type="checkbox">
+						<span class="tb_lower"><label for="optImage">Embed videos while sorting</label> (warning: may be slow on some computers!)</span></div></td>
+				</tr>
+				<tr>
+					<td colspan="5"><div class="center">
+						<input id="optArrange" checked="checked" type="checkbox">
+						<span class="tb_lower"><label for="optArrange">Include arranges</label> (uncheck to only include original songs).</span></div></td>
+				</tr>
+				<tr>
+					<td colspan="5">
+						<div class="center">
+							<label class="tb_lower" for="optSortType">Sort:</label>
+							<select name="optSortType" id="optSortType">
+								<option value="0" selected>Everything</option>
+								<option value="1">Only Boss themes and Stage themes</option>
+								<option value="2">Only Boss themes</option>
+								<option value="3">Only Stage themes</option>
+							</select>
+						</div>
+					</td>
+				</tr>
+			</tfoot>
+		</table>
 	</div>
-  <div class="bottom-text" id="resultField">
-    <p>If any albums/games are missing, please press CTRL+F5 first before reporting!<br><br>
-      Sorter for Touhou songs. Pick your sources, and hit the Start button.<br>
-Click on the song you like better from the two, or tie them if you like them equally or don't know them.<br> 
-Unlike the character sorter, very few songs are shared between games/CDs. This means that it will take a much longer time than the character sorter.<br>
-Since you may also want to listen to the songs, if you are sorting lots of games then it is wise to set aside a couple of hours.<br>
-It may take 5000-6000 battles to finish a sort with all songs, depending on how many ties you use.<br>
-      There'll be a table at the end of the picks with your favorites sorted 
-      out, plus a button to click for raw text to copy and paste.<br>
-      <br>
-      Extended code from the current English sorter (stolen with permission!)<br>
-    YouTube Videos: Primarily <a href="https://www.youtube.com/user/ScarletFlameFlandre">ScarletFlameFlandre</a>, <a href="https://www.youtube.com/user/FlandresOldWorld">FlandresOldWorld</a>, <a href="https://www.youtube.com/channel/UC5NAstdwtl2UY158U9C-E9w">Romantique Tp</a>, <a href="https://www.youtube.com/channel/UCF2LyYVBz9yuTqFxhPZzJzA">Clownplease</a>, <a href="https://www.youtube.com/channel/UClxR3U2spT7Fo8IaVnPBM3A">Touhouforum.de</a> and <a href="https://www.youtube.com/user/sonikkuts">Kafuu Hearn</a>.<br>
-    'Trojan Green Asteriod', 'Unknown Flower, Mesmerizing Journey', 'Neo-traditionalism of Japan', 'Dr. Latency's Freak Report', and 'Dateless Bar "Old Adam"' unfortunately do not (and will not) have videos.<br>
-    The original Highly Responsive to Prayers tracks are not included.
-    <br>
-    <br>
-    <a href="mailto:t3h.twili@yahoo.co.uk">Email me</a> if there are any issues.<br><br>
-    - relick</p>
-</div>
-</body></html>
+	<br>
+
+	<table id="optTable"></table>
+	<br>
+
+	<div id="ranTable" class="tb" style="display:none;">
+		<form>
+			<input value="Raw Text Results" onclick="OpenWnd()" type="button">
+			<input value="Switch Display Type" onclick="fnc_ShowData()" type="button">
+			<p class="screenshot-info">Full screenshot: Firefox: Press Shift+F2, type in "screenshot --fullpage filename.png".
+			<br>Chrome: Use the Screen Capture extension from the Chrome extensions webstore.</p>
+		</form>
+	</div>
+
+	<div class="bottom-text" id="resultField">
+		<p>
+			If any albums/games are missing, please press CTRL+F5 first before reporting!<br>
+			<br>
+			Sorter for Touhou songs. Pick your sources, and hit the Start button.<br>
+			Click on the song you like better from the two, or tie them if you like them equally or don't know them.<br> 
+			Unlike the character sorter, very few songs are shared between games/CDs. This means that it will take a much longer time than the character sorter.<br>
+			Since you may also want to listen to the songs, if you are sorting lots of games then it is wise to set aside a couple of hours.<br>
+			It may take 5000-6000 battles to finish a sort with all songs, depending on how many ties you use.<br>
+			There'll be a table at the end of the picks with your favorites sorted out, plus a button to click for raw text to copy and paste.<br>
+			<br>
+			Extended code from the current English sorter (stolen with permission!)<br>
+			YouTube Videos: Primarily <a href="https://www.youtube.com/user/ScarletFlameFlandre">ScarletFlameFlandre</a>, <a href="https://www.youtube.com/user/FlandresOldWorld">FlandresOldWorld</a>, <a href="https://www.youtube.com/channel/UC5NAstdwtl2UY158U9C-E9w">Romantique Tp</a>, <a href="https://www.youtube.com/channel/UCF2LyYVBz9yuTqFxhPZzJzA">Clownplease</a>, <a href="https://www.youtube.com/channel/UClxR3U2spT7Fo8IaVnPBM3A">Touhouforum.de</a> and <a href="https://www.youtube.com/user/sonikkuts">Kafuu Hearn</a>.<br>
+			'Trojan Green Asteriod', 'Unknown Flower, Mesmerizing Journey', 'Neo-traditionalism of Japan', 'Dr. Latency's Freak Report', and 'Dateless Bar "Old Adam"' unfortunately do not (and will not) have videos.<br>
+			The original Highly Responsive to Prayers tracks are not included.<br>
+			<br>
+			<a href="mailto:t3h.twili@yahoo.co.uk">Email me</a> if there are any issues.<br>
+			<br>
+			- relick
+		</p>
+	</div>
+</body>
+</html>
