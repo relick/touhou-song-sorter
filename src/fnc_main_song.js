@@ -16,8 +16,7 @@
 // 2015/7/3 Modified by Relick
 // added save/load function
 
-// 実行コードです。
-// 修正する場合は気をつけてください。
+// Execution code
 var ary_TempData	= new Array();
 var ary_SortData	= new Array();
 var ary_ParentData = new Array();
@@ -63,8 +62,8 @@ var displayType = false;
 // * <BODY>タグの読み込み終了時に実行。
 function startup()
 {
-	var tbl_Select = gID('optTable');
-	var tbl_body_Select = cE('tbody');
+	var tbl_Select = getID('optTable');
+	var tbl_body_Select = createElement('tbody');
 	tbl_Select.appendChild(tbl_body_Select);
 
 	// タイトルから選択用チェックボックスに変換
@@ -79,7 +78,7 @@ function startup()
 
 		// Col[0]
 		var new_cell = new_row.insertCell(new_row.childNodes.length);
-		var new_CheckBox = cE('input');
+		var new_CheckBox = createElement('input');
 		var new_CheckBoxID = 'optSelect' + i;
 		new_CheckBox.setAttribute('type', 'checkbox', 0);
 		new_CheckBox.setAttribute('checked', 'true', 0);
@@ -88,27 +87,27 @@ function startup()
 		new_CheckBox.id = new_CheckBoxID;
 		new_cell.appendChild(new_CheckBox);
 
-		var new_label = cE('label');
-		new_label.appendChild(cT(ary_TitleData[i]));
+		var new_label = createElement('label');
+		new_label.appendChild(createText(ary_TitleData[i]));
 		new_label.title = ary_TitleData[i];
 		new_label.setAttribute('for', new_CheckBoxID);
-		sC(new_label, 'cbox');
+		setClass(new_label, 'cbox');
 		new_cell.appendChild(new_label);
 	}
 
-	gID('optImage').disabled = false;
-	gID('optArrange').disabled = false;
+	getID('optImage').disabled = false;
+	getID('optArrange').disabled = false;
 
-	var tbl_foot_Select = cE('tfoot');
+	var tbl_foot_Select = createElement('tfoot');
 	tbl_Select.appendChild(tbl_foot_Select);
 
 	// Row[0]
 	var new_row = tbl_foot_Select.insertRow(tbl_foot_Select.rows.length);
-	sC(new_row, "opt_foot");
+	setClass(new_row, "opt_foot");
 
 	var new_cell = new_row.insertCell(new_row.childNodes.length);
 	new_cell.setAttribute('colspan', int_Colspan, 0);
-	var new_CheckBox = cE('input');
+	var new_CheckBox = createElement('input');
 	var new_CheckBoxID = 'optSelect_all';
 	new_CheckBox.setAttribute('type', 'checkbox', 0);
 	new_CheckBox.setAttribute('checked', 'true', 0);
@@ -118,19 +117,19 @@ function startup()
 	new_CheckBox.onclick = function() {chgAll();}
 	new_cell.appendChild(new_CheckBox);
 
-	var new_label = cE('label');
+	var new_label = createElement('label');
 	new_label.setAttribute('for', new_CheckBoxID);
-	new_label.appendChild(cT("Select All"));
+	new_label.appendChild(createText("Select All"));
 	new_cell.appendChild(new_label);
 
-	fCreateGauge("GaGprog", sGaugeID);
+	createGauge("GaGprog", sGaugeID);
 }
 
 function chgAll()
 {
 	for (i=0; i<ary_TitleData.length; i++)
 	{
-		gID('optSelect' + i).checked = gID('optSelect_all').checked;
+		getID('optSelect' + i).checked = getID('optSelect_all').checked;
 	}
 }
 
@@ -139,7 +138,7 @@ function chgAll()
 // * タイトル名がクリックされてもチェックボックスを変更する。
 function chgFlag(int_id)
 {
-	var obj_Check = gID('optSelect' + int_id);
+	var obj_Check = getID('optSelect' + int_id);
 	if (!obj_Check.disabled)
 	{
 		obj_Check.checked = (obj_Check.checked) ? false : true;
@@ -154,15 +153,15 @@ function init()
 {
 	int_Total = 0;
 	int_RecordID = 0;
-	var arranges = gID('optArrange').checked;
-	var sortTypes = gID('optSortType').options[gID('optSortType').selectedIndex].value;
+	var arranges = getID('optArrange').checked;
+	var sortTypes = getID('optSortType').options[getID('optSortType').selectedIndex].value;
 
 	// ソート対象のみを抽出
 	for (i=0; i<ary_CharacterData.length; i++)
 	{
 		for (j=0; j<ary_TitleData.length; j++)
 		{
-			if (gID('optSelect' + j).checked && (ary_CharacterData[i][2][j] == 1))
+			if (getID('optSelect' + j).checked && (ary_CharacterData[i][2][j] == 1))
 			{
 				if(sortTypes != 0)
 				{
@@ -261,13 +260,13 @@ function init()
 	{
 		for (i=0; i<ary_TitleData.length; i++)
 		{
-			gID('optSelect' + i).disabled = true;
+			getID('optSelect' + i).disabled = true;
 		}
-		gID('optSelect_all').disabled = true;
+		getID('optSelect_all').disabled = true;
 		$('.opt_foot').hide();
-		gID('optImage').disabled = true;
-		gID('optArrange').disabled = true;
-		sC(gID('optTable'), 'optTable-disabled');
+		getID('optImage').disabled = true;
+		getID('optArrange').disabled = true;
+		setClass(getID('optTable'), 'optTable-disabled');
 	}
 
 	int_Total = 0;
@@ -321,8 +320,8 @@ function init()
 	// イニシャライズが終了したのでステータスを1に変更
 	int_Status	= 1;
 
-	gID('fldMiddleT').innerHTML = str_CenterT;
-	gID('fldMiddleB').innerHTML = str_CenterB;
+	getID('fldMiddleT').innerHTML = str_CenterT;
+	getID('fldMiddleB').innerHTML = str_CenterB;
 
 	fnc_ShowData();
 }
@@ -336,7 +335,7 @@ function imginit()
 	var int_ImgValue = 0;
 	var int_ImgMax = 0;
 
-	var tbl_Image_body = gID('imgTable');
+	var tbl_Image_body = getID('imgTable');
 
 	for (i=0; i<ary_CharacterData.length; i++)
 	{
@@ -344,13 +343,13 @@ function imginit()
 
 		// Col[0]
 		new_cell = new_row.insertCell(new_row.childNodes.length);
-		new_cell.appendChild(cT(i));
-		sC(new_cell, 'resTableL');
+		new_cell.appendChild(createText(i));
+		setClass(new_cell, 'resTableL');
 
 		// Col[1]
 		new_cell = new_row.insertCell(new_row.childNodes.length);
-		new_cell.appendChild(cT(ary_CharacterData[i][1]));
-		sC(new_cell, 'resTableR');
+		new_cell.appendChild(createText(ary_CharacterData[i][1]));
+		setClass(new_cell, 'resTableR');
 
 		// Col[2]
 		new_cell = new_row.insertCell(new_row.childNodes.length);
@@ -358,21 +357,21 @@ function imginit()
 		{
 			if (ary_CharacterData[i][2][j] == 1)
 			{
-				new_cell.appendChild(cT(ary_TitleData[j]));
-				new_cell.appendChild(cE('br'));
+				new_cell.appendChild(createText(ary_TitleData[j]));
+				new_cell.appendChild(createElement('br'));
 			}
 		}
-		sC(new_cell, 'resTableR');
+		setClass(new_cell, 'resTableR');
 
 		// Col[3]
 		new_cell = new_row.insertCell(new_row.childNodes.length);
-		sC(new_cell, 'resTableR');
+		setClass(new_cell, 'resTableR');
 
 		if (ary_CharacterData[i][3].length > 0)
 		{
 			for (j=3; j<ary_CharacterData[i].length;j++)
 			{
-				var new_img = cE('img');
+				var new_img = createElement('img');
 				new_img.src = str_ImgPath + ary_CharacterData[i][j];
 				new_cell.appendChild(new_img);
 				int_ImgCount++;
@@ -382,10 +381,10 @@ function imginit()
 		int_ImgMax++;
 	}
 
-	gID("lbl_imgCount").innerHTML = int_ImgCount;
-	gID("lbl_imgParcent").innerHTML = Math.floor((int_ImgValue / int_ImgMax) * 100);
-	gID("lbl_imgValue").innerHTML = int_ImgValue;
-	gID("lbl_imgMax").innerHTML = int_ImgMax;
+	getID("lbl_imgCount").innerHTML = int_ImgCount;
+	getID("lbl_imgParcent").innerHTML = Math.floor((int_ImgValue / int_ImgMax) * 100);
+	getID("lbl_imgValue").innerHTML = int_ImgValue;
+	getID("lbl_imgMax").innerHTML = int_ImgMax;
 }
 
 // Undo previous choice (
@@ -651,38 +650,38 @@ function fnc_CountUp(int_Select)
 // * 進捗率と名前を表示する。
 function fnc_ShowData()
 {
-	gID("lblCount").innerHTML = int_Count;
-	gID("lblProgress").innerHTML = Math.floor(int_Completed * 100 / int_Total);
-	eGaugeRefresh(sGaugeID, int_Completed * 100 / int_Total);
+	getID("lblCount").innerHTML = int_Count;
+	getID("lblProgress").innerHTML = Math.floor(int_Completed * 100 / int_Total);
+	refreshGauge(sGaugeID, int_Completed * 100 / int_Total);
 
 	if (int_Status == 2)
 	{
 		// 判定が終了していた場合、結果表示。
 		var int_Result = 1;
 
-		var tbl_Result = cE('table');
+		var tbl_Result = createElement('table');
 		tbl_Result.classList.add('resTable');
 
-		var tbl_head_Result = cE('thead');
+		var tbl_head_Result = createElement('thead');
 		tbl_Result.appendChild(tbl_head_Result);
 
 		new_row = tbl_head_Result.insertRow(tbl_head_Result.rows.length);
 
 		// Col[0]
 		new_cell = new_row.insertCell(new_row.childNodes.length);
-		sC(new_cell, 'resTableH');
-		new_cell.appendChild(cT('Order'));
+		setClass(new_cell, 'resTableH');
+		new_cell.appendChild(createText('Order'));
 		// Col[1]
 		new_cell = new_row.insertCell(new_row.childNodes.length);
-		sC(new_cell, 'resTableH');
-		new_cell.appendChild(cT('Name'));
+		setClass(new_cell, 'resTableH');
+		new_cell.appendChild(createText('Name'));
 
-		var tbl_body_Result = cE('tbody');
+		var tbl_body_Result = createElement('tbody');
 		tbl_Result.appendChild(tbl_body_Result);
 
 		var int_Same = 1;
 
-		var obj_SelectItem = gID("resultField");
+		var obj_SelectItem = getID("resultField");
 		obj_SelectItem.innerHTML = "";
 		obj_SelectItem.appendChild(tbl_Result);
 
@@ -693,32 +692,32 @@ function fnc_ShowData()
 
 			// Col[0]
 			new_cell = new_row.insertCell(new_row.childNodes.length);
-			sC(new_cell, 'resTableL');
-			new_cell.appendChild(cT(int_Result));
+			setClass(new_cell, 'resTableL');
+			new_cell.appendChild(createText(int_Result));
 			
 			csort2[i] = int_Result; // v2a
 			
 			// Col[1]
 			new_cell = new_row.insertCell(new_row.childNodes.length);
-			sC(new_cell, 'resTableR');
+			setClass(new_cell, 'resTableR');
 
 			if (i < int_ResultRank) {
-				var new_img = cE('img');
+				var new_img = createElement('img');
 				var obj_TempData = ary_TempData[ary_SortData[0][i]];
 
 				if (obj_TempData[3].length > 0) {
 					new_img.src = str_ImgPath + obj_TempData[3];
 					new_cell.appendChild(new_img);
-					new_cell.appendChild(cE('br'));
+					new_cell.appendChild(createElement('br'));
 				}
 			}
 
 			if(!displayType) {
-				new_cell.appendChild(cT(ary_TempData[ary_SortData[0][i]][1] + " (" + ary_TempData[ary_SortData[0][i]][6] + ")"));
+				new_cell.appendChild(createText(ary_TempData[ary_SortData[0][i]][1] + " (" + ary_TempData[ary_SortData[0][i]][6] + ")"));
 				csort4[i] = ary_TempData[ary_SortData[0][i]][1] + " (" + ary_TempData[ary_SortData[0][i]][6] + ")"; // v2a
 				csort6[i] = ary_TempData[ary_SortData[0][i]][1] + " (" + ary_TempData[ary_SortData[0][i]][6] + ")"; // v2a
 			} else {
-				new_cell.appendChild(cT(ary_TempData[ary_SortData[0][i]][7] + " (" + ary_TempData[ary_SortData[0][i]][6] + ")"));
+				new_cell.appendChild(createText(ary_TempData[ary_SortData[0][i]][7] + " (" + ary_TempData[ary_SortData[0][i]][6] + ")"));
 				csort4[i] = ary_TempData[ary_SortData[0][i]][7] + " (" + ary_TempData[ary_SortData[0][i]][6] + ")"; // v2a
 				csort6[i] = ary_TempData[ary_SortData[0][i]][7] + " (" + ary_TempData[ary_SortData[0][i]][6] + ")"; // v2a
 			}
@@ -742,9 +741,9 @@ function fnc_ShowData()
 					rowId == cutoff ||
 					(rowId - cutoff) % maxRows == 0) {
 
-					tbl_Result = cE('table');
+					tbl_Result = createElement('table');
 					tbl_Result.classList.add('resTable');
-					tbl_body_Result = cE('tbody');
+					tbl_body_Result = createElement('tbody');
 					tbl_Result.appendChild(tbl_body_Result);
 					obj_SelectItem.appendChild(tbl_Result);
 			}
@@ -795,17 +794,17 @@ function fnc_ShowData()
 		// 判定が終了していない場合、選択肢を更新。
 		for (i=0; i<2; i++)
 		{
-			var obj_SelectItem = gID((i == 0) ? "fldLeft" : "fldRight");
-			var obj_YoutubeItem = gID((i == 0) ? "youLeft" : "youRight");
-			var obj_TexItem = gID((i == 0) ? "texLeft" : "texRight");
+			var obj_SelectItem = getID((i == 0) ? "fldLeft" : "fldRight");
+			var obj_YoutubeItem = getID((i == 0) ? "youLeft" : "youRight");
+			var obj_TexItem = getID((i == 0) ? "texLeft" : "texRight");
 			var obj_TempData = ary_TempData[ary_SortData[(i == 0)  ? int_LeftList : int_RightList][(i == 0)  ? int_LeftID : int_RightID]];
 			
-			if(gID('optImage').checked)
+			if(getID('optImage').checked)
 			{
 				//youtube
 				if(obj_TempData[4] != "na")
 				{
-					var obj_Item = cE("iframe");
+					var obj_Item = createElement("iframe");
 					obj_Item.width = "180";
 					obj_Item.height = "180";
 					obj_Item.frameBorder = "0";
@@ -814,7 +813,7 @@ function fnc_ShowData()
 				}
 				else
 				{
-					var obj_Item = cE("img");
+					var obj_Item = createElement("img");
 					obj_Item.src = str_ImgPath + obj_TempData[3];
 					obj_Item.title = obj_TempData[1];
 					obj_SelectItem.replaceChild(obj_Item, obj_SelectItem.firstChild);
@@ -823,61 +822,61 @@ function fnc_ShowData()
 			else
 			{
 				//image
-				var obj_Item = cE("img");
+				var obj_Item = createElement("img");
 				obj_Item.src = str_ImgPath + obj_TempData[3];
 				obj_Item.title = obj_TempData[1];
 				obj_SelectItem.replaceChild(obj_Item, obj_SelectItem.firstChild);
 				
 				if(obj_TempData[4] != "na")
 				{
-					var obj_Item = cE("a");
+					var obj_Item = createElement("a");
 					obj_Item.href = str_YouLink + obj_TempData[4];
 					obj_Item.target = "_blank";
-					obj_Item.appendChild(cT("Listen!"));
+					obj_Item.appendChild(createText("Listen!"));
 					obj_YoutubeItem.replaceChild(obj_Item, obj_YoutubeItem.firstChild);
 				}
 				else
 				{
-					var obj_Item = cE("span");
-					obj_Item.appendChild(cT(""));
+					var obj_Item = createElement("span");
+					obj_Item.appendChild(createText(""));
 					obj_YoutubeItem.replaceChild(obj_Item, obj_YoutubeItem.firstChild);
 				}
 			}
 			
-			var obj_Item = cE("span");
+			var obj_Item = createElement("span");
 			obj_Item.id = (i == 0) ? "nameLeft" : "nameRight";
-			obj_Item.appendChild(cT(obj_TempData[1]));
+			obj_Item.appendChild(createText(obj_TempData[1]));
 			obj_TexItem.replaceChild(obj_Item, obj_TexItem.childNodes[0]);
 			
-			var obj_Item = cE("span");
+			var obj_Item = createElement("span");
 			obj_Item.id = (i == 0) ? "gameLeft" : "gameRight";
-			obj_Item.appendChild(cT(obj_TempData[5]));
+			obj_Item.appendChild(createText(obj_TempData[5]));
 			obj_TexItem.replaceChild(obj_Item, obj_TexItem.childNodes[2]);
 			
-			var obj_Item = cE("span");
+			var obj_Item = createElement("span");
 			obj_Item.id = (i == 0) ? "detailLeft" : "detailRight";
-			obj_Item.appendChild(cT(obj_TempData[7]));
+			obj_Item.appendChild(createText(obj_TempData[7]));
 			obj_TexItem.replaceChild(obj_Item, obj_TexItem.childNodes[5]);
 			
 			/*
 			//image
 					if ((obj_TempData[3].length > 0)) {
-				var obj_Item = cE("img");
+				var obj_Item = createElement("img");
 				obj_Item.src = str_ImgPath + obj_TempData[3];
 				obj_Item.title = obj_TempData[1];
 			} else {
-				var obj_Item = cE("span");
-				obj_Item.appendChild(cT(obj_TempData[1]));
+				var obj_Item = createElement("span");
+				obj_Item.appendChild(createText(obj_TempData[1]));
 			}
 			obj_Item.title = obj_TempData[1];
 			obj_SelectItem.replaceChild(obj_Item, obj_SelectItem.firstChild);
 				
 			//youtube stuff
-			var obj_YoutubeItem = gID((i == 0) ? "youLeft" : "youRight");
+			var obj_YoutubeItem = getID((i == 0) ? "youLeft" : "youRight");
 
 			if((obj_TempData.length > 4)) {
-			if (gID('optImage').checked) {
-			var obj_Item = cE("iframe");
+			if (getID('optImage').checked) {
+			var obj_Item = createElement("iframe");
 			obj_Item.width = "180";
 			obj_Item.height = "180";
 			obj_Item.src = str_YouPath + obj_TempData[4];
@@ -885,10 +884,10 @@ function fnc_ShowData()
 			obj_Item.allowfullscreen = "";
 			obj_YoutubeItem.replaceChild(obj_Item, obj_YoutubeItem.firstChild);
 			} else {
-				var obj_Item = cE("a");
+				var obj_Item = createElement("a");
 				obj_Item.href = str_YouLink + obj_TempData[4];
 				obj_Item.target = "_blank";
-				obj_Item.appendChild(cT("Listen!"));
+				obj_Item.appendChild(createText("Listen!"));
 				obj_YoutubeItem.replaceChild(obj_Item, obj_YoutubeItem.firstChild);
 			}
 			}*/
@@ -898,7 +897,7 @@ function fnc_ShowData()
 	}
 }
 
-function fnc_CC(sID, sClass)
+function fnc_CC(sID, setClasslass)
 {
-	sC(gID(sID), sClass);
+	setClass(getID(sID), setClasslass);
 }
