@@ -8,7 +8,7 @@ function next()
 function showDataForTitle(nID)
 {
 	nLastID = nID;
-	
+
 	const output = getID("debugOutput");
 	output.innerHTML = "";
 
@@ -69,21 +69,37 @@ function showDataForTitle(nID)
 
 				// Is arrange
 				const isArrange = row.insertCell(-1);
-				isArrange.appendChild(createText(ary_CharacterData[i][8] == 1 ? "Arrange" : "Not arrange"));
+				if(ary_CharacterData[i][8] == 1)
+				{
+					isArrange.appendChild(createText("Arrange"));
+					isArrange.style = "background-color: rgb(250, 100,100)";
+				}
+				else
+				{
+					isArrange.appendChild(createText("Not arrange"));
+				}
 
 				// any/boss/stage
 				const bossStage = row.insertCell(-1);
 				if(ary_CharacterData[i][9] == 0)
 				{
 					bossStage.appendChild(createText("Any/All"));
+					bossStage.style = "background-color: rgb(250, 100,100)";
 				}
 				else if(ary_CharacterData[i][9] == 1)
 				{
 					bossStage.appendChild(createText("Boss"));
+					bossStage.style = "background-color: rgb(100, 250,100)";
 				}
 				else if(ary_CharacterData[i][9] == 2)
 				{
 					bossStage.appendChild(createText("Stage"));
+					bossStage.style = "background-color: rgb(100, 100,250)";
+				}
+				else if(ary_CharacterData[i][9] == 3)
+				{
+					bossStage.appendChild(createText("Boss+Stage"));
+					bossStage.style = "background-color: rgb(100, 250,250)";
 				}
 
 			}
