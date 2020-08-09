@@ -15,6 +15,8 @@
 // added undo function (requires minor changes in index.html and fnc_data.js)
 // 2015/7/3 Modified by Relick
 // added save/load function
+// 2018/11/26 Added to relick's github, changes tracked there
+// github.com/relick/touhou-song-sorter
 
 // Execution code
 var ary_TempData	= new Array();
@@ -26,12 +28,8 @@ var int_RightList, int_RightID;
 var ary_RecordData = new Array();
 var int_RecordID = 0;
 
-var csort = new Array();
-var csort2 = new Array();
-var csort3 = new Array();
-var csort4 = new Array();
-var csort5 = new Array();
-var csort6 = new Array();
+var popup_TrackRank = new Array(); // Ranking #
+var popup_TrackName = new Array(); // Displayed name
 
 var int_Count = 0;
 var int_Total = 0;
@@ -58,15 +56,14 @@ var maxRows = 42;
 var displayType = false;
 
 // *****************************************************************************
-// * StartUp
-// * <BODY>タグの読み込み終了時に実行。
+// * Executed on page load
 function startup()
 {
 	var tbl_Select = getID('optTable');
 	var tbl_body_Select = createElement('tbody');
 	tbl_Select.appendChild(tbl_body_Select);
 
-	// タイトルから選択用チェックボックスに変換
+	// Make the checkbox list for titles
 	for (i=0; i<ary_TitleData.length; i++)
 	{
 		// Row[i]
@@ -134,21 +131,8 @@ function chgAll()
 }
 
 // *****************************************************************************
-// * chgFlag
-// * タイトル名がクリックされてもチェックボックスを変更する。
-function chgFlag(int_id)
-{
-	var obj_Check = getID('optSelect' + int_id);
-	if (!obj_Check.disabled)
-	{
-		obj_Check.checked = (obj_Check.checked) ? false : true;
-	}
-}
-
-// *****************************************************************************
-// * Initialize
-// * 使用する配列や、カウンターを初期化する
-// * 初回のみ動作。
+// * Initialise arrays and counters that will be used for sorting
+// * Only happens once
 function init()
 {
 	int_Total = 0;
@@ -156,96 +140,31 @@ function init()
 	var arranges = getID('optArrange').checked;
 	var sortTypes = getID('optSortType').options[getID('optSortType').selectedIndex].value;
 
-	// ソート対象のみを抽出
-	for (i=0; i<ary_CharacterData.length; i++)
+	// Add to the arrays only the tracks that we expect.
+	for (i=0; i < ary_SongData.length; i++)
 	{
-		for (j=0; j<ary_TitleData.length; j++)
+		for (j=0; j < ary_TitleData.length; j++)
 		{
-			if (getID('optSelect' + j).checked && (ary_CharacterData[i][2][j] == 1))
+			if ((ary_SongData[i][TRACK_TITLES][j] == 1) && getID('optSelect' + j).checked)
 			{
-				if(sortTypes != 0)
+				// Include only if a track is:
+				// - In a title we selected (already fulfilled)
+				// - Not excluded by being the incorrect track type for what was selected
+				// - Not excluded by being an arrange if disabled
+				const correctTrackType = (
+					sortTypes == 0 // Allow everything
+					|| (sortTypes == 1 && ary_SongData[i][TRACK_TYPE] !== OTHER_THEME) // Boss and stage only
+					|| (sortTypes == 2 && ary_SongData[i][TRACK_TYPE] === STAGE_THEME) // Stage only
+					|| (sortTypes == 3 && ary_SongData[i][TRACK_TYPE] === BOSS_THEME) // Boss only
+					|| ary_SongData[i][TRACK_TYPE] === STAGE_AND_BOSS_THEME // Included in all options
+				);
+				const correctArrangementType = arranges || (ary_SongData[i][TRACK_IS_ARRANGEMENT] === NOT_ARRANGEMENT);
+
+				if (correctTrackType && correctArrangementType)
 				{
-					if(sortTypes == 1)
-					{
-						if(ary_CharacterData[i][9] != 0)
-						{
-							if(!arranges)
-							{
-								if(ary_CharacterData[i][8] == 0)
-								{
-									ary_TempData[int_Total] = ary_CharacterData[i];
-										int_Total++;
-										break;
-								}
-							}
-							else
-							{
-								ary_TempData[int_Total] = ary_CharacterData[i];
-								int_Total++;
-								break;
-							}
-						}
-					}
-					else if(sortTypes == 2)
-					{
-						if(ary_CharacterData[i][9] == 1 || ary_CharacterData[i][9] == 3)
-						{
-							if(!arranges)
-							{
-								if(ary_CharacterData[i][8] == 0)
-								{
-									ary_TempData[int_Total] = ary_CharacterData[i];
-										int_Total++;
-										break;
-								}
-							}
-							else
-							{
-								ary_TempData[int_Total] = ary_CharacterData[i];
-								int_Total++;
-								break;
-							}
-						}
-					}
-					else if(sortTypes == 3)
-					{
-						if(ary_CharacterData[i][9] == 2 || ary_CharacterData[i][9] == 3)
-						{
-							if(!arranges)
-							{
-								if(ary_CharacterData[i][8] == 0)
-								{
-									ary_TempData[int_Total] = ary_CharacterData[i];
-										int_Total++;
-										break;
-								}
-							}
-							else
-							{
-								ary_TempData[int_Total] = ary_CharacterData[i];
-								int_Total++;
-								break;
-							}
-						}
-					}
-				}
-				else
-				{
-					if(!arranges)
-					{
-						if(ary_CharacterData[i][8] == 0)
-						{
-							ary_TempData[int_Total] = ary_CharacterData[i];
-								int_Total++;
-								break;
-						}
-					}
-					else
-					{
-						ary_TempData[int_Total] = ary_CharacterData[i];
-						int_Total++;
-						break;
-					}
+					ary_TempData[int_Total] = ary_SongData[i];
+					int_Total++;
+					break;
 				}
 			}
 		}
@@ -258,7 +177,8 @@ function init()
 	}
 	else
 	{
-		for (i=0; i<ary_TitleData.length; i++)
+		// We're ready, disable all options
+		for (i=0; i < ary_TitleData.length; i++)
 		{
 			getID('optSelect' + i).disabled = true;
 		}
@@ -271,22 +191,22 @@ function init()
 
 	int_Total = 0;
 
-	// ソート配列にIDを格納する
+	// TempData contains the songs we want to sort, store it into our sorting arrays.
 	ary_SortData[0] = new Array();
-	for (i=0; i<ary_TempData.length; i++)
+	for (i=0; i < ary_TempData.length; i++)
 	{
 		ary_SortData[0][i] = i;
 
-		// 保存用配列
+		// Array for battle results
 		ary_RecordData[i] = 0;
 	}
 
 	var int_Pointer = 1;
-	for (i=0; i<ary_SortData.length; i++)
+	for (i=0; i < ary_SortData.length; i++)
 	{
-		// #ソートは基本ロジックを流用
-		// 要素数が２以上なら２分割し、
-		// 分割された配列をary_SortDataの最後に加える
+		// The sort is a binary sort
+		// So to start, if the number of elements is more than 2,
+		// Keep dividing until all separated.
 		if (ary_SortData[i].length >= 2)
 		{
 			var int_Marker = Math.ceil(ary_SortData[i].length / 2);
@@ -302,9 +222,9 @@ function init()
 		}
 	}
 
-	// 引き分けの結果を保存するリスト
-	// キー：リンク始点の値
-	// 値 ：リンク終点の値
+	// A list to save ties
+	// Key: link start point
+	// Value: link end point
 	for (i=0; i<=ary_TempData.length; i++)
 	{
 		ary_EqualData[i] = -1;
@@ -317,7 +237,7 @@ function init()
 	int_Count	 = 1;
 	int_Completed = 0;
 
-	// イニシャライズが終了したのでステータスを1に変更
+	// Initialisation complete, set status to 1
 	int_Status	= 1;
 
 	getID('fldMiddleT').innerHTML = str_CenterT;
@@ -326,69 +246,9 @@ function init()
 	fnc_ShowData();
 }
 
-// *****************************************************************************
-// * Image Initialize
-// * メンテナンス用リスト
-function imginit()
-{
-	var int_ImgCount = 0;
-	var int_ImgValue = 0;
-	var int_ImgMax = 0;
-
-	var tbl_Image_body = getID('imgTable');
-
-	for (i=0; i<ary_CharacterData.length; i++)
-	{
-		new_row = tbl_Image_body.insertRow(tbl_Image_body.rows.length);
-
-		// Col[0]
-		new_cell = new_row.insertCell(new_row.childNodes.length);
-		new_cell.appendChild(createText(i));
-		setClass(new_cell, 'resTableL');
-
-		// Col[1]
-		new_cell = new_row.insertCell(new_row.childNodes.length);
-		new_cell.appendChild(createText(ary_CharacterData[i][1]));
-		setClass(new_cell, 'resTableR');
-
-		// Col[2]
-		new_cell = new_row.insertCell(new_row.childNodes.length);
-		for (j=0; j<ary_TitleData.length; j++)
-		{
-			if (ary_CharacterData[i][2][j] == 1)
-			{
-				new_cell.appendChild(createText(ary_TitleData[j]));
-				new_cell.appendChild(createElement('br'));
-			}
-		}
-		setClass(new_cell, 'resTableR');
-
-		// Col[3]
-		new_cell = new_row.insertCell(new_row.childNodes.length);
-		setClass(new_cell, 'resTableR');
-
-		if (ary_CharacterData[i][3].length > 0)
-		{
-			for (j=3; j<ary_CharacterData[i].length;j++)
-			{
-				var new_img = createElement('img');
-				new_img.src = str_ImgPath + ary_CharacterData[i][j];
-				new_cell.appendChild(new_img);
-				int_ImgCount++;
-			}
-			int_ImgValue++;
-		}
-		int_ImgMax++;
-	}
-
-	getID("lbl_imgCount").innerHTML = int_ImgCount;
-	getID("lbl_imgParcent").innerHTML = Math.floor((int_ImgValue / int_ImgMax) * 100);
-	getID("lbl_imgValue").innerHTML = int_ImgValue;
-	getID("lbl_imgMax").innerHTML = int_ImgMax;
-}
-
-// Undo previous choice (
-
+// Save and load is super dumb, literally just throw all the working data into local storage.
+// At least an advantage of this is, changing the data doesn't affect old in-progress sorts.
+// At the same time, it means someone with old data doesn't get bug fixes.
 function fnc_Save()
 {
 	if (int_Status == 0)
@@ -473,6 +333,7 @@ function fnc_Load()
 	}
 }
 
+// Undo previous choice
 function fnc_Undo()
 {
 	if (int_Status == 0)
@@ -503,18 +364,16 @@ function fnc_Undo()
 	}
 }
 
-/* Debugging purposes (simulates choosing Tie until completion)
-
+// Debugging purposes (simulates choosing Tie until completion)
 function fnc_TieRest(){
 	while(int_Status < 2){
 		fnc_Sort(0);
 	}
 }
-*/
+
 
 // *****************************************************************************
-// * Sort (-1:左側, 0:引き分け, 1:右側)
-
+// * Sort (-1: left chosen, 0: tie, 1: right chosen)
 function fnc_Sort(int_SelectID)
 {
 	//back_ary_TempData = ary_TempData.slice(0);	
@@ -531,24 +390,25 @@ function fnc_Sort(int_SelectID)
 	back_int_LeftList = int_LeftList;
 	back_int_LeftID = int_LeftID;
 	
-	// ステータスにより処理を分岐
+	// If we haven't started sorting yet, or we're done, don't do a sorting action
+	// Instead (maybe initialise then) return 
 	switch (int_Status)
 	{
 	case 0:
 	{
-		// 初回クリック時、ソート情報を初期化する。
+		// Do sort initialisation.
 		init();
 	}
 	case 2:
 	{
-		// ソートが終了していた場合、ソート処理は行わない。
+		// Sorting is complete, don't do any more.
 		return;
 	}
 	default:
 	}
 
-	// ary_RecordDataに保存
-	// 左側Count
+	// Save to ary_RecordData
+	// Left count
 	if (int_SelectID != 1)
 	{
 		fnc_CountUp(0);
@@ -558,13 +418,13 @@ function fnc_Sort(int_SelectID)
 		}
 	}
 
-	// 引き分けの場合のみ
+	// Only in case of draw
 	if (int_SelectID == 0)
 	{
 		ary_EqualData[ary_RecordData[int_RecordID-1]] = ary_SortData[int_RightList][int_RightID];
 	}
 
-	// 右側Count
+	// Right count
 	if (int_SelectID != -1)
 	{
 		fnc_CountUp(1);
@@ -619,15 +479,15 @@ function fnc_Sort(int_SelectID)
 		}
 	}
 
-	// 終了チェック
+	// Completion check
 	int_Status = (int_LeftList < 0) ? 2 : 1;
 
 	fnc_ShowData();
 }
 
 // *****************************************************************************
-// * CountUp(0:左側 1:右側)
-// * 選択された方をカウントアップする。
+// * CountUp(0: left side 1: right side)
+// * Count up the selected side
 function fnc_CountUp(int_Select)
 {
 	ary_RecordData[int_RecordID] = ary_SortData[((int_Select == 0) ? int_LeftList : int_RightList)][((int_Select == 0) ? int_LeftID : int_RightID)];
@@ -645,9 +505,190 @@ function fnc_CountUp(int_Select)
 	int_Completed++;
 }
 
+function fnc_ShowResults()
+{
+	var int_Result = 1;
+
+	// Create first table
+	var tbl_Result = createElement('table');
+	tbl_Result.classList.add('resTable');
+
+	// Add headings
+	var tbl_head_Result = createElement('thead');
+	tbl_Result.appendChild(tbl_head_Result);
+
+	new_row = tbl_head_Result.insertRow(tbl_head_Result.rows.length);
+
+	// Col[0]
+	new_cell = new_row.insertCell(new_row.childNodes.length);
+	setClass(new_cell, 'resTableH');
+	new_cell.appendChild(createText('Order'));
+	// Col[1]
+	new_cell = new_row.insertCell(new_row.childNodes.length);
+	setClass(new_cell, 'resTableH');
+	new_cell.appendChild(createText('Name'));
+
+	// Create body
+	var tbl_body_Result = createElement('tbody');
+	tbl_Result.appendChild(tbl_body_Result);
+
+	// Keep track of # of tied entries so we can give them the same rank.
+	var int_Same = 1;
+
+	var obj_SelectItem = getID("resultField");
+	obj_SelectItem.innerHTML = "";
+	obj_SelectItem.appendChild(tbl_Result);
+
+	for (i=0; i < ary_TempData.length; i++)
+	{
+		var rowId = i;
+		new_row = tbl_body_Result.insertRow(tbl_body_Result.rows.length);
+
+		// Col[0] - rank
+		new_cell = new_row.insertCell(new_row.childNodes.length);
+		setClass(new_cell, 'resTableL');
+		new_cell.appendChild(createText(int_Result));
+		
+		popup_TrackRank[i] = int_Result; // for popup window
+		
+		// Col[1] - image (sometimes) + name
+		new_cell = new_row.insertCell(new_row.childNodes.length);
+		setClass(new_cell, 'resTableR');
+
+		var obj_TempData = ary_TempData[ary_SortData[0][i]];
+
+		// Image
+		if (i < int_ResultRank) {
+			var new_img = createElement('img');
+			if (obj_TempData[TRACK_IMAGE].length > 0) {
+				new_img.src = str_ImgPath + obj_TempData[TRACK_IMAGE];
+				new_cell.appendChild(new_img);
+				new_cell.appendChild(createElement('br'));
+			}
+		}
+
+		// Name
+		var textForEntry = "";
+		if (!displayType)
+		{
+			textForEntry = obj_TempData[TRACK_NAME] + " (" + obj_TempData[TRACK_TITLE_ABBREV] + ")";
+		}
+		else
+		{
+			textForEntry = obj_TempData[TRACK_DESCRIPTION] + " (" + obj_TempData[TRACK_TITLE_ABBREV] + ")";
+		}
+		new_cell.appendChild(createText(textForEntry));
+		popup_TrackName[i] = textForEntry; // for popup window
+
+		// Increase rank or keep the same if a tie.
+		if (i < ary_TempData.length - 1) {
+			if (ary_EqualData[ary_SortData[0][i]] == ary_SortData[0][i + 1]) {
+				int_Same++;
+			} else {
+				int_Result += int_Same;
+				int_Same = 1;
+			}
+		}
+
+		// Break up results into a new table after every [maxRows] results,
+		// or at the transition point between image and imageless results.
+		// Do not break in the middle of image results.
+		//var cutoff = int_ResultRank - 1
+		var cutoff = 9
+		if (rowId >= cutoff &&
+				rowId == cutoff ||
+				(rowId - cutoff) % maxRows == 0) {
+
+				tbl_Result = createElement('table');
+				tbl_Result.classList.add('resTable');
+				tbl_body_Result = createElement('tbody');
+				tbl_Result.appendChild(tbl_body_Result);
+				obj_SelectItem.appendChild(tbl_Result);
+		}
+	}
+
+	// TODO: If want to disable sort buttons, do that here.
+	getID("ranTable").style.display = 'inline';
+
+	// swap display type for next display call
+	displayType = !displayType;
+}
+
+function fnc_UpdateOptions()
+{
+	for (i = 0; i < 2; i++)
+	{
+		var obj_SelectItem = getID((i == 0) ? "fldLeft" : "fldRight");
+		var obj_YoutubeItem = getID((i == 0) ? "youLeft" : "youRight");
+		var obj_TexItem = getID((i == 0) ? "texLeft" : "texRight");
+		var obj_TempData = ary_TempData[ary_SortData[(i == 0)  ? int_LeftList : int_RightList][(i == 0)  ? int_LeftID : int_RightID]];
+		
+		if(getID('optImage').checked)
+		{
+			//youtube
+			if(obj_TempData[4] != "na")
+			{
+				var obj_Item = createElement("iframe");
+				obj_Item.width = "180";
+				obj_Item.height = "180";
+				obj_Item.frameBorder = "0";
+				obj_Item.src = str_YouPath + obj_TempData[4];
+				obj_SelectItem.replaceChild(obj_Item, obj_SelectItem.firstChild);
+			}
+			else
+			{
+				var obj_Item = createElement("img");
+				obj_Item.src = str_ImgPath + obj_TempData[3];
+				obj_Item.title = obj_TempData[1];
+				obj_SelectItem.replaceChild(obj_Item, obj_SelectItem.firstChild);
+			}
+		}
+		else
+		{
+			//image
+			var obj_Item = createElement("img");
+			obj_Item.src = str_ImgPath + obj_TempData[3];
+			obj_Item.title = obj_TempData[1];
+			obj_SelectItem.replaceChild(obj_Item, obj_SelectItem.firstChild);
+			
+			if(obj_TempData[4] != "na")
+			{
+				var obj_Item = createElement("a");
+				obj_Item.href = str_YouLink + obj_TempData[4];
+				obj_Item.target = "_blank";
+				obj_Item.appendChild(createText("Listen!"));
+				obj_YoutubeItem.replaceChild(obj_Item, obj_YoutubeItem.firstChild);
+			}
+			else
+			{
+				var obj_Item = createElement("span");
+				obj_Item.appendChild(createText(""));
+				obj_YoutubeItem.replaceChild(obj_Item, obj_YoutubeItem.firstChild);
+			}
+		}
+		
+		var obj_Item = createElement("span");
+		obj_Item.id = (i == 0) ? "nameLeft" : "nameRight";
+		obj_Item.appendChild(createText(obj_TempData[1]));
+		obj_TexItem.replaceChild(obj_Item, obj_TexItem.childNodes[0]);
+		
+		var obj_Item = createElement("span");
+		obj_Item.id = (i == 0) ? "gameLeft" : "gameRight";
+		obj_Item.appendChild(createText(obj_TempData[5]));
+		obj_TexItem.replaceChild(obj_Item, obj_TexItem.childNodes[2]);
+		
+		var obj_Item = createElement("span");
+		obj_Item.id = (i == 0) ? "detailLeft" : "detailRight";
+		obj_Item.appendChild(createText(obj_TempData[7]));
+		obj_TexItem.replaceChild(obj_Item, obj_TexItem.childNodes[5]);
+	}
+
+	int_Count++;
+}
+
 // *****************************************************************************
 // * ShowData
-// * 進捗率と名前を表示する。
+// * Show progress, next battle, and results
 function fnc_ShowData()
 {
 	getID("lblCount").innerHTML = int_Count + " (Possibly " + (int_Total - int_Completed) + " remaining)";
@@ -656,244 +697,12 @@ function fnc_ShowData()
 
 	if (int_Status == 2)
 	{
-		// 判定が終了していた場合、結果表示。
-		var int_Result = 1;
-
-		var tbl_Result = createElement('table');
-		tbl_Result.classList.add('resTable');
-
-		var tbl_head_Result = createElement('thead');
-		tbl_Result.appendChild(tbl_head_Result);
-
-		new_row = tbl_head_Result.insertRow(tbl_head_Result.rows.length);
-
-		// Col[0]
-		new_cell = new_row.insertCell(new_row.childNodes.length);
-		setClass(new_cell, 'resTableH');
-		new_cell.appendChild(createText('Order'));
-		// Col[1]
-		new_cell = new_row.insertCell(new_row.childNodes.length);
-		setClass(new_cell, 'resTableH');
-		new_cell.appendChild(createText('Name'));
-
-		var tbl_body_Result = createElement('tbody');
-		tbl_Result.appendChild(tbl_body_Result);
-
-		var int_Same = 1;
-
-		var obj_SelectItem = getID("resultField");
-		obj_SelectItem.innerHTML = "";
-		obj_SelectItem.appendChild(tbl_Result);
-
-		for (i=0; i<ary_TempData.length; i++)
-		{
-			var rowId = i;
-			new_row = tbl_body_Result.insertRow(tbl_body_Result.rows.length);
-
-			// Col[0]
-			new_cell = new_row.insertCell(new_row.childNodes.length);
-			setClass(new_cell, 'resTableL');
-			new_cell.appendChild(createText(int_Result));
-			
-			csort2[i] = int_Result; // v2a
-			
-			// Col[1]
-			new_cell = new_row.insertCell(new_row.childNodes.length);
-			setClass(new_cell, 'resTableR');
-
-			if (i < int_ResultRank) {
-				var new_img = createElement('img');
-				var obj_TempData = ary_TempData[ary_SortData[0][i]];
-
-				if (obj_TempData[3].length > 0) {
-					new_img.src = str_ImgPath + obj_TempData[3];
-					new_cell.appendChild(new_img);
-					new_cell.appendChild(createElement('br'));
-				}
-			}
-
-			if(!displayType) {
-				new_cell.appendChild(createText(ary_TempData[ary_SortData[0][i]][1] + " (" + ary_TempData[ary_SortData[0][i]][6] + ")"));
-				csort4[i] = ary_TempData[ary_SortData[0][i]][1] + " (" + ary_TempData[ary_SortData[0][i]][6] + ")"; // v2a
-				csort6[i] = ary_TempData[ary_SortData[0][i]][1] + " (" + ary_TempData[ary_SortData[0][i]][6] + ")"; // v2a
-			} else {
-				new_cell.appendChild(createText(ary_TempData[ary_SortData[0][i]][7] + " (" + ary_TempData[ary_SortData[0][i]][6] + ")"));
-				csort4[i] = ary_TempData[ary_SortData[0][i]][7] + " (" + ary_TempData[ary_SortData[0][i]][6] + ")"; // v2a
-				csort6[i] = ary_TempData[ary_SortData[0][i]][7] + " (" + ary_TempData[ary_SortData[0][i]][6] + ")"; // v2a
-			}
-
-			// Increase rank or keep the same if a tie.
-			if (i < ary_TempData.length - 1) {
-				if (ary_EqualData[ary_SortData[0][i]] == ary_SortData[0][i + 1]) {
-					int_Same++;
-				} else {
-					int_Result += int_Same;
-					int_Same = 1;
-				}
-			}
-
-			// Break up results into a new table after every [maxRows] results,
-			// or at the transition point between image and imageless results.
-			// Do not break in the middle of image results.
-			//var cutoff = int_ResultRank - 1
-			var cutoff = 9
-			if (rowId >= cutoff &&
-					rowId == cutoff ||
-					(rowId - cutoff) % maxRows == 0) {
-
-					tbl_Result = createElement('table');
-					tbl_Result.classList.add('resTable');
-					tbl_body_Result = createElement('tbody');
-					tbl_Result.appendChild(tbl_body_Result);
-					obj_SelectItem.appendChild(tbl_Result);
-			}
-		}
-
-		// TODO: If want to disable sort buttons, do that here.
-		getID("ranTable").style.display = 'inline';
-
-		// v2a start
-		
-		displayType = !displayType;
-		csort = new Array();
-		csort5 = new Array();
-		
-		for (i=0; i<10; i++) 
-		{
-			if(csort4[i] == undefined)
-			{
-				break;
-			}
-			else
-			{
-				csort +=  csort2[i];
-				csort += '位： ';
-				csort4[i] = csort4[i].replace(/・(.*)/g, "");
-				csort +=  csort4[i];
-				csort += '　';
-			}
-		}
-		
-		for (i=0; i<130; i++) 
-		{
-			if(csort4[i] == undefined)
-			{
-				break;
-			}
-			else
-			{
-				csort5 +=  csort2[i];
-				csort5 += '. ';
-				csort5 +=  csort6[i];
-				csort5 += '<br>';
-			}
-		}
-		// v2a end
+		// Sort is complete, show results
+		fnc_ShowResults();
 	}
 	else
 	{
-		// 判定が終了していない場合、選択肢を更新。
-		for (i=0; i<2; i++)
-		{
-			var obj_SelectItem = getID((i == 0) ? "fldLeft" : "fldRight");
-			var obj_YoutubeItem = getID((i == 0) ? "youLeft" : "youRight");
-			var obj_TexItem = getID((i == 0) ? "texLeft" : "texRight");
-			var obj_TempData = ary_TempData[ary_SortData[(i == 0)  ? int_LeftList : int_RightList][(i == 0)  ? int_LeftID : int_RightID]];
-			
-			if(getID('optImage').checked)
-			{
-				//youtube
-				if(obj_TempData[4] != "na")
-				{
-					var obj_Item = createElement("iframe");
-					obj_Item.width = "180";
-					obj_Item.height = "180";
-					obj_Item.frameBorder = "0";
-					obj_Item.src = str_YouPath + obj_TempData[4];
-					obj_SelectItem.replaceChild(obj_Item, obj_SelectItem.firstChild);
-				}
-				else
-				{
-					var obj_Item = createElement("img");
-					obj_Item.src = str_ImgPath + obj_TempData[3];
-					obj_Item.title = obj_TempData[1];
-					obj_SelectItem.replaceChild(obj_Item, obj_SelectItem.firstChild);
-				}
-			}
-			else
-			{
-				//image
-				var obj_Item = createElement("img");
-				obj_Item.src = str_ImgPath + obj_TempData[3];
-				obj_Item.title = obj_TempData[1];
-				obj_SelectItem.replaceChild(obj_Item, obj_SelectItem.firstChild);
-				
-				if(obj_TempData[4] != "na")
-				{
-					var obj_Item = createElement("a");
-					obj_Item.href = str_YouLink + obj_TempData[4];
-					obj_Item.target = "_blank";
-					obj_Item.appendChild(createText("Listen!"));
-					obj_YoutubeItem.replaceChild(obj_Item, obj_YoutubeItem.firstChild);
-				}
-				else
-				{
-					var obj_Item = createElement("span");
-					obj_Item.appendChild(createText(""));
-					obj_YoutubeItem.replaceChild(obj_Item, obj_YoutubeItem.firstChild);
-				}
-			}
-			
-			var obj_Item = createElement("span");
-			obj_Item.id = (i == 0) ? "nameLeft" : "nameRight";
-			obj_Item.appendChild(createText(obj_TempData[1]));
-			obj_TexItem.replaceChild(obj_Item, obj_TexItem.childNodes[0]);
-			
-			var obj_Item = createElement("span");
-			obj_Item.id = (i == 0) ? "gameLeft" : "gameRight";
-			obj_Item.appendChild(createText(obj_TempData[5]));
-			obj_TexItem.replaceChild(obj_Item, obj_TexItem.childNodes[2]);
-			
-			var obj_Item = createElement("span");
-			obj_Item.id = (i == 0) ? "detailLeft" : "detailRight";
-			obj_Item.appendChild(createText(obj_TempData[7]));
-			obj_TexItem.replaceChild(obj_Item, obj_TexItem.childNodes[5]);
-			
-			/*
-			//image
-					if ((obj_TempData[3].length > 0)) {
-				var obj_Item = createElement("img");
-				obj_Item.src = str_ImgPath + obj_TempData[3];
-				obj_Item.title = obj_TempData[1];
-			} else {
-				var obj_Item = createElement("span");
-				obj_Item.appendChild(createText(obj_TempData[1]));
-			}
-			obj_Item.title = obj_TempData[1];
-			obj_SelectItem.replaceChild(obj_Item, obj_SelectItem.firstChild);
-				
-			//youtube stuff
-			var obj_YoutubeItem = getID((i == 0) ? "youLeft" : "youRight");
-
-			if((obj_TempData.length > 4)) {
-			if (getID('optImage').checked) {
-			var obj_Item = createElement("iframe");
-			obj_Item.width = "180";
-			obj_Item.height = "180";
-			obj_Item.src = str_YouPath + obj_TempData[4];
-			obj_Item.frameborder = "0";
-			obj_Item.allowfullscreen = "";
-			obj_YoutubeItem.replaceChild(obj_Item, obj_YoutubeItem.firstChild);
-			} else {
-				var obj_Item = createElement("a");
-				obj_Item.href = str_YouLink + obj_TempData[4];
-				obj_Item.target = "_blank";
-				obj_Item.appendChild(createText("Listen!"));
-				obj_YoutubeItem.replaceChild(obj_Item, obj_YoutubeItem.firstChild);
-			}
-			}*/
-		}
-
-		int_Count++;
+		// Sort is incomplete, update options
+		fnc_UpdateOptions();
 	}
 }

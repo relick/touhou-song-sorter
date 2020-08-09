@@ -1,6 +1,8 @@
 ﻿// 2008/7/3 Scripted by K-Factory@migiwa
 // 2009/1/27 Modified by K-Factory@migiwa
 // 2014/6/29 Modified by nkeronkow
+// 2018/11/26 Added to relick's github, changes tracked there
+// github.com/relick/touhou-song-sorter
 
 // *****************************************************************************
 str_CenterT = 'Tie!';
@@ -73,16 +75,31 @@ var int_Colspan = 3;
 // [Index: Meaning]
 // 0: unused
 // 1: Track name
+const TRACK_NAME = 1;
 // 2: Array that maps to ary_TitleData, 0 = track not in title, 1 = track in title.
+const TRACK_TITLES = 2;
 // 3: Image filename
+const TRACK_IMAGE = 3;
 // 4: Youtube video ID
+const TRACK_YOUTUBE_ID = 4;
 // 5: Title (game/album) name
+const TRACK_TITLE_NAME = 5;
 // 6: Title (game/album) abbreviation
+const TRACK_TITLE_ABBREV = 6;
 // 7: Description of track
-// 8: 0 = not an arrangement (i.e. first appearance), 1 = arrangement. If the *exact* same track appears in a later game then it should use [2] to specify rather than setting as arrangement.
-// 9: Track type, 1 = stage theme, 2 = boss theme, 3 = stage and boss theme (e.g. fighting game tracks), 0 = anything else. Album tracks should all be marked as 0.
+const TRACK_DESCRIPTION = 7;
+// 8: If the *exact* same track appears in a later game then it should use [2] to specify rather than setting as arrangement.
+const TRACK_IS_ARRANGEMENT = 8;
+	const NOT_ARRANGEMENT = 0;
+	const IS_ARRANGEMENT = 1;
+// 9: Track type, Album tracks should all be marked as OTHER_THEME.
+const TRACK_TYPE = 9;
+	const STAGE_THEME = 1;
+	const BOSS_THEME = 2;
+	const STAGE_AND_BOSS_THEME = 3;
+	const OTHER_THEME = 0;
 
-var ary_CharacterData = [
+var ary_SongData = [
 	//The Highly Responsive to Prayers / Akyuu's Untouched Score vol. 5
 	[1, "A Sacred Lot",						[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0], "fZ2BDUV.jpg", "IWcJtankEr4", "The Highly Responsive to Prayers", "HRtP", "Title Screen", 0, 0],
 	[1, "Eternal Shrine Maiden",			[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0], "fZ2BDUV.jpg", "LmN9btd7Ttg", "The Highly Responsive to Prayers", "HRtP", "Stages 1-4/Jigoku Route 16-19", 0, 2],

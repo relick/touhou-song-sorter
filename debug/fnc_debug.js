@@ -21,21 +21,21 @@ function showDataForTitle(nID)
 		setClass(table, 'debugTable');
 		const tableBody = table.appendChild(createElement('tbody'));
 
-		for(var i = 0; i < ary_CharacterData.length; ++i)
+		for(var i = 0; i < ary_SongData.length; ++i)
 		{
-			if(ary_CharacterData[i][2][nID] == 1)
+			if(ary_SongData[i][2][nID] == 1)
 			{
 				const row = tableBody.insertRow(-1);
 
 				// Name
 				const name = row.insertCell(-1);
-				name.appendChild(createText(ary_CharacterData[i][1]));
+				name.appendChild(createText(ary_SongData[i][1]));
 
 				// Other titles
 				const otherTitles = row.insertCell(-1);
 				for(var j = 0; j < ary_TitleData.length; ++j)
 				{
-					if(j != nID && ary_CharacterData[i][2][j] == 1)
+					if(j != nID && ary_SongData[i][2][j] == 1)
 					{
 						const otherTitle = otherTitles.appendChild(createElement('span'));
 						otherTitle.appendChild(createText(ary_TitleData[j]));
@@ -45,7 +45,7 @@ function showDataForTitle(nID)
 				// Image
 				const imageCell = row.insertCell(-1);
 				const image = imageCell.appendChild(createElement('img'));
-				image.src = "../images/" + ary_CharacterData[i][3];
+				image.src = "../images/" + ary_SongData[i][3];
 
 				// Youtube
 				const youtubeCell = row.insertCell(-1);
@@ -53,23 +53,23 @@ function showDataForTitle(nID)
 				youtube.width = "500";
 				youtube.height = "180";
 				youtube.frameBorder = "0";
-				youtube.src = str_YouPath + ary_CharacterData[i][4];
+				youtube.src = str_YouPath + ary_SongData[i][4];
 				
 				// Title name
 				const titleName = row.insertCell(-1);
-				titleName.appendChild(createText(ary_CharacterData[i][5]));
+				titleName.appendChild(createText(ary_SongData[i][5]));
 
 				// Abbreviation
 				const abbrev = row.insertCell(-1);
-				abbrev.appendChild(createText(ary_CharacterData[i][6]));
+				abbrev.appendChild(createText(ary_SongData[i][6]));
 
 				// Stage
 				const stage = row.insertCell(-1);
-				stage.appendChild(createText(ary_CharacterData[i][7]));
+				stage.appendChild(createText(ary_SongData[i][7]));
 
 				// Is arrange
 				const isArrange = row.insertCell(-1);
-				if(ary_CharacterData[i][8] == 1)
+				if(ary_SongData[i][8] == 1)
 				{
 					isArrange.appendChild(createText("Arrange"));
 					isArrange.style = "background-color: rgb(250, 100,100)";
@@ -81,22 +81,22 @@ function showDataForTitle(nID)
 
 				// any/boss/stage
 				const bossStage = row.insertCell(-1);
-				if(ary_CharacterData[i][9] == 0)
+				if(ary_SongData[i][9] == 0)
 				{
 					bossStage.appendChild(createText("Any/All"));
 					bossStage.style = "background-color: rgb(250, 100,100)";
 				}
-				else if(ary_CharacterData[i][9] == 1)
+				else if(ary_SongData[i][9] == 1)
 				{
 					bossStage.appendChild(createText("Boss"));
 					bossStage.style = "background-color: rgb(100, 250,100)";
 				}
-				else if(ary_CharacterData[i][9] == 2)
+				else if(ary_SongData[i][9] == 2)
 				{
 					bossStage.appendChild(createText("Stage"));
 					bossStage.style = "background-color: rgb(100, 100,250)";
 				}
-				else if(ary_CharacterData[i][9] == 3)
+				else if(ary_SongData[i][9] == 3)
 				{
 					bossStage.appendChild(createText("Boss+Stage"));
 					bossStage.style = "background-color: rgb(100, 250,250)";
