@@ -626,20 +626,20 @@ function fnc_UpdateOptions()
 		if(getID('optImage').checked)
 		{
 			//youtube
-			if(obj_TempData[4] != "na")
+			if(obj_TempData[TRACK_YOUTUBE_ID] != "na")
 			{
 				var obj_Item = createElement("iframe");
 				obj_Item.width = "180";
 				obj_Item.height = "180";
 				obj_Item.frameBorder = "0";
-				obj_Item.src = str_YouPath + obj_TempData[4];
+				obj_Item.src = str_YouPath + obj_TempData[TRACK_YOUTUBE_ID];
 				obj_SelectItem.replaceChild(obj_Item, obj_SelectItem.firstChild);
 			}
 			else
 			{
 				var obj_Item = createElement("img");
-				obj_Item.src = str_ImgPath + obj_TempData[3];
-				obj_Item.title = obj_TempData[1];
+				obj_Item.src = str_ImgPath + obj_TempData[TRACK_IMAGE];
+				obj_Item.title = obj_TempData[TRACK_NAME];
 				obj_SelectItem.replaceChild(obj_Item, obj_SelectItem.firstChild);
 			}
 		}
@@ -647,14 +647,14 @@ function fnc_UpdateOptions()
 		{
 			//image
 			var obj_Item = createElement("img");
-			obj_Item.src = str_ImgPath + obj_TempData[3];
-			obj_Item.title = obj_TempData[1];
+			obj_Item.src = str_ImgPath + obj_TempData[TRACK_IMAGE];
+			obj_Item.title = obj_TempData[TRACK_NAME];
 			obj_SelectItem.replaceChild(obj_Item, obj_SelectItem.firstChild);
 			
-			if(obj_TempData[4] != "na")
+			if(obj_TempData[TRACK_YOUTUBE_ID] != "na")
 			{
 				var obj_Item = createElement("a");
-				obj_Item.href = str_YouLink + obj_TempData[4];
+				obj_Item.href = str_YouLink + obj_TempData[TRACK_YOUTUBE_ID];
 				obj_Item.target = "_blank";
 				obj_Item.appendChild(createText("Listen!"));
 				obj_YoutubeItem.replaceChild(obj_Item, obj_YoutubeItem.firstChild);
@@ -669,17 +669,17 @@ function fnc_UpdateOptions()
 		
 		var obj_Item = createElement("span");
 		obj_Item.id = (i == 0) ? "nameLeft" : "nameRight";
-		obj_Item.appendChild(createText(obj_TempData[1]));
+		obj_Item.appendChild(createText(obj_TempData[TRACK_NAME]));
 		obj_TexItem.replaceChild(obj_Item, obj_TexItem.childNodes[0]);
 		
 		var obj_Item = createElement("span");
 		obj_Item.id = (i == 0) ? "gameLeft" : "gameRight";
-		obj_Item.appendChild(createText(obj_TempData[5]));
+		obj_Item.appendChild(createText(obj_TempData[TRACK_TITLE_NAME]));
 		obj_TexItem.replaceChild(obj_Item, obj_TexItem.childNodes[2]);
 		
 		var obj_Item = createElement("span");
 		obj_Item.id = (i == 0) ? "detailLeft" : "detailRight";
-		obj_Item.appendChild(createText(obj_TempData[7]));
+		obj_Item.appendChild(createText(obj_TempData[TRACK_DESCRIPTION]));
 		obj_TexItem.replaceChild(obj_Item, obj_TexItem.childNodes[5]);
 	}
 
