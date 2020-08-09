@@ -265,3 +265,12 @@ a:hover {
 	font-size: 11px;
 	text-align:center;
 }
+
+table.debugTable {
+	border-collapse: collapse;
+	border: 1px solid #000;
+}
+table.debugTable tbody td {
+	border-collapse: collapse;
+	border: 1px solid #000;
+}
