@@ -10,10 +10,6 @@ str_ImgPath = 'images/';
 str_YouPath = 'https://www.youtube.com/embed/';
 str_YouLink = 'https://www.youtube.com/watch?v=';
 
-// Display type
-// 0: Text only　1: Images only　2: Text+Images
-var int_ResultImg = 2;
-
 // Up to which position should images be shown for?
 var int_ResultRank = 3;
 

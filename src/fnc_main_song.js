@@ -702,8 +702,7 @@ function fnc_ShowData()
 			new_cell = new_row.insertCell(new_row.childNodes.length);
 			sC(new_cell, 'resTableR');
 
-			var bln_imgFlag = false;
-			if ((int_ResultImg != 0) && (i < int_ResultRank)) {
+			if (i < int_ResultRank) {
 				var new_img = cE('img');
 				var obj_TempData = ary_TempData[ary_SortData[0][i]];
 
@@ -711,20 +710,17 @@ function fnc_ShowData()
 					new_img.src = str_ImgPath + obj_TempData[3];
 					new_cell.appendChild(new_img);
 					new_cell.appendChild(cE('br'));
-					bln_imgFlag = true;
 				}
 			}
 
-			if ((int_ResultImg == 2) || (!bln_imgFlag)) {
-				if(!displayType) {
-					new_cell.appendChild(cT(ary_TempData[ary_SortData[0][i]][1] + " (" + ary_TempData[ary_SortData[0][i]][6] + ")"));
-					csort4[i] = ary_TempData[ary_SortData[0][i]][1] + " (" + ary_TempData[ary_SortData[0][i]][6] + ")"; // v2a
-					csort6[i] = ary_TempData[ary_SortData[0][i]][1] + " (" + ary_TempData[ary_SortData[0][i]][6] + ")"; // v2a
-				} else {
-					new_cell.appendChild(cT(ary_TempData[ary_SortData[0][i]][7] + " (" + ary_TempData[ary_SortData[0][i]][6] + ")"));
-					csort4[i] = ary_TempData[ary_SortData[0][i]][7] + " (" + ary_TempData[ary_SortData[0][i]][6] + ")"; // v2a
-					csort6[i] = ary_TempData[ary_SortData[0][i]][7] + " (" + ary_TempData[ary_SortData[0][i]][6] + ")"; // v2a
-				}
+			if(!displayType) {
+				new_cell.appendChild(cT(ary_TempData[ary_SortData[0][i]][1] + " (" + ary_TempData[ary_SortData[0][i]][6] + ")"));
+				csort4[i] = ary_TempData[ary_SortData[0][i]][1] + " (" + ary_TempData[ary_SortData[0][i]][6] + ")"; // v2a
+				csort6[i] = ary_TempData[ary_SortData[0][i]][1] + " (" + ary_TempData[ary_SortData[0][i]][6] + ")"; // v2a
+			} else {
+				new_cell.appendChild(cT(ary_TempData[ary_SortData[0][i]][7] + " (" + ary_TempData[ary_SortData[0][i]][6] + ")"));
+				csort4[i] = ary_TempData[ary_SortData[0][i]][7] + " (" + ary_TempData[ary_SortData[0][i]][6] + ")"; // v2a
+				csort6[i] = ary_TempData[ary_SortData[0][i]][7] + " (" + ary_TempData[ary_SortData[0][i]][6] + ")"; // v2a
 			}
 
 			// Increase rank or keep the same if a tie.
