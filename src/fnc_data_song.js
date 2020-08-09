@@ -9,11 +9,12 @@ str_CenterB = 'Undo last choice';
 str_ImgPath = 'images/';
 str_YouPath = 'https://www.youtube.com/embed/';
 str_YouLink = 'https://www.youtube.com/watch?v=';
-// 0:順番に　1:昔の
-var bln_ResultMode = 1;
-// 0:テキスト　1:イラスト　2:テキスト＋イラスト
-var int_ResultImg = 2;
-// イラスト表示時、何位までをイラスト表示にするか。
+
+// Display type
+// 0: Text only　1: Images only　2: Text+Images
+var int_ResultImg = 1;
+
+// Up to which position should images be shown for?
 var int_ResultRank = 3;
 
 // ソート用のテーブルを
@@ -27,7 +28,7 @@ var bln_ProgessBar = 1;
 // Maximum number of result rows before being broken off into another table.
 var maxRows = 42;
 
-// * タイトル情報（編集可能。最後の行に”,”を付けないようにしてください）
+// * Game and album titles
 var int_Colspan = 3;
 var ary_TitleData = [
    "1: The Highly Responsive to Prayers",
@@ -78,7 +79,7 @@ var ary_TitleData = [
    "17: Wily Beast and Weakest Creature"
 ];
 
-// * キャラクター情報（編集可能。最後の行に”,”を付けないようにしてください）
+// * Music information
 // * 使用フラグ（0にするとソートに入りません）, 
 //   "タイトルID"（先頭から0, 1, 2...）, 
 //   {タイトル別参加フラグ}（1を入れると対象タイトルに入ります）,
