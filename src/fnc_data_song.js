@@ -17,7 +17,6 @@ var int_ResultRank = 3;
 var maxRows = 42;
 
 // * Game and album titles
-var int_Colspan = 3;
 var ary_TitleData = [
    "1: The Highly Responsive to Prayers",
    "2: The Story of Eastern Wonderland",
@@ -67,17 +66,22 @@ var ary_TitleData = [
    "17: Wily Beast and Weakest Creature"
 ];
 
-// * Music information
-// * 使用フラグ（0にするとソートに入りません）, 
-//   "タイトルID"（先頭から0, 1, 2...）, 
-//   {タイトル別参加フラグ}（1を入れると対象タイトルに入ります）,
-//   "キャラクター名", "画像（空白の場合、キャラクター名が使用されます）"
-//                                      [1,2,3,4,5,6,7,8,9,
+// Number of columns in the selection list.
+var int_Colspan = 3;
 
-//final option key
-//0 - any/all
-//1 - boss theme
-//2 - stage theme
+// * Music information
+// [Index: Meaning]
+// 0: unused
+// 1: Track name
+// 2: Array that maps to ary_TitleData, 0 = track not in title, 1 = track in title.
+// 3: Image filename
+// 4: Youtube video ID
+// 5: Title (game/album) name
+// 6: Title (game/album) abbreviation
+// 7: Description of track
+// 8: 0 = not an arrangement (i.e. first appearance), 1 = arrangement. If the *exact* same track appears in a later game then it should use [2] to specify rather than setting as arrangement.
+// 9: Track type, 1 = stage theme, 2 = boss theme, 3 = stage and boss theme (e.g. fighting game tracks), 0 = anything else. Album tracks should all be marked as 0.
+
 var ary_CharacterData = [
 	//The Highly Responsive to Prayers / Akyuu's Untouched Score vol. 5
 	[1, "A Sacred Lot",						[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0], "fZ2BDUV.jpg", "IWcJtankEr4", "The Highly Responsive to Prayers", "HRtP", "Title Screen", 0, 0],
