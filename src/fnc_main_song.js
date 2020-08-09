@@ -38,7 +38,7 @@ var int_Count = 0;
 var int_Total = 0;
 var int_Completed = 0;
 var int_Status = 0;
-var sID = 'GaGprog';
+var sGaugeID = "gauge";
 var iGM = 100;
 
 var back_ary_SortData = new Array();
@@ -123,7 +123,7 @@ function startup()
 	new_label.appendChild(cT("Select All"));
 	new_cell.appendChild(new_label);
 
-	if (!bln_ProgessBar) fCG(sID, iGM, iGM);
+	fCreateGauge("GaGprog", sGaugeID);
 }
 
 function chgAll()
@@ -653,7 +653,7 @@ function fnc_ShowData()
 {
 	gID("lblCount").innerHTML = int_Count;
 	gID("lblProgress").innerHTML = Math.floor(int_Completed * 100 / int_Total);
-	if (!bln_ProgessBar) eGR(sID, Math.floor(int_Completed * 100 / int_Total));
+	eGaugeRefresh(sGaugeID, int_Completed * 100 / int_Total);
 
 	if (int_Status == 2)
 	{
@@ -754,14 +754,7 @@ function fnc_ShowData()
 			}
 		}
 
-		if (bln_ResultStyle == 1)
-		{
-			gID("mainTable").style.display = 'none';
-		}
-		if (bln_ResultStyle == 0)
-		{
-			gID("ranTable").style.display = 'inline';
-		} // v2a
+		// TODO: If want to disable sort buttons, do that here.
 
 		// v2a start
 		

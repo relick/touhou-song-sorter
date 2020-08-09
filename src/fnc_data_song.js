@@ -12,18 +12,10 @@ str_YouLink = 'https://www.youtube.com/watch?v=';
 
 // Display type
 // 0: Text only　1: Images only　2: Text+Images
-var int_ResultImg = 1;
+var int_ResultImg = 2;
 
 // Up to which position should images be shown for?
 var int_ResultRank = 3;
-
-// ソート用のテーブルを
-// 0:残す　1:消す
-var bln_ResultStyle = 0;
-
-// ソート進捗バーの表示
-// 0:表示　1:消す
-var bln_ProgessBar = 1;
 
 // Maximum number of result rows before being broken off into another table.
 var maxRows = 42;

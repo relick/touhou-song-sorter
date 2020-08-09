@@ -16,49 +16,14 @@ function sC(oID, cN) {
    oID.className = cN;
 }
 
-// ### Function - Create Gauge ################################################# 1.00 ### 2008/08/18
-// # sID = ElementID
-// # iGM = GaugeMAX
-// # iGT = GaugeThreshhold
-var sE = 'Å@';
-function fCG(sID, iGM, iGT) {
-   var tblG = cE('table');
-   gID(sID).appendChild(tblG);
-   sC(tblG, 'gauge');
-   tblG.id = sID;
-
-   var tblGb = cE('tbody');
-   tblG.appendChild(tblGb);
-
-   newRow = tblGb.insertRow(tblGb.rows.length);
-
-   var sCN = 'normal';
-
-   for(iG = 0; iG<iGM; iG++) {
-      if(iG % 10 == 0)     {sCN = (iG < iGT) ? 'leftend' : 'leftendr';}
-      else if(iG % 5 == 0) {sCN = (iG < iGT) ? 'mid' : 'midr';}
-      else                 {sCN = (iG < iGT) ? 'normal' : 'normalr';}
-
-      // Col[-]
-      newCell = newRow.insertCell(newRow.childNodes.length);
-      newCell.appendChild(document.createTextNode(sE));
-      newCell.id = sID + iG;
-      sC(newCell, sCN);
-   }
-
-   // Col[End]
-   newCell = newRow.insertCell(newRow.childNodes.length);
-   newCell.appendChild(document.createTextNode(sE));
-   sC(newCell, 'rightend');
+function fCreateGauge(sParentID, sGaugeID)
+{
+	var gauge = gID(sParentID).appendChild(cE('div'));
+	gauge.id = sGaugeID;
 }
 
-// ### Event - GaugeReflesh #################################################### 1.00 ### 2009/01/27
-function eGR(sID, iNow) {
-   for(i=0; i<iGM; i++) {
-      // êFÉQÅ[ÉW
-      if      (               i < iNow) {gID(sID + i).style.backgroundColor = "#9999ff";}
-      else                              {gID(sID + i).style.backgroundColor = "#ffffff";}
-   }
+function eGaugeRefresh(sGaugeID, iCurrentPercent) {
+	gID(sGaugeID).style.width = iCurrentPercent + "%";
 }
 
 // ### DeckCode ################################################################ 1.00 ### 2008/08/18
@@ -70,9 +35,9 @@ function fDTC(aR) {
    var sC = "1"
    var sT = "";
 
-   // 0-9 A-Z a-x ÇÃ60éÌóﬁÇ≈ 0Å`59 ÇÃílÇï\Ç∑ÅB
-   // y ÇÕéüÇ…óàÇÈílÇÃâÒêî 0 Ç™ë±Ç≠Ç±Ç∆Çï\Ç∑ÅB
-   // z ÇÕéüÇ…óàÇÈílÇ… 60 Çâ¡éZÇµÇƒ1Ç¬ÇÃílÇï\Ç∑ÅBÅi60Å`119Ç…égópÅj
+   // 0-9 A-Z a-x ÔøΩÔøΩ60ÔøΩÔøΩﬁÇÔøΩ 0ÔøΩ`59 ÔøΩÃílÔøΩÔøΩ\ÔøΩÔøΩÔøΩB
+   // y ÔøΩÕéÔøΩÔøΩ…óÔøΩÔøΩÔøΩlÔøΩÃâÔøΩ 0 ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ∆ÇÔøΩ\ÔøΩÔøΩÔøΩB
+   // z ÔøΩÕéÔøΩÔøΩ…óÔøΩÔøΩÔøΩlÔøΩÔøΩ 60 ÔøΩÔøΩÔøΩÔøΩÔøΩZÔøΩÔøΩÔøΩÔøΩ1ÔøΩ¬ÇÃílÔøΩÔøΩ\ÔøΩÔøΩÔøΩBÔøΩi60ÔøΩ`119ÔøΩ…égÔøΩpÔøΩj
    for (i=0; i<aR.length;i++) {
       sC += fN2C(aR[i]);
    }
@@ -118,7 +83,7 @@ function fDFC(aR, sC) {
                p++;
                sT = 60;
             } else {
-               alert("ÉfÅ[É^ÇÃì«Ç›çûÇ›Ç…é∏îsÇµÇ‹ÇµÇΩÅB");
+               alert("ÔøΩfÔøΩ[ÔøΩ^ÔøΩÃì«Ç›çÔøΩÔøΩ›Ç…éÔøΩÔøΩsÔøΩÔøΩÔøΩ‹ÇÔøΩÔøΩÔøΩÔøΩB");
                return;
             }
          }
@@ -126,7 +91,7 @@ function fDFC(aR, sC) {
          sT += fC2N(sC.charAt(p));
 
          if(sT < 0 || 119 < sT) {
-            alert("ÉfÅ[É^ÇÃì«Ç›çûÇ›Ç…é∏îsÇµÇ‹ÇµÇΩÅB");
+            alert("ÔøΩfÔøΩ[ÔøΩ^ÔøΩÃì«Ç›çÔøΩÔøΩ›Ç…éÔøΩÔøΩsÔøΩÔøΩÔøΩ‹ÇÔøΩÔøΩÔøΩÔøΩB");
             return;
          }
 
