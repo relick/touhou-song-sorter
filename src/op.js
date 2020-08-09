@@ -4,6 +4,7 @@
             write("<html>");
             write("<head>");
             write("<title>Tohosort: Raw Text Results<\/title>");
+            write('<link rel="stylesheet" type="text/css" href="src/tcs_style_song.css">');
             write("<\/head>");
             write("<body bgcolor=\"#ffffff\">");
             for(var i = 0; i < csort2.length; i++) {

@@ -650,7 +650,7 @@ function fnc_CountUp(int_Select)
 // * 進捗率と名前を表示する。
 function fnc_ShowData()
 {
-	getID("lblCount").innerHTML = int_Count;
+	getID("lblCount").innerHTML = int_Count + " (Possibly " + (int_Total - int_Completed) + " remaining)";
 	getID("lblProgress").innerHTML = Math.floor(int_Completed * 100 / int_Total);
 	refreshGauge(sGaugeID, int_Completed * 100 / int_Total);
 
@@ -896,9 +896,4 @@ function fnc_ShowData()
 
 		int_Count++;
 	}
-}
-
-function fnc_CC(sID, setClasslass)
-{
-	setClass(getID(sID), setClasslass);
 }
