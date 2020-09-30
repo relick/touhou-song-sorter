@@ -289,7 +289,7 @@ var ary_SongData = [
 	[1, "Hiroari Shoots a Strange Bird ~ Till When?",					[0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0], "60c5lGk.jpg", "0W7vUwkgp5A", "Perfect Cherry Blossom", "PCB", "Youmu's theme", 0, 1],
 	[1, "Ultimate Truth",												[0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0], "60c5lGk.jpg", "svbNyNi79Dk", "Perfect Cherry Blossom", "PCB", "Stage 6", 0, 2],
 	[1, "Bloom Nobly, Ink-Black Cherry Blossom ~ Border of Life",		[0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0], "60c5lGk.jpg", "VcfQxcRGg8s", "Perfect Cherry Blossom", "PCB", "Yuyuko Saigyouji's theme", 0, 1],
-	[1, "Border of Life",												[0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0], "60c5lGk.jpg", "PKcQGR-j_6Q", "Perfect Cherry Blossom", "PCB", "Yuyuko's Last Word", 0, 1],
+	[1, "Border of Life",												[0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0], "60c5lGk.jpg", "3oDWlQbqCBc", "Perfect Cherry Blossom", "PCB", "Yuyuko's Last Word", 0, 1],
 	[1, "Youkai Domination",											[0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0], "60c5lGk.jpg", "pt59eWm1-us", "Perfect Cherry Blossom", "PCB", "Extra Stage", 0, 2],
 	[1, "A Maiden's Illusionary Funeral ~ Necro-Fantasy",				[0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0], "60c5lGk.jpg", "8yGYuaXnOtY", "Perfect Cherry Blossom", "PCB", "Ran Yakumo's theme", 0, 1],
 	[1, "Youkai Domination ~ Who done it!",								[0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0], "60c5lGk.jpg", "kD1S4qk_2XY", "Perfect Cherry Blossom", "PCB", "Phantasm Stage", 0, 2],
@@ -696,7 +696,7 @@ var ary_SongData = [
 	[1, "Tomorrow will be Special; Yesterday was Not",	[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0], "zlV63ty.jpg", "rHWJcbE6KrI", "Unknown Flower, Mesmerizing Journey", "UFMJ", "Track 3", 1, 0],
 	
     //Trojan Green Asteroid
-	[1, "Satellite TORIFUNE",						[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0], "9PZySav.png", "fXvnvPSK9mI", "Trojan Green Asteroid", "TGA", "Track 1", 0, 0],
+	[1, "Satellite TORIFUNE",						[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0], "9PZySav.png", "_P6rXMN4Dzg", "Trojan Green Asteroid", "TGA", "Track 1", 0, 0],
 	[1, "Trojan Asteroid Jungle",					[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0], "9PZySav.png", "oVmn5fv83Ew", "Trojan Green Asteroid", "TGA", "Track 2", 0, 0],
 	[1, "Desire Drive",								[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0], "9PZySav.png", "vFj9KEtXwAA", "Trojan Green Asteroid", "TGA", "Track 3", 1, 0],
 	[1, "The Fairies' Adventurous Tale",			[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0], "9PZySav.png", "TWpd9t1yN9w", "Trojan Green Asteroid", "TGA", "Track 4", 1, 0],
