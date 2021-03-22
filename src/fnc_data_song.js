@@ -571,8 +571,8 @@ var ary_SongData = [
 	//[1, "Player's Score",						[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0], "NqI4Bym.jpg", "t3hBNsqiwL8", "Great Fairy Wars", "GFW", "", 0, 0],
 	
     //Hopeless Masquerade
-	[1, "This Dull World's Unchanging Pessimism",			[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0], "goVagPC.jpg", "p7w-eym3yvk", "Hopeless Masquerade", "HM", "Intro", 0, 0],
-	[1, "Shinkirou Orchestra",								[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0], "goVagPC.jpg", "W9W5djC6QuM", "Hopeless Masquerade", "HM", "Title Screen", 0, 0],
+	[1, "This Dull World's Unchanging Pessimism",			[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0], "goVagPC.jpg", "3t1aJTxYZ7A", "Hopeless Masquerade", "HM", "Intro", 0, 0],
+	[1, "Shinkirou Orchestra",								[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0], "goVagPC.jpg", "Q4uUgwHgX-I", "Hopeless Masquerade", "HM", "Title Screen", 0, 0],
 	[1, "A Popular Location",								[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0], "goVagPC.jpg", "zNd8kuINaV8", "Hopeless Masquerade", "HM", "Pre-Battle", 0, 0],
 	[1, "An Unpopular Location",							[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0], "goVagPC.jpg", "orDWNaCADzw", "Hopeless Masquerade", "HM", "Pre-Battle", 0, 0],
 	[1, "Today's Front-Page Headline",						[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0], "goVagPC.jpg", "O8jF3ZKDc0g", "Hopeless Masquerade", "HM", "Post-Battle", 0, 0],
