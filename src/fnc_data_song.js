@@ -550,7 +550,7 @@ var ary_SongData = [
 	[1, "Loose Rain",							[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0], "NqI4Bym.jpg", "0WzALopXC84", "Great Fairy Wars", "GFW", "Extra Stage", 0, 2],
 	[1, "Magus Night",							[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0], "NqI4Bym.jpg", "LI1gNmUnD_M", "Great Fairy Wars", "GFW", "Marisa Kirisame's theme", 0, 1],
 	[1, "An Ice Fairy in Spring - Still -",		[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0], "NqI4Bym.jpg", "NHoquwHU2v4", "Great Fairy Wars", "GFW", "Ending", 0, 0],
-	[1, "Player's Score",						[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,1,0,1], "NqI4Bym.jpg", "OJ5vmLeq1r4", "Great Fairy Wars", "GFW", "Score", 0, 0],
+	[1, "Player's Score",						[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,1,0,1], "NqI4Bym.jpg", "OJ5vmLeq1r4", "Great Fairy Wars", "GFW", "Score", 1, 0],
 	
     //Ten Desires
 	[1, "Spirit of Avarice",					[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0], "QrUdIZd.jpg", "_s53iSvSeso", "Ten Desires", "TD", "Title Screen", 0, 0],
