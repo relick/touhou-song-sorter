@@ -20,54 +20,54 @@ var maxRows = 42;
 
 // * Game and album titles
 var ary_TitleData = [
-   "1: The Highly Responsive to Prayers",
-   "2: The Story of Eastern Wonderland",
-   "3: Phantasmagoria of Dim.Dream",
-   "4: Lotus Land Story",
-   "5: Mystic Square",
-   "Shuusou Gyoku",
-   "Kioh Gyoku",
-   "6: The Embodiment of Scarlet Devil",
-   "7: Perfect Cherry Blossom",
-   "7.5: Immaterial and Missing Power",
-   "8: Imperishable Night",
-   "9: Phantasmagoria of Flower View",
-   "9.5: Shoot the Bullet",
-   "10: Mountain of Faith",
-   "10.5: Scarlet Weather Rhapsody",
-   "11: Subterranean Animism",
-   "12.3: Touhou Hisoutensoku",
-   "12: Undefined Fantastic Object",
-   "12.5: Double Spoiler",
-   "12.8: Great Fairy Wars",
-   "13: Ten Desires",
-   "13.5: Hopeless Masquerade",
-   "14: Double Dealing Character",
-   "14.3: Impossible Spell Card",
-   "Dolls in Pseudo Paradise",
-   "Ghostly Field Club",
-   "Changeability of Strange Dream",
-   "Retrospective 53 minutes",
-   "Magical Astronomy",
-   "Unknown Flower, Mesmerizing Journey",
-   "Trojan Green Asteroid",
-   "Neo-traditionalism of Japan",
-   "Akyuu's Untouched Score vol. 1",
-   "Akyuu's Untouched Score vol. 2",
-   "Akyuu's Untouched Score vol. 3",
-   "Akyuu's Untouched Score vol. 4",
-   "Akyuu's Untouched Score vol. 5",
-   "Book bonus CDs",
-   "14.5: Urban Legend in Limbo",
-   "15: Legacy of Lunatic Kingdom",
-   "16: Hidden Star in Four Seasons",
-   "15.5: Antinomy of Common Flowers",
-   "16.5: Violet Detector",
-   "Dr. Latency's Freak Report",
-   "Dateless Bar \"Old Adam\"",
-   "17: Wily Beast and Weakest Creature",
-   "17.5: Touhou Gouyoku Ibun (Trial)",
-   "18: Unconnected Marketeers (Trial)"
+	  "1: The Highly Responsive to Prayers"
+	, "2: The Story of Eastern Wonderland"
+	, "3: Phantasmagoria of Dim.Dream"
+	, "4: Lotus Land Story"
+	, "5: Mystic Square"
+	, "Shuusou Gyoku"
+	, "Kioh Gyoku"
+	, "6: The Embodiment of Scarlet Devil"
+	, "7: Perfect Cherry Blossom"
+	, "7.5: Immaterial and Missing Power"
+	, "8: Imperishable Night"
+	, "9: Phantasmagoria of Flower View"
+	, "9.5: Shoot the Bullet"
+	, "10: Mountain of Faith"
+	, "10.5: Scarlet Weather Rhapsody"
+	, "11: Subterranean Animism"
+	, "12.3: Touhou Hisoutensoku"
+	, "12: Undefined Fantastic Object"
+	, "12.5: Double Spoiler"
+	, "12.8: Great Fairy Wars"
+	, "13: Ten Desires"
+	, "13.5: Hopeless Masquerade"
+	, "14: Double Dealing Character"
+	, "14.3: Impossible Spell Card"
+	, "Dolls in Pseudo Paradise"
+	, "Ghostly Field Club"
+	, "Changeability of Strange Dream"
+	, "Retrospective 53 minutes"
+	, "Magical Astronomy"
+	, "Unknown Flower, Mesmerizing Journey"
+	, "Trojan Green Asteroid"
+	, "Neo-traditionalism of Japan"
+	, "Akyuu's Untouched Score vol. 1"
+	, "Akyuu's Untouched Score vol. 2"
+	, "Akyuu's Untouched Score vol. 3"
+	, "Akyuu's Untouched Score vol. 4"
+	, "Akyuu's Untouched Score vol. 5"
+	, "Book bonus CDs"
+	, "14.5: Urban Legend in Limbo"
+	, "15: Legacy of Lunatic Kingdom"
+	, "16: Hidden Star in Four Seasons"
+	, "15.5: Antinomy of Common Flowers"
+	, "16.5: Violet Detector"
+	, "Dr. Latency's Freak Report"
+	, "Dateless Bar \"Old Adam\""
+	, "17: Wily Beast and Weakest Creature"
+	, "17.5: Touhou Gouyoku Ibun (Trial)"
+	, "18: Unconnected Marketeers (Trial)"
 ];
 
 // Number of columns in the selection list.
@@ -931,24 +931,24 @@ var ary_SongData = [
 	//[1, "Player's Score",										[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,1,0,0], "NqI4Bym.jpg", "t3hBNsqiwL8", "Great Fairy Wars", "GFW", "", 0, 0],
 	
 	//Touhou Gouyoku Ibun (Trial)
-	[1, "Title Screen",											[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0], "shoss.png", "atouuxp9g4Y", "Touhou Gouyoku Ibun", "SHoSS", "Title Screen", 0, 0],
-	[1, "Magician's Melancholy",								[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0], "shoss.png", "fHM6w0kdTCw", "Touhou Gouyoku Ibun", "SHoSS", "Stage 1", 1, 2],
-	[1, "Maiden's Capriccio ~ Dream Battle",					[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0], "shoss.png", "xYYIgA_ttB4", "Touhou Gouyoku Ibun", "SHoSS", "Reimu Hakurei's theme", 1, 1],
-	[1, "Love-Coloured Master Spark",							[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0], "shoss.png", "Mt2n-vGafmc", "Touhou Gouyoku Ibun", "SHoSS", "Marisa Kirisame's Theme", 1, 1],
-	[1, "The Dark Blowhole",									[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0], "shoss.png", "JQBYDps8mi0", "Touhou Gouyoku Ibun", "SHoSS", "Stage 2", 1, 2],
-	[1, "Beware the Umbrella Left There Forever",				[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0], "shoss.png", "UMN4a-3XQaU", "Touhou Gouyoku Ibun", "SHoSS", "Kogasa Tatara's theme", 1, 1],
-	[1, "The Sealed-Away Youkai ~ Lost Place",					[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0], "shoss.png", "haPug_iJUJc", "Touhou Gouyoku Ibun", "SHoSS", "Yamame Kurodani's theme", 1, 1],
-	[1, "Walking the Streets of a Former Hell",					[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0], "shoss.png", "EwHH0PtZRPQ", "Touhou Gouyoku Ibun", "SHoSS", "Stage 3", 1, 2],
-	[1, "A Flower-Studded Sake Dish on Mt. Ooe",				[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0], "shoss.png", "p6n5i8ctpM0", "Touhou Gouyoku Ibun", "SHoSS", "Yuugi Hoshiguma's theme", 1, 1],
+	[1, "Title Screen",											[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0], "shoss.jpg", "atouuxp9g4Y", "Touhou Gouyoku Ibun", "SHoSS", "Title Screen", 0, 0],
+	[1, "Magician's Melancholy",								[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0], "shoss.jpg", "fHM6w0kdTCw", "Touhou Gouyoku Ibun", "SHoSS", "Stage 1", 1, 2],
+	[1, "Maiden's Capriccio ~ Dream Battle",					[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0], "shoss.jpg", "xYYIgA_ttB4", "Touhou Gouyoku Ibun", "SHoSS", "Reimu Hakurei's theme", 1, 1],
+	[1, "Love-Coloured Master Spark",							[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0], "shoss.jpg", "Mt2n-vGafmc", "Touhou Gouyoku Ibun", "SHoSS", "Marisa Kirisame's Theme", 1, 1],
+	[1, "The Dark Blowhole",									[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0], "shoss.jpg", "JQBYDps8mi0", "Touhou Gouyoku Ibun", "SHoSS", "Stage 2", 1, 2],
+	[1, "Beware the Umbrella Left There Forever",				[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0], "shoss.jpg", "UMN4a-3XQaU", "Touhou Gouyoku Ibun", "SHoSS", "Kogasa Tatara's theme", 1, 1],
+	[1, "The Sealed-Away Youkai ~ Lost Place",					[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0], "shoss.jpg", "haPug_iJUJc", "Touhou Gouyoku Ibun", "SHoSS", "Yamame Kurodani's theme", 1, 1],
+	[1, "Walking the Streets of a Former Hell",					[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0], "shoss.jpg", "EwHH0PtZRPQ", "Touhou Gouyoku Ibun", "SHoSS", "Stage 3", 1, 2],
+	[1, "A Flower-Studded Sake Dish on Mt. Ooe",				[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0], "shoss.jpg", "p6n5i8ctpM0", "Touhou Gouyoku Ibun", "SHoSS", "Yuugi Hoshiguma's theme", 1, 1],
 	
 	//Unconnected Marketeers (Trial)
-	[1, "A Rainbow Spanning Gensokyo",							[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1], "um.png", "QhFpGscR0sc", "Unconnected Marketeers", "UM", "Title Screen", 0, 0],
-	[1, "A Shower of Strange Occurrences",						[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1], "um.png", "7EYa1dzv2X0", "Unconnected Marketeers", "UM", "Stage 1", 0, 2],
-	[1, "Kitten of Great Fortune",								[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1], "um.png", "OYfpDVHo9Ns", "Unconnected Marketeers", "UM", "Mike Goutokuji's theme", 0, 1],
-	[1, "The Cliff Hidden in Deep Green",						[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1], "um.png", "Slk_RUzWGys", "Unconnected Marketeers", "UM", "Stage 2", 0, 2],
-	[1, "Banditry Technology",									[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1], "um.png", "DDdLXVmUHqs", "Unconnected Marketeers", "UM", "Takane Yamashiro's Theme", 0, 1],
-	[1, "The Perpetual Snow of Komakusa Blossoms",				[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1], "um.png", "qw4ITokIuek", "Unconnected Marketeers", "UM", "Stage 3", 0, 2],
-	[1, "Smoking Dragon",										[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1], "um.png", "auLz5IclPpw", "Unconnected Marketeers", "UM", "Sannyo Komakusa's theme", 0, 1]
+	[1, "A Rainbow Spanning Gensokyo",							[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1], "um.jpg", "QhFpGscR0sc", "Unconnected Marketeers", "UM", "Title Screen", 0, 0],
+	[1, "A Shower of Strange Occurrences",						[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1], "um.jpg", "7EYa1dzv2X0", "Unconnected Marketeers", "UM", "Stage 1", 0, 2],
+	[1, "Kitten of Great Fortune",								[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1], "um.jpg", "OYfpDVHo9Ns", "Unconnected Marketeers", "UM", "Mike Goutokuji's theme", 0, 1],
+	[1, "The Cliff Hidden in Deep Green",						[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1], "um.jpg", "Slk_RUzWGys", "Unconnected Marketeers", "UM", "Stage 2", 0, 2],
+	[1, "Banditry Technology",									[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1], "um.jpg", "DDdLXVmUHqs", "Unconnected Marketeers", "UM", "Takane Yamashiro's Theme", 0, 1],
+	[1, "The Perpetual Snow of Komakusa Blossoms",				[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1], "um.jpg", "qw4ITokIuek", "Unconnected Marketeers", "UM", "Stage 3", 0, 2],
+	[1, "Smoking Dragon",										[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1], "um.jpg", "auLz5IclPpw", "Unconnected Marketeers", "UM", "Sannyo Komakusa's theme", 0, 1]
 	//[1, "Player's Score",										[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,1,0,1], "NqI4Bym.jpg", "t3hBNsqiwL8", "Great Fairy Wars", "GFW", "", 0, 0],
 ];
 //,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0], "arjGI4C.jpg?1", "sjw6_Z6BG6A", "Urban Legend in Limbo", "ULiL", "Pre-Battle", 0, 0],
