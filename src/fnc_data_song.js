@@ -67,7 +67,7 @@ var ary_TitleData = [
 	, "Dateless Bar \"Old Adam\""
 	, "17: Wily Beast and Weakest Creature"
 	, "17.5: Touhou Gouyoku Ibun (Trial)"
-	, "18: Unconnected Marketeers (Trial)"
+	, "18: Unconnected Marketeers"
 ];
 
 // Number of columns in the selection list.
@@ -941,15 +941,25 @@ var ary_SongData = [
 	[1, "Walking the Streets of a Former Hell",					[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0], "shoss.jpg", "EwHH0PtZRPQ", "Touhou Gouyoku Ibun", "SHoSS", "Stage 3", 1, 2],
 	[1, "A Flower-Studded Sake Dish on Mt. Ooe",				[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0], "shoss.jpg", "p6n5i8ctpM0", "Touhou Gouyoku Ibun", "SHoSS", "Yuugi Hoshiguma's theme", 1, 1],
 	
-	//Unconnected Marketeers (Trial)
-	[1, "A Rainbow Spanning Gensokyo",							[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1], "um.jpg", "QhFpGscR0sc", "Unconnected Marketeers", "UM", "Title Screen", 0, 0],
-	[1, "A Shower of Strange Occurrences",						[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1], "um.jpg", "7EYa1dzv2X0", "Unconnected Marketeers", "UM", "Stage 1", 0, 2],
-	[1, "Kitten of Great Fortune",								[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1], "um.jpg", "OYfpDVHo9Ns", "Unconnected Marketeers", "UM", "Mike Goutokuji's theme", 0, 1],
-	[1, "The Cliff Hidden in Deep Green",						[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1], "um.jpg", "Slk_RUzWGys", "Unconnected Marketeers", "UM", "Stage 2", 0, 2],
-	[1, "Banditry Technology",									[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1], "um.jpg", "DDdLXVmUHqs", "Unconnected Marketeers", "UM", "Takane Yamashiro's Theme", 0, 1],
-	[1, "The Perpetual Snow of Komakusa Blossoms",				[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1], "um.jpg", "qw4ITokIuek", "Unconnected Marketeers", "UM", "Stage 3", 0, 2],
-	[1, "Smoking Dragon",										[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1], "um.jpg", "auLz5IclPpw", "Unconnected Marketeers", "UM", "Sannyo Komakusa's theme", 0, 1]
-	//[1, "Player's Score",										[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,1,0,1], "NqI4Bym.jpg", "t3hBNsqiwL8", "Great Fairy Wars", "GFW", "", 0, 0],
+	//Unconnected Marketeers
+	[1, "A Rainbow Spanning Gensokyo",										[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1], "um.jpg", "QhFpGscR0sc", "Unconnected Marketeers", "UM", "Title Screen", 0, 0],
+	[1, "A Shower of Strange Occurrences",									[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1], "um.jpg", "7EYa1dzv2X0", "Unconnected Marketeers", "UM", "Stage 1", 0, 2],
+	[1, "Kitten of Great Fortune",											[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1], "um.jpg", "OYfpDVHo9Ns", "Unconnected Marketeers", "UM", "Mike Goutokuji's theme", 0, 1],
+	[1, "The Cliff Hidden in Deep Green",									[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1], "um.jpg", "Slk_RUzWGys", "Unconnected Marketeers", "UM", "Stage 2", 0, 2],
+	[1, "Banditry Technology",												[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1], "um.jpg", "DDdLXVmUHqs", "Unconnected Marketeers", "UM", "Takane Yamashiro's Theme", 0, 1],
+	[1, "The Perpetual Snow of Komakusa Blossoms",							[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1], "um.jpg", "qw4ITokIuek", "Unconnected Marketeers", "UM", "Stage 3", 0, 2],
+	[1, "Smoking Dragon",													[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1], "um.jpg", "auLz5IclPpw", "Unconnected Marketeers", "UM", "Sannyo Komakusa's theme", 0, 1],
+	[1, "The Obsolescent Industrial Remains",								[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1], "um.jpg", "U_uWMfmuQLw", "Unconnected Marketeers", "UM", "Stage 4", 0, 2],
+	[1, "Ore from the Age of the Gods",										[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1], "um.jpg", "gtRzp8O_Olo", "Unconnected Marketeers", "UM", "Misumaru Tamatsukuri's Theme", 0, 1],
+	[1, "The Long-Awaited Oumagatoki",										[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1], "um.jpg", "qttE17B3LtY", "Unconnected Marketeers", "UM", "Stage 5", 0, 2],
+	[1, "Starry Mountain of Tenma",											[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1], "um.jpg", "viGlmdmOFY8", "Unconnected Marketeers", "UM", "Megumu Iizunamaru's theme", 0, 1],
+	[1, "Lunar Rainbow",													[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1], "um.jpg", "ZamWDSwqyPk", "Unconnected Marketeers", "UM", "Stage 6", 0, 2],
+	[1, "Where Is That Bustling Marketplace Now ~ Immemorial Marketeers",	[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1], "um.jpg", "Udn3r030Wic", "Unconnected Marketeers", "UM", "Chimata Tenkyuu's Theme", 0, 1],
+	[1, "The Great Fantastic Underground Railway Network",					[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1], "um.jpg", "uV-CxxDpnqA", "Unconnected Marketeers", "UM", "Extra Stage", 0, 2],
+	[1, "The Princess Who Slays Dragon Kings",								[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1], "um.jpg", "AiGYjSW6dZk", "Unconnected Marketeers", "UM", "Momoyo Himemushi's theme", 0, 1],
+	[1, "The Sunday After the Storm",										[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1], "um.jpg", "_kESz8ND7Mk", "Unconnected Marketeers", "UM", "Ending", 0, 0],
+	[1, "A Rainbow-Colored World",											[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1], "um.jpg", "AUFP1wxuncs", "Unconnected Marketeers", "UM", "Staff Roll", 0, 0]
+	//[1, "Player's Score",													[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,1,0,1], "NqI4Bym.jpg", "t3hBNsqiwL8", "Great Fairy Wars", "GFW", "", 0, 0],
 ];
 //,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0], "arjGI4C.jpg?1", "sjw6_Z6BG6A", "Urban Legend in Limbo", "ULiL", "Pre-Battle", 0, 0],
 //	[1, "Battlefield of Hanahazama",							[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0], "arjGI4C.jpg?1", "fp8hxDtqmR0", "Urban Legend in Limbo", "ULiL", "Kasen Ibaraki's theme/Penultimate Boss", 0, 3],
