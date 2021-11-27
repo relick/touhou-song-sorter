@@ -57,7 +57,7 @@ var ary_TitleData = [
 	, "Akyuu's Untouched Score vol. 3"
 	, "Akyuu's Untouched Score vol. 4"
 	, "Akyuu's Untouched Score vol. 5"
-	, "Book bonus CDs"
+	, "Bonus CDs + Other Tracks"
 	, "14.5: Urban Legend in Limbo"
 	, "15: Legacy of Lunatic Kingdom"
 	, "16: Hidden Star in Four Seasons"
@@ -66,7 +66,7 @@ var ary_TitleData = [
 	, "Dr. Latency's Freak Report"
 	, "Dateless Bar \"Old Adam\""
 	, "17: Wily Beast and Weakest Creature"
-	, "17.5: Touhou Gouyoku Ibun (Trial)"
+	, "17.5: Touhou Gouyoku Ibun"
 	, "18: Unconnected Marketeers"
 ];
 
@@ -757,6 +757,8 @@ var ary_SongData = [
 	[1, "Bibliophile with a Deciphering Eye",			[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0], "fs.jpg", "i0Wt3lN7-mk", "Forbidden Scrollery", "FS", "Track 1", 0, 0],
 	[1, "Humans and Youkai Traversing the Canal",		[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0], "fs.jpg", "m3S9Nsd1puU", "Forbidden Scrollery", "FS", "Track 2", 1, 0],
 	[1, "The Rabbit Has Landed",						[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0], "fs.jpg", "mxlnkzshWCU", "Forbidden Scrollery", "FS", "Track 3", 1, 0],
+	//Daisakusen
+	[1, "Every Day a Red Day ~ Folksy Touhou days.",	[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0], "daisakusen.jpg", "A3g3MgxcVOE", "Touhou Arrange Kasseika Daisakusen", "TAKD", "Track 1", 1, 0],
 	
 	//Urban Legend in Limbo
 	[1, "Heart-Stirring Urban Legends",							[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0], "arjGI4C.jpg?1", "PWhN1akadiQ", "Urban Legend in Limbo", "ULiL", "Title/Menu Screen", 0, 0],
@@ -930,16 +932,31 @@ var ary_SongData = [
 	[1, "Returning Home from the Underground",					[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0], "wbawc.png", "zXiC7YFQngk", "Wily Beast and Weakest Creature", "WBaWC", "Staff Roll", 0, 0],
 	//[1, "Player's Score",										[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,1,0,0], "NqI4Bym.jpg", "t3hBNsqiwL8", "Great Fairy Wars", "GFW", "", 0, 0],
 	
-	//Touhou Gouyoku Ibun (Trial)
-	[1, "Title Screen",											[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0], "shoss.jpg", "atouuxp9g4Y", "Touhou Gouyoku Ibun", "SHoSS", "Title Screen", 0, 0],
-	[1, "Magician's Melancholy",								[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0], "shoss.jpg", "fHM6w0kdTCw", "Touhou Gouyoku Ibun", "SHoSS", "Stage 1", 1, 2],
-	[1, "Maiden's Capriccio ~ Dream Battle",					[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0], "shoss.jpg", "xYYIgA_ttB4", "Touhou Gouyoku Ibun", "SHoSS", "Reimu Hakurei's theme", 1, 1],
-	[1, "Love-Coloured Master Spark",							[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0], "shoss.jpg", "Mt2n-vGafmc", "Touhou Gouyoku Ibun", "SHoSS", "Marisa Kirisame's Theme", 1, 1],
-	[1, "The Dark Blowhole",									[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0], "shoss.jpg", "JQBYDps8mi0", "Touhou Gouyoku Ibun", "SHoSS", "Stage 2", 1, 2],
-	[1, "Beware the Umbrella Left There Forever",				[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0], "shoss.jpg", "UMN4a-3XQaU", "Touhou Gouyoku Ibun", "SHoSS", "Kogasa Tatara's theme", 1, 1],
-	[1, "The Sealed-Away Youkai ~ Lost Place",					[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0], "shoss.jpg", "haPug_iJUJc", "Touhou Gouyoku Ibun", "SHoSS", "Yamame Kurodani's theme", 1, 1],
-	[1, "Walking the Streets of a Former Hell",					[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0], "shoss.jpg", "EwHH0PtZRPQ", "Touhou Gouyoku Ibun", "SHoSS", "Stage 3", 1, 2],
-	[1, "A Flower-Studded Sake Dish on Mt. Ooe",				[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0], "shoss.jpg", "p6n5i8ctpM0", "Touhou Gouyoku Ibun", "SHoSS", "Yuugi Hoshiguma's theme", 1, 1],
+	//Touhou Gouyoku Ibun
+	[1, "Submerged Hell of Sunken Sorrow",						[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0], "shoss.jpg", "DfU31yb8eNo", "Touhou Gouyoku Ibun", "SHoSS", "Title Screen", 0, 0],
+	[1, "Eastern Strange Tale of Avarice",						[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0], "shoss.jpg", "3ScV3OKt0Yk", "Touhou Gouyoku Ibun", "SHoSS", "Staff Roll", 0, 0],
+	[1, "Laws of Heaven, Desires of Man",						[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0], "shoss.jpg", "DW--G-vGJgY", "Touhou Gouyoku Ibun", "SHoSS", "Ending", 0, 0],
+	[1, "Magician's Melancholy",								[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0], "shoss.jpg", "UtTdWnidTz8", "Touhou Gouyoku Ibun", "SHoSS", "Forest of Magic theme", 1, 2],
+	[1, "The Dark Blowhole",									[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0], "shoss.jpg", "8Feuj8pUEEc", "Touhou Gouyoku Ibun", "SHoSS", "Rainbow Cavern of Earth Spirits theme", 1, 2],
+	[1, "Walking the Streets of a Former Hell",					[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0], "shoss.jpg", "mTGzHX9Y4aM", "Touhou Gouyoku Ibun", "SHoSS", "Former Hell theme", 1, 2],
+	[1, "Hellfire Mantle",										[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0], "shoss.jpg", "Elr7RWO9tD4", "Touhou Gouyoku Ibun", "SHoSS", "Hell of Blazing Fires theme", 1, 2],
+	[1, "Cemetery of Onbashira",								[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0], "shoss.jpg", "x8VzHIfffzU", "Touhou Gouyoku Ibun", "SHoSS", "Underground Fusion Reactor theme", 1, 2],
+	[1, "Depths of the Earth, Ocean of Avarice",				[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0], "shoss.jpg", "T2j1969Yo1c", "Touhou Gouyoku Ibun", "SHoSS", "Sea of Petroleum theme", 0, 2],
+	[1, "Everlasting Red Spider Lily",							[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0], "shoss.jpg", "gCvnKqJiUDk", "Touhou Gouyoku Ibun", "SHoSS", "Hell of Blazing Fires (Flooded) theme", 1, 2],
+	[1, "The Centennial Festival for Magical Girls",			[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0], "shoss.jpg", "Qm5h3G2fVks", "Touhou Gouyoku Ibun", "SHoSS", "Scarlet Devil Mansion theme", 1, 2],
+	[1, "Maiden's Capriccio",									[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0], "shoss.jpg", "WbFDnpkLAbc", "Touhou Gouyoku Ibun", "SHoSS", "Reimu Hakurei's theme", 1, 1],
+	[1, "Love-Colored Master Spark",							[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0], "shoss.jpg", "40KHejDcryg", "Touhou Gouyoku Ibun", "SHoSS", "Marisa Kirisame's theme", 1, 1],
+	[1, "The Sealed-Away Youkai",								[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0], "shoss.jpg", "quVo4T_Zyq4", "Touhou Gouyoku Ibun", "SHoSS", "Yamame Kurodani's theme", 1, 1],
+	[1, "Beware the Umbrella Left There Forever",				[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0], "shoss.jpg", "4tYWk6LQPNo", "Touhou Gouyoku Ibun", "SHoSS", "Kogasa Tatara's theme", 1, 1],
+	[1, "Captain Murasa",										[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0], "shoss.jpg", "wokmjmCNROc", "Touhou Gouyoku Ibun", "SHoSS", "Minamitsu Murasa's theme", 1, 1],
+	[1, "The Venerable Ancient Battlefield",					[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0], "shoss.jpg", "ssh_Ufp1AKw", "Touhou Gouyoku Ibun", "SHoSS", "Kanako Yasaka's theme", 1, 1],
+	[1, "Tonight Stars an Easygoing Egoist ~ Egoistic Flowers",	[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0], "shoss.jpg", "3JXL92AFvp4", "Touhou Gouyoku Ibun", "SHoSS", "Joon and Shion Yorigami's theme", 1, 1],
+	[1, "A Flower-Studded Sake Dish on Mt. Ooe",				[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0], "shoss.jpg", "v6gmIpt6naA", "Touhou Gouyoku Ibun", "SHoSS", "Yuugi Hoshiguma's theme", 1, 1],
+	[1, "Solar Sect of Mystic Wisdom",							[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0], "shoss.jpg", "wEho7LFF77s", "Touhou Gouyoku Ibun", "SHoSS", "Utsuho Reiuji's theme", 1, 1],
+	[1, "Seraphic Chicken",										[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0], "shoss.jpg", "DmJPv4EDYRQ", "Touhou Gouyoku Ibun", "SHoSS", "Kutaka Niwatari's theme", 1, 1],
+	[1, "U.N. Owen Was Her?",									[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0], "shoss.jpg", "lGukmISfmyg", "Touhou Gouyoku Ibun", "SHoSS", "Flandre Scarlet's theme", 1, 1],
+	[1, "Memento of the Avaricious Beast",						[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0], "shoss.jpg", "dnzeZjSuHgQ", "Touhou Gouyoku Ibun", "SHoSS", "Yuuma Toutetsu's 1st theme", 0, 1],
+	[1, "Memento of All Organisms ~ Memory of Fossil Energy.",	[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0], "shoss.jpg", "ZOczrPEtriU", "Touhou Gouyoku Ibun", "SHoSS", "Yuuma Toutetsu's 2nd theme", 0, 1],
 	
 	//Unconnected Marketeers
 	[1, "A Rainbow Spanning Gensokyo",										[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1], "um.jpg", "QhFpGscR0sc", "Unconnected Marketeers", "UM", "Title Screen", 0, 0],
