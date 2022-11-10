@@ -167,22 +167,10 @@ function init()
 				{
 					ary_TempData[int_Total] = ary_SongData[i];
 					int_Total++;
-
-					if (ary_TempData.filter(x => x[TRACK_NAME] == 'Seraphic Chicken').length > 1) {
-						debugger;
-					}
 					break;
-				}
-
-				if (ary_TempData.filter(x => x[TRACK_NAME] == 'Seraphic Chicken').length > 1) {
-					debugger;
 				}
 			}
 		}
-	}
-
-	if (ary_TempData.filter(x => x[TRACK_NAME] == 'Seraphic Chicken').length > 1) {
-		debugger;
 	}
 
 	if (int_Total < 2)
