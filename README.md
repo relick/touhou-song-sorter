@@ -6,7 +6,7 @@ manually merge sort your favourite touhou songs
 All of the song data is found at [src/fnc_data_song.js](./src/fnc_data_song.js), defined in the array `ary_SongData`. Each song's data is an array with a specific number of elements; for example:
 
 ```json
-[1, "The Sky Where Cherry Blossoms Flutter Down", [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0], "hsifs.png", "3B207i_YzE0", "Hidden Star in Four Seasons", "HSiFS", "Title Screen", 0, 0]
+[1, "The Sky Where Cherry Blossoms Flutter Down", [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0], "hsifs.png", "3B207i_YzE0", "Hidden Star in Four Seasons", "HSiFS", "Title Screen", 0, 0, 1]
 ```
 
 The elements, in order, are as follows:
@@ -21,6 +21,7 @@ The elements, in order, are as follows:
 8. Where the song plays, or whose theme it is.
 9. `0` if original song, `1` if arrangement.
 10. `1` if a boss-only theme, `2` if a stage-only theme, `3` if both, or `0` otherwise.
+11. `0` if an arrangement by Zun, `0` if by another artist
 
 ### Adding new games/albums
 
