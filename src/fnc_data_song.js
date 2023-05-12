@@ -19,59 +19,61 @@ var int_ResultRank = 3;
 var maxRows = 42;
 
 // * Game and album titles
-var ary_TitleData = [
-	  "1: The Highly Responsive to Prayers"
-	, "2: The Story of Eastern Wonderland"
-	, "3: Phantasmagoria of Dim.Dream"
-	, "4: Lotus Land Story"
-	, "5: Mystic Square"
-	, "Shuusou Gyoku"
-	, "Kioh Gyoku"
-	, "6: The Embodiment of Scarlet Devil"
-	, "7: Perfect Cherry Blossom"
-	, "7.5: Immaterial and Missing Power"
-	, "8: Imperishable Night"
-	, "9: Phantasmagoria of Flower View"
-	, "9.5: Shoot the Bullet"
-	, "10: Mountain of Faith"
-	, "10.5: Scarlet Weather Rhapsody"
-	, "11: Subterranean Animism"
-	, "12.3: Touhou Hisoutensoku"
-	, "12: Undefined Fantastic Object"
-	, "12.5: Double Spoiler"
-	, "12.8: Great Fairy Wars"
-	, "13: Ten Desires"
-	, "13.5: Hopeless Masquerade"
-	, "14: Double Dealing Character"
-	, "14.3: Impossible Spell Card"
-	, "Dolls in Pseudo Paradise"
-	, "Ghostly Field Club"
-	, "Changeability of Strange Dream"
-	, "Retrospective 53 minutes"
-	, "Magical Astronomy"
-	, "Unknown Flower, Mesmerizing Journey"
-	, "Trojan Green Asteroid"
-	, "Neo-traditionalism of Japan"
-	, "Akyuu's Untouched Score vol. 1"
-	, "Akyuu's Untouched Score vol. 2"
-	, "Akyuu's Untouched Score vol. 3"
-	, "Akyuu's Untouched Score vol. 4"
-	, "Akyuu's Untouched Score vol. 5"
-	, "Bonus CDs + Other Tracks"
-	, "14.5: Urban Legend in Limbo"
-	, "15: Legacy of Lunatic Kingdom"
-	, "16: Hidden Star in Four Seasons"
-	, "15.5: Antinomy of Common Flowers"
-	, "16.5: Violet Detector"
-	, "Dr. Latency's Freak Report"
-	, "Dateless Bar \"Old Adam\""
-	, "17: Wily Beast and Weakest Creature"
-	, "17.5: Touhou Gouyoku Ibun"
-	, "18: Unconnected Marketeers"
-	, "Rainbow-Colored Septentrion"
-	, "18.5: 100th Black Market"
-	, "19: Unfinished Dream of All Living Ghost (trial)"
-];
+const TITLE = Object.freeze({
+	HRtP: "1: The Highly Responsive to Prayers",
+	SoEW: "2: The Story of Eastern Wonderland",
+	PoDD: "3: Phantasmagoria of Dim.Dream",
+	LLS: "4: Lotus Land Story",
+	MS: "5: Mystic Square",
+	SG: "Shuusou Gyoku",
+	KG: "Kioh Gyoku",
+	EoSD: "6: The Embodiment of Scarlet Devil",
+	PCB: "7: Perfect Cherry Blossom",
+	IaMP: "7.5: Immaterial and Missing Power",
+	IN: "8: Imperishable Night",
+	PoFV: "9: Phantasmagoria of Flower View",
+	StB: "9.5: Shoot the Bullet",
+	MoF: "10: Mountain of Faith",
+	SWR: "10.5: Scarlet Weather Rhapsody",
+	SA: "11: Subterranean Animism",
+	Soku: "12.3: Touhou Hisoutensoku",
+	UFO: "12: Undefined Fantastic Object",
+	DS: "12.5: Double Spoiler",
+	GFW: "12.8: Great Fairy Wars",
+	TD: "13: Ten Desires",
+	HM: "13.5: Hopeless Masquerade",
+	DDC: "14: Double Dealing Character",
+	ISC: "14.3: Impossible Spell Card",
+	DiPP: "Dolls in Pseudo Paradise",
+	GFC: "Ghostly Field Club",
+	CoSD: "Changeability of Strange Dream",
+	R53m: "Retrospective 53 minutes",
+	MA: "Magical Astronomy",
+	UFMJ: "Unknown Flower, Mesmerizing Journey",
+	TGA: "Trojan Green Asteroid",
+	NToJ: "Neo-traditionalism of Japan",
+	AUS1: "Akyuu's Untouched Score vol. 1",
+	AUS2: "Akyuu's Untouched Score vol. 2",
+	AUS3: "Akyuu's Untouched Score vol. 3",
+	AUS4: "Akyuu's Untouched Score vol. 4",
+	AUS5: "Akyuu's Untouched Score vol. 5",
+	BONUS: "Bonus CDs + Other Tracks",
+	ULiL: "14.5: Urban Legend in Limbo",
+	LoLK: "15: Legacy of Lunatic Kingdom",
+	HSiFS: "16: Hidden Star in Four Seasons",
+	AoCF: "15.5: Antinomy of Common Flowers",
+	VD: "16.5: Violet Detector",
+	DLFR: "Dr. Latency's Freak Report",
+	DBOA: "Dateless Bar \"Old Adam\"",
+	WBaWC: "17: Wily Beast and Weakest Creature",
+	SHoSS: "17.5: Touhou Gouyoku Ibun",
+	UM: "18: Unconnected Marketeers",
+	RCS: "Rainbow-Colored Septentrion",
+	HBM: "18.5: 100th Black Market",
+	UDoALG: "19: Unfinished Dream of All Living Ghost (trial)",
+})
+
+var ary_TitleData = Object.values(TITLE);
 
 // Number of columns in the selection list.
 var int_Colspan = 3;
