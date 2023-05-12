@@ -42,7 +42,6 @@ var back_ary_SortData = new Array();
 var back_ary_EqualData = new Array();
 var back_ary_RecordData = new Array();
 var back_int_RecordID = 0;
-//var back_ary_TempData = new Array();
 var back_ary_ParentData = new Array();
 
 var back_int_Completed = 0;
@@ -344,7 +343,6 @@ function fnc_Undo()
 	
 	if(int_Count > 2 && int_Completed != back_int_Completed)
 	{
-		//ary_TempData = back_ary_TempData.slice(0);
 		ary_SortData = back_ary_SortData.slice(0);
 		ary_RecordData = back_ary_RecordData.slice(0);
 		int_RecordID = back_int_RecordID;
@@ -376,7 +374,6 @@ function fnc_TieRest(){
 // * Sort (-1: left chosen, 0: tie, 1: right chosen)
 function fnc_Sort(int_SelectID)
 {
-	//back_ary_TempData = ary_TempData.slice(0);	
 	back_ary_SortData = ary_SortData.slice(0);
 	back_ary_RecordData = ary_RecordData.slice(0);
 	back_int_RecordID = int_RecordID;
