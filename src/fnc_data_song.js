@@ -5,12 +5,13 @@
 // github.com/relick/touhou-song-sorter
 
 // *****************************************************************************
-str_CenterT = 'Tie!';
-str_CenterB = 'Undo last choice';
+"use strict";
+const str_CenterT = 'Tie!';
+const str_CenterB = 'Undo last choice';
 
-str_ImgPath = 'images/';
-str_YouPath = 'https://www.youtube.com/embed/';
-str_YouLink = 'https://www.youtube.com/watch?v=';
+const str_ImgPath = 'images/';
+const str_YouPath = 'https://www.youtube.com/embed/';
+const str_YouLink = 'https://www.youtube.com/watch?v=';
 
 // Up to which position should images be shown for?
 var int_ResultRank = 3;

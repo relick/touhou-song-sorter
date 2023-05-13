@@ -19,6 +19,7 @@
 // github.com/relick/touhou-song-sorter
 
 // Execution code
+"use strict";
 var ary_TempData	= new Array();
 var ary_SortData	= new Array();
 var ary_ParentData = new Array();
@@ -142,7 +143,7 @@ function init()
 	var sortTypes = getID('optSortType').options[getID('optSortType').selectedIndex].value;
 
 	// Add to the arrays only the tracks that we expect.
-	for (i=0; i < ary_SongData.length; i++)
+	for (let i=0; i < ary_SongData.length; i++)
 	{
 		for (const [titleId, titleName] of Object.entries(TITLE))
 		{
@@ -195,7 +196,7 @@ function init()
 
 	// TempData contains the songs we want to sort, store it into our sorting arrays.
 	ary_SortData[0] = new Array();
-	for (i=0; i < ary_TempData.length; i++)
+	for (let i=0; i < ary_TempData.length; i++)
 	{
 		ary_SortData[0][i] = i;
 
@@ -204,7 +205,7 @@ function init()
 	}
 
 	var int_Pointer = 1;
-	for (i=0; i < ary_SortData.length; i++)
+	for (let i=0; i < ary_SortData.length; i++)
 	{
 		// The sort is a binary sort
 		// So to start, if the number of elements is more than 2,
@@ -227,7 +228,7 @@ function init()
 	// A list to save ties
 	// Key: link start point
 	// Value: link end point
-	for (i=0; i<=ary_TempData.length; i++)
+	for (let i=0; i<=ary_TempData.length; i++)
 	{
 		ary_EqualData[i] = -1;
 	}
@@ -456,7 +457,7 @@ function fnc_Sort(int_SelectID)
 	//親リストを更新する
 	if (int_LeftID == ary_SortData[int_LeftList].length && int_RightID == ary_SortData[int_RightList].length)
 	{
-		for (i=0; i<ary_SortData[int_LeftList].length + ary_SortData[int_RightList].length; i++)
+		for (let i=0; i<ary_SortData[int_LeftList].length + ary_SortData[int_RightList].length; i++)
 		{
 			ary_SortData[ary_ParentData[int_LeftList]][i] = ary_RecordData[i];
 		}
@@ -471,7 +472,7 @@ function fnc_Sort(int_SelectID)
 		//新しい比較を行う前にary_RecordDataを初期化
 		if (int_LeftID == 0 && int_RightID == 0)
 		{
-			for (i=0; i<ary_TempData.length; i++)
+			for (let i=0; i<ary_TempData.length; i++)
 			{
 				ary_RecordData[i] = 0;
 			}
@@ -517,10 +518,10 @@ function fnc_ShowResults()
 	var tbl_head_Result = createElement('thead');
 	tbl_Result.appendChild(tbl_head_Result);
 
-	new_row = tbl_head_Result.insertRow(tbl_head_Result.rows.length);
+	let new_row = tbl_head_Result.insertRow(tbl_head_Result.rows.length);
 
 	// Col[0]
-	new_cell = new_row.insertCell(new_row.childNodes.length);
+	let new_cell = new_row.insertCell(new_row.childNodes.length);
 	setClass(new_cell, 'resTableH');
 	new_cell.appendChild(createText('Order'));
 	// Col[1]
@@ -539,7 +540,7 @@ function fnc_ShowResults()
 	obj_SelectItem.innerHTML = "";
 	obj_SelectItem.appendChild(tbl_Result);
 
-	for (i=0; i < ary_TempData.length; i++)
+	for (let i=0; i < ary_TempData.length; i++)
 	{
 		var rowId = i;
 		new_row = tbl_body_Result.insertRow(tbl_body_Result.rows.length);
@@ -616,7 +617,7 @@ function fnc_ShowResults()
 
 function fnc_UpdateOptions()
 {
-	for (i = 0; i < 2; i++)
+	for (let i = 0; i < 2; i++)
 	{
 		var obj_SelectItem = getID((i == 0) ? "fldLeft" : "fldRight");
 		var obj_YoutubeItem = getID((i == 0) ? "youLeft" : "youRight");

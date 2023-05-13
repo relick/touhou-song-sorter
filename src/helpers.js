@@ -1,3 +1,5 @@
+"use strict";
+
 function getID(sID) {
    return document.getElementById(sID);
 }
