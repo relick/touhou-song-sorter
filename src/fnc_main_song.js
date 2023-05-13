@@ -63,7 +63,8 @@ function startup()
 	tbl_Select.appendChild(tbl_body_Select);
 
 	// Make the checkbox list for titles
-	for (i=0; i<ary_TitleData.length; i++)
+	let i = 0;
+	for (const [titleId, titleName] of Object.entries(TITLE))
 	{
 		// Row[i]
 		if ((i % int_Colspan) == 0)
@@ -75,20 +76,21 @@ function startup()
 		// Col[0]
 		var new_cell = new_row.insertCell(new_row.childNodes.length);
 		var new_CheckBox = createElement('input');
-		var new_CheckBoxID = 'optSelect' + i;
+		var new_CheckBoxID = 'optSelect' + titleId;
 		new_CheckBox.setAttribute('type', 'checkbox', 0);
 		new_CheckBox.setAttribute('checked', 'true', 0);
-		new_CheckBox.value = ary_TitleData[i];
-		new_CheckBox.title = ary_TitleData[i];
+		new_CheckBox.value = titleName;
+		new_CheckBox.title = titleName;
 		new_CheckBox.id = new_CheckBoxID;
 		new_cell.appendChild(new_CheckBox);
 
 		var new_label = createElement('label');
-		new_label.appendChild(createText(ary_TitleData[i]));
-		new_label.title = ary_TitleData[i];
+		new_label.appendChild(createText(titleName));
+		new_label.title = titleName;
 		new_label.setAttribute('for', new_CheckBoxID);
 		setClass(new_label, 'cbox');
 		new_cell.appendChild(new_label);
+		i++;
 	}
 
 	getID('optImage').disabled = false;
@@ -123,9 +125,9 @@ function startup()
 
 function chgAll()
 {
-	for (i=0; i<ary_TitleData.length; i++)
+	for (const titleId in TITLE)
 	{
-		getID('optSelect' + i).checked = getID('optSelect_all').checked;
+		getID('optSelect' + titleId).checked = getID('optSelect_all').checked;
 	}
 }
 
@@ -142,9 +144,10 @@ function init()
 	// Add to the arrays only the tracks that we expect.
 	for (i=0; i < ary_SongData.length; i++)
 	{
-		for (j=0; j < ary_TitleData.length; j++)
+		for (const [titleId, titleName] of Object.entries(TITLE))
 		{
-			if ((ary_SongData[i][TRACK_TITLES][j] == 1) && getID('optSelect' + j).checked)
+			let legacyIndex = ary_TitleData.indexOf(titleName);
+			if ((ary_SongData[i][TRACK_TITLES][legacyIndex] == 1) && getID('optSelect' + titleId).checked)
 			{
 				// Include only if a track is:
 				// - In a title we selected (already fulfilled)
@@ -177,9 +180,9 @@ function init()
 	else
 	{
 		// We're ready, disable all options
-		for (i=0; i < ary_TitleData.length; i++)
+		for (const titleId in TITLE)
 		{
-			getID('optSelect' + i).disabled = true;
+			getID('optSelect' + titleId).disabled = true;
 		}
 		getID('optSelect_all').disabled = true;
 		$('.opt_foot').hide();
