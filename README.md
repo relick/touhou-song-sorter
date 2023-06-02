@@ -5,7 +5,7 @@ manually merge sort your favourite touhou songs
 
 All of the song data is found at [src/fnc_data_song.js](./src/fnc_data_song.js), defined in the array `ary_SongData`. Each song's data is an array with a specific number of elements; for example:
 
-```json
+```js
 ["The Sky Where Cherry Blossoms Flutter Down", new Set([TITLE.HSiFS]), "hsifs.png", "3B207i_YzE0", "Hidden Star in Four Seasons", "HSiFS", "Title Screen", ORIGINAL_TRACK, OTHER_THEME]
 ```
 
