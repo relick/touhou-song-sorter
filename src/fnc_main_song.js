@@ -65,7 +65,7 @@ function startup()
 
 	// Make the checkbox list for titles
 	let i = 0;
-	for (const [titleId, titleName] of Object.entries(TITLE))
+	for (const [titleId, title] of Object.entries(TITLE))
 	{
 		// Row[i]
 		if ((i % int_Colspan) == 0)
@@ -80,14 +80,14 @@ function startup()
 		var new_CheckBoxID = 'optSelect' + titleId;
 		new_CheckBox.setAttribute('type', 'checkbox', 0);
 		new_CheckBox.setAttribute('checked', 'true', 0);
-		new_CheckBox.value = titleName;
-		new_CheckBox.title = titleName;
+		new_CheckBox.value = title.name;
+		new_CheckBox.title = title.name;
 		new_CheckBox.id = new_CheckBoxID;
 		new_cell.appendChild(new_CheckBox);
 
 		var new_label = createElement('label');
-		new_label.appendChild(createText(titleName));
-		new_label.title = titleName;
+		new_label.appendChild(createText(title.name));
+		new_label.title = title.name;
 		new_label.setAttribute('for', new_CheckBoxID);
 		setClass(new_label, 'cbox');
 		new_cell.appendChild(new_label);
@@ -143,32 +143,32 @@ function init()
 	var sortTypes = getID('optSortType').options[getID('optSortType').selectedIndex].value;
 
 	// Add to the arrays only the tracks that we expect.
-	for (let i=0; i < ary_SongData.length; i++)
-	{
-		for (const [titleId, titleName] of Object.entries(TITLE))
-		{
-			let legacyIndex = ary_TitleData.indexOf(titleName);
-			if ((ary_SongData[i][TRACK_TITLES][legacyIndex] == 1) && getID('optSelect' + titleId).checked)
-			{
-				// Include only if a track is:
-				// - In a title we selected (already fulfilled)
-				// - Not excluded by being the incorrect track type for what was selected
-				// - Not excluded by being an arrange if disabled
-				const correctTrackType = (
-					sortTypes == 0 // Allow everything
-					|| (sortTypes == 1 && ary_SongData[i][TRACK_TYPE] !== OTHER_THEME) // Boss and stage only
-					|| (sortTypes == 2 && ary_SongData[i][TRACK_TYPE] === STAGE_THEME) // Stage only
-					|| (sortTypes == 3 && ary_SongData[i][TRACK_TYPE] === BOSS_THEME) // Boss only
-					|| ary_SongData[i][TRACK_TYPE] === STAGE_AND_BOSS_THEME // Included in all options
-				);
-				const correctArrangementType = arranges || (ary_SongData[i][TRACK_IS_ARRANGEMENT] === NOT_ARRANGEMENT);
+	let selectionSet = new Set();
+	for (const [titleId, title] of Object.entries(TITLE)) {
+		if (getID('optSelect' + titleId).checked) {
+			selectionSet.add(title);
+		}
+	}
 
-				if (correctTrackType && correctArrangementType)
-				{
-					ary_TempData[int_Total] = ary_SongData[i];
-					int_Total++;
-					break;
-				}
+	for (let i = 0; i < ary_SongData.length; i++) {
+		// Include only if a track is:
+		// - In a title we selected (already fulfilled)
+		// - Not excluded by being the incorrect track type for what was selected
+		// - Not excluded by being an arrange if disabled
+
+		if (anyIntersection(ary_SongData[i][TRACK_TITLES], selectionSet)) {
+			const correctTrackType = (
+				sortTypes == 0 // Allow everything
+				|| (sortTypes == 1 && ary_SongData[i][TRACK_TYPE] !== OTHER_THEME) // Boss and stage only
+				|| (sortTypes == 2 && ary_SongData[i][TRACK_TYPE] === BOSS_THEME) // Boss only
+				|| (sortTypes == 3 && ary_SongData[i][TRACK_TYPE] === STAGE_THEME) // Stage only
+				|| ary_SongData[i][TRACK_TYPE] === STAGE_AND_BOSS_THEME // Included in all options
+			);
+			const correctArrangementType = arranges || (ary_SongData[i][TRACK_IS_ARRANGEMENT] === ORIGINAL_TRACK);
+
+			if (correctTrackType && correctArrangementType) {
+				ary_TempData[int_Total] = ary_SongData[i];
+				int_Total++;
 			}
 		}
 	}
@@ -249,6 +249,12 @@ function init()
 	fnc_ShowData();
 }
 
+// Serialisation version
+const SAVE_VERSION = Object.freeze({
+	Old: 0, // Old simple saving (no version tracked but we check if int_Total exists)
+	InitialTidying: 1, // Added versioning and slightly tidied ary_SongData
+});
+
 // Save and load is super dumb, literally just throw all the working data into local storage.
 // At least an advantage of this is, changing the data doesn't affect old in-progress sorts.
 // At the same time, it means someone with old data doesn't get bug fixes.
@@ -259,7 +265,11 @@ function fnc_Save()
 		fnc_Sort(0);
 		return;
 	}
-	
+
+	// jStorage.set(key, data, {TTL});
+
+	$.jStorage.set("TohoSongSorter_saveVersion", SAVE_VERSION.InitialTidying, null);
+
 	$.jStorage.set("TohoSongSorter_ary_EqualData", ary_EqualData, null)
 	$.jStorage.set("TohoSongSorter_ary_ParentData", ary_ParentData, null)
 	$.jStorage.set("TohoSongSorter_ary_RecordData", ary_RecordData, null)
@@ -293,7 +303,23 @@ function fnc_Save()
 
 function fnc_Load()
 {
-	if($.jStorage.get("TohoSongSorter_int_Total", "swap") != "swap")
+	const saveVersion = (() => {
+		const version = $.jStorage.get("TohoSongSorter_saveVersion");
+		if (version)
+		{
+			return version;
+		}
+
+		const hasOldData = $.jStorage.get("TohoSongSorter_int_Total") !== null;
+		if (hasOldData)
+		{
+			return SAVE_VERSION.Old;
+		}
+
+		return null;
+	})();
+
+	if (saveVersion !== null)
 	{
 		if (int_Status == 0)
 		{
@@ -301,7 +327,9 @@ function fnc_Load()
 		}
 		
 		$.jStorage.reInit()
-		
+
+		// jStorage.get(key, default value)
+
 		ary_EqualData = $.jStorage.get("TohoSongSorter_ary_EqualData");
 		ary_ParentData = $.jStorage.get("TohoSongSorter_ary_ParentData");
 		ary_RecordData = $.jStorage.get("TohoSongSorter_ary_RecordData");
@@ -332,6 +360,14 @@ function fnc_Load()
 		int_Status = $.jStorage.get("TohoSongSorter_int_Status");
 		int_Total = $.jStorage.get("TohoSongSorter_int_Total");
 		
+		if (saveVersion < SAVE_VERSION.InitialTidying)
+		{
+			// Removes the 'unused' data at the start of each entry
+			for (let i = 0; i < ary_TempData.length; i++) {
+				ary_TempData[i].shift();
+			}
+		}
+
 		fnc_ShowData();
 	}
 }

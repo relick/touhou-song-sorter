@@ -1,4 +1,5 @@
 ﻿var nLastID = -1;
+const ary_TitleData = Object.values(TITLE);
 
 function next()
 {
@@ -15,7 +16,7 @@ function showDataForTitle(nID)
 	if(nID >= 0 && nID < ary_TitleData.length)
 	{
 		const title = output.appendChild(createElement('div'));
-		title.appendChild(createText(nID + " - '" + ary_TitleData[nID] + "'"));
+		title.appendChild(createText(nID + " - '" + ary_TitleData[nID].name + "'"));
 		
 		const table = output.appendChild(createElement('table'));
 		setClass(table, 'debugTable');
@@ -23,29 +24,27 @@ function showDataForTitle(nID)
 
 		for(var i = 0; i < ary_SongData.length; ++i)
 		{
-			if(ary_SongData[i][2][nID] == 1)
+			if(ary_SongData[i][TRACK_TITLES].has(ary_TitleData[nID]))
 			{
 				const row = tableBody.insertRow(-1);
 
 				// Name
 				const name = row.insertCell(-1);
-				name.appendChild(createText(ary_SongData[i][1]));
+				name.appendChild(createText(ary_SongData[i][TRACK_NAME]));
 
 				// Other titles
 				const otherTitles = row.insertCell(-1);
-				for(var j = 0; j < ary_TitleData.length; ++j)
-				{
-					if(j != nID && ary_SongData[i][2][j] == 1)
-					{
+				for (const elem of ary_SongData[i][TRACK_TITLES]) {
+					if (elem !== ary_TitleData[nID]) {
 						const otherTitle = otherTitles.appendChild(createElement('span'));
-						otherTitle.appendChild(createText(ary_TitleData[j]));
+						otherTitle.appendChild(createText(elem.name));
 					}
 				}
 
 				// Image
 				const imageCell = row.insertCell(-1);
 				const image = imageCell.appendChild(createElement('img'));
-				image.src = "../images/" + ary_SongData[i][3];
+				image.src = "../images/" + ary_SongData[i][TRACK_IMAGE];
 
 				// Youtube
 				const youtubeCell = row.insertCell(-1);
@@ -53,23 +52,23 @@ function showDataForTitle(nID)
 				youtube.width = "500";
 				youtube.height = "180";
 				youtube.frameBorder = "0";
-				youtube.src = str_YouPath + ary_SongData[i][4];
+				youtube.src = str_YouPath + ary_SongData[i][TRACK_YOUTUBE_ID];
 				
 				// Title name
 				const titleName = row.insertCell(-1);
-				titleName.appendChild(createText(ary_SongData[i][5]));
+				titleName.appendChild(createText(ary_SongData[i][TRACK_TITLE_NAME]));
 
 				// Abbreviation
 				const abbrev = row.insertCell(-1);
-				abbrev.appendChild(createText(ary_SongData[i][6]));
+				abbrev.appendChild(createText(ary_SongData[i][TRACK_TITLE_ABBREV]));
 
 				// Stage
 				const stage = row.insertCell(-1);
-				stage.appendChild(createText(ary_SongData[i][7]));
+				stage.appendChild(createText(ary_SongData[i][TRACK_DESCRIPTION]));
 
 				// Is arrange
 				const isArrange = row.insertCell(-1);
-				if(ary_SongData[i][8] == 1)
+				if (ary_SongData[i][TRACK_IS_ARRANGEMENT] == ARRANGED_TRACK)
 				{
 					isArrange.appendChild(createText("Arrange"));
 					isArrange.style = "background-color: rgb(250, 100,100)";
@@ -81,22 +80,22 @@ function showDataForTitle(nID)
 
 				// any/boss/stage
 				const bossStage = row.insertCell(-1);
-				if(ary_SongData[i][9] == 0)
+				if (ary_SongData[i][TRACK_TYPE] == OTHER_THEME)
 				{
 					bossStage.appendChild(createText("Any/All"));
 					bossStage.style = "background-color: rgb(250, 100,100)";
 				}
-				else if(ary_SongData[i][9] == 1)
+				else if (ary_SongData[i][TRACK_TYPE] == BOSS_THEME)
 				{
 					bossStage.appendChild(createText("Boss"));
 					bossStage.style = "background-color: rgb(100, 250,100)";
 				}
-				else if(ary_SongData[i][9] == 2)
+				else if (ary_SongData[i][TRACK_TYPE] == STAGE_THEME)
 				{
 					bossStage.appendChild(createText("Stage"));
 					bossStage.style = "background-color: rgb(100, 100,250)";
 				}
-				else if(ary_SongData[i][9] == 3)
+				else if (ary_SongData[i][TRACK_TYPE] == STAGE_AND_BOSS_THEME)
 				{
 					bossStage.appendChild(createText("Boss+Stage"));
 					bossStage.style = "background-color: rgb(100, 250,250)";
