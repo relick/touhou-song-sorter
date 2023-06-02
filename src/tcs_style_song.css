@@ -156,7 +156,7 @@ body {
 	line-height: 100%;
 	margin-left: auto;
 	margin-right: auto;
-	width: 635px;
+	width: 650px;
 }
 #optSelectList h1 {
 	margin-top: 30px;
@@ -164,10 +164,15 @@ body {
 #optSelectList .categoryList {
 	display: flex;
 	flex-direction: column;
+	margin-left: 30px;
+}
+@media (min-width: 650px) {
+#optSelectList .categoryList {
 	flex-wrap: wrap;
 	justify-content: flex-start;
 	column-gap: 10px;
-	height: 300px;
+	max-height: 360px;
+}
 }
 .cbox {
 	cursor:pointer;
