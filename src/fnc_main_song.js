@@ -282,7 +282,6 @@ function fnc_Save()
 {
 	if (int_Status == 0)
 	{
-		fnc_Sort(0);
 		return;
 	}
 
