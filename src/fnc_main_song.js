@@ -84,67 +84,73 @@ function startup()
 		setClass(getID('fldMiddleL'), null); // Remove 'inactive' class
 	}
 
-	var tbl_Select = getID('optTable');
-	var tbl_body_Select = createElement('tbody');
-	tbl_Select.appendChild(tbl_body_Select);
+	const div_Select = getID('optSelectList');
 
-	// Make the checkbox list for titles
-	let i = 0;
-	for (const [titleId, title] of Object.entries(TITLE))
+	// Add Select All
 	{
-		// Row[i]
-		if ((i % int_Colspan) == 0)
-		{
-			var new_row = tbl_body_Select.insertRow(tbl_body_Select.rows.length);
-			new_row.id = 'optSelRow' + i;
-		}
+		const div_Foot = createElement('div');
+		div_Select.appendChild(div_Foot);
+		setClass(div_Foot, "opt_foot");
 
-		// Col[0]
-		var new_cell = new_row.insertCell(new_row.childNodes.length);
-		var new_CheckBox = createElement('input');
-		var new_CheckBoxID = 'optSelect' + titleId;
+		const new_CheckBox = createElement('input');
+		const new_CheckBoxID = 'optSelect_all';
 		new_CheckBox.setAttribute('type', 'checkbox', 0);
 		new_CheckBox.setAttribute('checked', 'true', 0);
-		new_CheckBox.value = title.name;
-		new_CheckBox.title = title.name;
+		new_CheckBox.value = "All";
+		new_CheckBox.title = "All boxes are checked/unchecked at the same time.";
 		new_CheckBox.id = new_CheckBoxID;
-		new_cell.appendChild(new_CheckBox);
+		new_CheckBox.onclick = function () { chgAll(); }
+		div_Foot.appendChild(new_CheckBox);
 
-		var new_label = createElement('label');
-		new_label.appendChild(createText(title.name));
-		new_label.title = title.name;
+		const new_label = createElement('label');
 		new_label.setAttribute('for', new_CheckBoxID);
-		setClass(new_label, 'cbox');
-		new_cell.appendChild(new_label);
-		i++;
+		new_label.appendChild(createText("Select All"));
+		div_Foot.appendChild(new_label);
+	}
+
+	// Make the checkbox list for titles
+	let titlesShown = 0;
+	for (const category of Object.values(CATEGORY)) {
+		const h1_Category = createElement('h1');
+		h1_Category.innerHTML = category.name;
+		div_Select.appendChild(h1_Category);
+
+		const div_Titles = createElement('div');
+		setClass(div_Titles, 'categoryList');
+		div_Select.appendChild(div_Titles);
+
+		for (let i = 0; i < category.titles.length; i++) {
+			const titleID = category.titles[i];
+			const title = TITLE[titleID];
+
+			const div_Item = createElement('div');
+			div_Titles.appendChild(div_Item);
+
+			const new_CheckBox = createElement('input');
+			const new_CheckBoxID = 'optSelect' + titleID;
+			new_CheckBox.setAttribute('type', 'checkbox', 0);
+			new_CheckBox.setAttribute('checked', 'true', 0);
+			new_CheckBox.value = title.name;
+			new_CheckBox.title = title.name;
+			new_CheckBox.id = new_CheckBoxID;
+			div_Item.appendChild(new_CheckBox);
+
+			const new_label = createElement('label');
+			new_label.appendChild(createText(title.name));
+			new_label.title = title.name;
+			new_label.setAttribute('for', new_CheckBoxID);
+			setClass(new_label, 'cbox');
+			div_Item.appendChild(new_label);
+			titlesShown++;
+		}
+	}
+
+	if (titlesShown !== Object.keys(TITLE).length) {
+		alert("Missing title IDs from categories");
 	}
 
 	getID('optImage').disabled = false;
 	getID('optArrange').disabled = false;
-
-	var tbl_foot_Select = createElement('tfoot');
-	tbl_Select.appendChild(tbl_foot_Select);
-
-	// Row[0]
-	var new_row = tbl_foot_Select.insertRow(tbl_foot_Select.rows.length);
-	setClass(new_row, "opt_foot");
-
-	var new_cell = new_row.insertCell(new_row.childNodes.length);
-	new_cell.setAttribute('colspan', int_Colspan, 0);
-	var new_CheckBox = createElement('input');
-	var new_CheckBoxID = 'optSelect_all';
-	new_CheckBox.setAttribute('type', 'checkbox', 0);
-	new_CheckBox.setAttribute('checked', 'true', 0);
-	new_CheckBox.value = "All";
-	new_CheckBox.title = "All boxes are checked/unchecked at the same time.";
-	new_CheckBox.id = new_CheckBoxID;
-	new_CheckBox.onclick = function() {chgAll();}
-	new_cell.appendChild(new_CheckBox);
-
-	var new_label = createElement('label');
-	new_label.setAttribute('for', new_CheckBoxID);
-	new_label.appendChild(createText("Select All"));
-	new_cell.appendChild(new_label);
 
 	createGauge("GaGprog", sGaugeID);
 }
@@ -213,7 +219,7 @@ function init()
 	$('.opt_foot').hide();
 	getID('optImage').disabled = true;
 	getID('optArrange').disabled = true;
-	setClass(getID('optTable'), 'optTable-disabled');
+	setClass(getID('optSelectList'), 'optSelectList-disabled');
 
 	// And enable save visual
 	setClass(getID('fldMiddleS'), null);
