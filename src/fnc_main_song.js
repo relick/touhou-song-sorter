@@ -55,10 +55,35 @@ var maxRows = 42;
 
 var displayType = false;
 
+// Serialisation version
+const SAVE_VERSION = Object.freeze({
+	Old: 0, // Old simple saving (no version tracked but we check if int_Total exists)
+	InitialTidying: 1, // Added versioning and slightly tidied ary_SongData
+});
+
+function fnc_GetSavedDataVersion() {
+	const version = $.jStorage.get("TohoSongSorter_saveVersion");
+	if (version) {
+		return version;
+	}
+
+	const hasOldData = $.jStorage.get("TohoSongSorter_int_Total") !== null;
+	if (hasOldData) {
+		return SAVE_VERSION.Old;
+	}
+
+	return null;
+}
+
 // *****************************************************************************
 // * Executed on page load
 function startup()
 {
+	// Initialise load button if data available
+	if (fnc_GetSavedDataVersion() !== null) {
+		setClass(getID('fldMiddleL'), null); // Remove 'inactive' class
+	}
+
 	var tbl_Select = getID('optTable');
 	var tbl_body_Select = createElement('tbody');
 	tbl_Select.appendChild(tbl_body_Select);
@@ -178,19 +203,20 @@ function init()
 		alert("Please make a larger selection.");
 		return;
 	}
-	else
+	
+	// We're ready, disable all options
+	for (const titleId in TITLE)
 	{
-		// We're ready, disable all options
-		for (const titleId in TITLE)
-		{
-			getID('optSelect' + titleId).disabled = true;
-		}
-		getID('optSelect_all').disabled = true;
-		$('.opt_foot').hide();
-		getID('optImage').disabled = true;
-		getID('optArrange').disabled = true;
-		setClass(getID('optTable'), 'optTable-disabled');
+		getID('optSelect' + titleId).disabled = true;
 	}
+	getID('optSelect_all').disabled = true;
+	$('.opt_foot').hide();
+	getID('optImage').disabled = true;
+	getID('optArrange').disabled = true;
+	setClass(getID('optTable'), 'optTable-disabled');
+
+	// And enable save visual
+	setClass(getID('fldMiddleS'), null);
 
 	int_Total = 0;
 
@@ -249,12 +275,6 @@ function init()
 	fnc_ShowData();
 }
 
-// Serialisation version
-const SAVE_VERSION = Object.freeze({
-	Old: 0, // Old simple saving (no version tracked but we check if int_Total exists)
-	InitialTidying: 1, // Added versioning and slightly tidied ary_SongData
-});
-
 // Save and load is super dumb, literally just throw all the working data into local storage.
 // At least an advantage of this is, changing the data doesn't affect old in-progress sorts.
 // At the same time, it means someone with old data doesn't get bug fixes.
@@ -299,25 +319,14 @@ function fnc_Save()
 	$.jStorage.set("TohoSongSorter_int_RightList", int_RightList, null)
 	$.jStorage.set("TohoSongSorter_int_Status", int_Status, null)
 	$.jStorage.set("TohoSongSorter_int_Total", int_Total, null)
+
+	// Successfully saved, enable load button (if not already)
+	setClass(getID('fldMiddleL'), null);
 }
 
 function fnc_Load()
 {
-	const saveVersion = (() => {
-		const version = $.jStorage.get("TohoSongSorter_saveVersion");
-		if (version)
-		{
-			return version;
-		}
-
-		const hasOldData = $.jStorage.get("TohoSongSorter_int_Total") !== null;
-		if (hasOldData)
-		{
-			return SAVE_VERSION.Old;
-		}
-
-		return null;
-	})();
+	const saveVersion = fnc_GetSavedDataVersion();
 
 	if (saveVersion !== null)
 	{
@@ -728,6 +737,9 @@ function fnc_UpdateOptions()
 // * Show progress, next battle, and results
 function fnc_ShowData()
 {
+	// Update undo display
+	setClass(getID('fldMiddleB'), int_Completed === back_int_Completed ? 'inactive' : null);
+
 	getID("lblCount").innerHTML = int_Count + " (Possibly " + (int_Total - int_Completed) + " remaining)";
 	getID("lblProgress").innerHTML = Math.floor(int_Completed * 100 / int_Total);
 	refreshGauge(sGaugeID, int_Completed * 100 / int_Total);

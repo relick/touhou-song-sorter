@@ -147,6 +147,10 @@ body {
 	border: 1px solid #333333;
 	cursor:pointer;
 }
+#fldMiddleB.inactive {
+	color: grey;
+	cursor: not-allowed;
+}
 #fldMiddleS {
 	text-align: center;
 	width: 150px;
@@ -162,6 +166,14 @@ body {
 	padding:0px;
 	border: 1px solid #333333;
 	cursor:pointer;
+}
+#fldMiddleS.inactive {
+	color: grey;
+	cursor: not-allowed;
+}
+#fldMiddleL.inactive {
+	color: grey;
+	cursor: not-allowed;
 }
 
 #optTable {

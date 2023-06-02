@@ -13,7 +13,12 @@ function createText(sD) {
 }
 
 function setClass(oID, cN) {
-	oID.setAttribute('class', cN, 0);
+	if (cN === null) {
+		oID.removeAttribute('class');
+	}
+	else {
+		oID.setAttribute('class', cN);
+	}
 	oID.className = cN;
 }
 
