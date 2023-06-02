@@ -86,34 +86,67 @@ function startup()
 
 	const div_Select = getID('optSelectList');
 
-	// Add Select All
-	{
-		const div_Foot = createElement('div');
-		div_Select.appendChild(div_Foot);
-		setClass(div_Foot, "opt_foot");
+	const createCheckbox = function (checkboxID, label, alt, labelClass, outerClass, onclickFn) {
+		const div_Item = createElement('div');
+		if (outerClass) {
+			setClass(div_Item, outerClass);
+		}
 
 		const new_CheckBox = createElement('input');
-		const new_CheckBoxID = 'optSelect_all';
 		new_CheckBox.setAttribute('type', 'checkbox', 0);
 		new_CheckBox.setAttribute('checked', 'true', 0);
-		new_CheckBox.value = "All";
-		new_CheckBox.title = "All boxes are checked/unchecked at the same time.";
-		new_CheckBox.id = new_CheckBoxID;
-		new_CheckBox.onclick = function () { chgAll(); }
-		div_Foot.appendChild(new_CheckBox);
+		new_CheckBox.value = alt;
+		new_CheckBox.title = alt;
+		new_CheckBox.id = checkboxID;
+		new_CheckBox.onclick = onclickFn;
+		div_Item.appendChild(new_CheckBox);
 
-		const new_label = createElement('label');
-		new_label.setAttribute('for', new_CheckBoxID);
-		new_label.appendChild(createText("Select All"));
-		div_Foot.appendChild(new_label);
+		if (label) {
+			const new_label = createElement('label');
+			new_label.appendChild(createText(label));
+			new_label.title = label;
+			new_label.setAttribute('for', checkboxID);
+			if (labelClass) {
+				setClass(new_label, labelClass);
+			}
+			div_Item.appendChild(new_label);
+		}
+
+		return div_Item;
+	};
+
+	// Add Select All
+	{
+		div_Select.appendChild(createCheckbox(
+			'optSelect_all',
+			"Select All",
+			"All boxes are checked/unchecked at the same time.",
+			null,
+			"opt_toggleAll",
+			function () { chgAll(null); }
+		));
 	}
 
 	// Make the checkbox list for titles
 	let titlesShown = 0;
-	for (const category of Object.values(CATEGORY)) {
+	for (const [categoryID, category] of Object.entries(CATEGORY)) {
+		const div_Heading = createElement('div');
+		setClass(div_Heading, 'categoryHeading');
+		div_Select.appendChild(div_Heading);
+
 		const h1_Category = createElement('h1');
+		setClass(h1_Category, 'categoryTitle');
 		h1_Category.innerHTML = category.name;
-		div_Select.appendChild(h1_Category);
+		div_Heading.appendChild(h1_Category);
+
+		div_Heading.appendChild(createCheckbox(
+			'optSelect_cat' + categoryID,
+			null,
+			"All boxes in this category are checked/unchecked at the same time.",
+			null,
+			"opt_toggleAll",
+			function () { chgAll(categoryID); }
+		));
 
 		const div_Titles = createElement('div');
 		setClass(div_Titles, 'categoryList');
@@ -123,24 +156,14 @@ function startup()
 			const titleID = category.titles[i];
 			const title = TITLE[titleID];
 
-			const div_Item = createElement('div');
-			div_Titles.appendChild(div_Item);
-
-			const new_CheckBox = createElement('input');
-			const new_CheckBoxID = 'optSelect' + titleID;
-			new_CheckBox.setAttribute('type', 'checkbox', 0);
-			new_CheckBox.setAttribute('checked', 'true', 0);
-			new_CheckBox.value = title.name;
-			new_CheckBox.title = title.name;
-			new_CheckBox.id = new_CheckBoxID;
-			div_Item.appendChild(new_CheckBox);
-
-			const new_label = createElement('label');
-			new_label.appendChild(createText(title.name));
-			new_label.title = title.name;
-			new_label.setAttribute('for', new_CheckBoxID);
-			setClass(new_label, 'cbox');
-			div_Item.appendChild(new_label);
+			div_Titles.appendChild(createCheckbox(
+				'optSelect' + titleID,
+				title.name,
+				"Toggle including " + title.name,
+				'cbox',
+				null,
+				null
+			));
 			titlesShown++;
 		}
 	}
@@ -155,11 +178,24 @@ function startup()
 	createGauge("GaGprog", sGaugeID);
 }
 
-function chgAll()
+function chgAll(categoryId)
 {
-	for (const titleId in TITLE)
-	{
-		getID('optSelect' + titleId).checked = getID('optSelect_all').checked;
+	if (categoryId === null) {
+		const boxChecked = getID('optSelect_all').checked;
+		for (const titleId in TITLE) {
+			getID('optSelect' + titleId).checked = boxChecked;
+		}
+
+		for (const categoryId in CATEGORY) {
+			getID('optSelect_cat' + categoryId).checked = boxChecked;
+		}
+	}
+	else {
+		const boxChecked = getID('optSelect_cat' + categoryId).checked;
+		const titles = CATEGORY[categoryId].titles;
+		for (let i = 0; i < titles.length; i++) {
+			getID('optSelect' + titles[i]).checked = boxChecked;
+		}
 	}
 }
 
@@ -216,7 +252,7 @@ function init()
 		getID('optSelect' + titleId).disabled = true;
 	}
 	getID('optSelect_all').disabled = true;
-	$('.opt_foot').hide();
+	$('.opt_toggleAll').hide();
 	getID('optImage').disabled = true;
 	getID('optArrange').disabled = true;
 	setClass(getID('optSelectList'), 'optSelectList-disabled');

@@ -152,14 +152,23 @@ body {
 	cursor: not-allowed;
 }
 
+.categoryTitle {
+	display: inline-block
+}
 #optSelectList {
 	line-height: 100%;
 	margin-left: auto;
 	margin-right: auto;
 	width: 650px;
 }
-#optSelectList h1 {
-	margin-top: 30px;
+#optSelectList .categoryHeading {
+	margin-top: 12px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+#optSelectList .categoryHeading .opt_toggleAll {
+	margin-left: 10px;
 }
 #optSelectList .categoryList {
 	display: flex;
@@ -178,11 +187,11 @@ body {
 	cursor:pointer;
 	font-size: 12px;
 }
-.opt_foot label {
+.opt_toggleAll label {
 	cursor: pointer;
 }
 .optSelectList-disabled .cbox,
-.optSelectList-disabled .opt_foot {
+.optSelectList-disabled .opt_toggleAll {
 	cursor: default;
 }
 
