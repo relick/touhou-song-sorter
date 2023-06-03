@@ -59,6 +59,7 @@ var displayType = false;
 const SAVE_VERSION = Object.freeze({
 	Old: 0, // Old simple saving (no version tracked but we check if int_Total exists)
 	InitialTidying: 1, // Added versioning and slightly tidied ary_SongData
+	ReduceSongData: 2, // Moves almost all of the repetitive song data that was actually title data into the title data
 });
 
 function fnc_GetSavedDataVersion() {
@@ -329,7 +330,7 @@ function fnc_Save()
 
 	// jStorage.set(key, data, {TTL});
 
-	$.jStorage.set("TohoSongSorter_saveVersion", SAVE_VERSION.InitialTidying, null);
+	$.jStorage.set("TohoSongSorter_saveVersion", SAVE_VERSION.ReduceSongData, null);
 
 	$.jStorage.set("TohoSongSorter_ary_EqualData", ary_EqualData, null)
 	$.jStorage.set("TohoSongSorter_ary_ParentData", ary_ParentData, null)
@@ -415,6 +416,23 @@ function fnc_Load()
 			// Removes the 'unused' data at the start of each entry
 			for (let i = 0; i < ary_TempData.length; i++) {
 				ary_TempData[i].shift();
+			}
+		}
+
+		if (saveVersion < SAVE_VERSION.ReduceSongData) {
+			// We won't be able to 'fix' old data, but we can make it work with the new system just fine
+			for (let i = 0; i < ary_TempData.length; i++) {
+				const songTitleData = {
+					title: "BONUS",
+					image: ary_TempData[i][LEGACY_TRACK_IMAGE],
+					shortName: ary_TempData[i][LEGACY_TRACK_TITLE_NAME],
+					abbrev: ary_TempData[i][LEGACY_TRACK_TITLE_ABBREV],
+				};
+
+				// Remove and replace
+				ary_TempData[i][LEGACY_TRACK_IMAGE] = songTitleData;
+				ary_TempData[i].splice(LEGACY_TRACK_TITLE_NAME, 1);
+				ary_TempData[i].splice(LEGACY_TRACK_TITLE_ABBREV, 1);
 			}
 		}
 
@@ -644,11 +662,13 @@ function fnc_ShowResults()
 
 		var obj_TempData = ary_TempData[ary_SortData[0][i]];
 
+		const titleData = getTitleData(obj_TempData[TRACK_TITLE_DATA]);
+
 		// Image
 		if (i < int_ResultRank) {
 			var new_img = createElement('img');
-			if (obj_TempData[TRACK_IMAGE].length > 0) {
-				new_img.src = str_ImgPath + obj_TempData[TRACK_IMAGE];
+			if (titleData.image.length > 0) {
+				new_img.src = str_ImgPath + titleData.image;
 				new_cell.appendChild(new_img);
 				new_cell.appendChild(createElement('br'));
 			}
@@ -658,11 +678,11 @@ function fnc_ShowResults()
 		var textForEntry = "";
 		if (!displayType)
 		{
-			textForEntry = obj_TempData[TRACK_NAME] + " (" + obj_TempData[TRACK_TITLE_ABBREV] + ")";
+			textForEntry = obj_TempData[TRACK_NAME] + " (" + titleData.abbrev + ")";
 		}
 		else
 		{
-			textForEntry = obj_TempData[TRACK_DESCRIPTION] + " (" + obj_TempData[TRACK_TITLE_ABBREV] + ")";
+			textForEntry = obj_TempData[TRACK_DESCRIPTION] + " (" + titleData.abbrev + ")";
 		}
 		new_cell.appendChild(createText(textForEntry));
 		popup_TrackName[i] = textForEntry; // for popup window
@@ -709,7 +729,9 @@ function fnc_UpdateOptions()
 		var obj_YoutubeItem = getID((i == 0) ? "youLeft" : "youRight");
 		var obj_TexItem = getID((i == 0) ? "texLeft" : "texRight");
 		var obj_TempData = ary_TempData[ary_SortData[(i == 0)  ? int_LeftList : int_RightList][(i == 0)  ? int_LeftID : int_RightID]];
-		
+
+		const titleData = getTitleData(obj_TempData[TRACK_TITLE_DATA]);
+
 		if(getID('optImage').checked)
 		{
 			//youtube
@@ -725,7 +747,7 @@ function fnc_UpdateOptions()
 			else
 			{
 				var obj_Item = createElement("img");
-				obj_Item.src = str_ImgPath + obj_TempData[TRACK_IMAGE];
+				obj_Item.src = str_ImgPath + titleData.image;
 				obj_Item.title = obj_TempData[TRACK_NAME];
 				obj_SelectItem.replaceChild(obj_Item, obj_SelectItem.firstChild);
 			}
@@ -734,7 +756,7 @@ function fnc_UpdateOptions()
 		{
 			//image
 			var obj_Item = createElement("img");
-			obj_Item.src = str_ImgPath + obj_TempData[TRACK_IMAGE];
+			obj_Item.src = str_ImgPath + titleData.image;
 			obj_Item.title = obj_TempData[TRACK_NAME];
 			obj_SelectItem.replaceChild(obj_Item, obj_SelectItem.firstChild);
 			
@@ -761,7 +783,7 @@ function fnc_UpdateOptions()
 		
 		var obj_Item = createElement("span");
 		obj_Item.id = (i == 0) ? "gameLeft" : "gameRight";
-		obj_Item.appendChild(createText(obj_TempData[TRACK_TITLE_NAME]));
+		obj_Item.appendChild(createText(titleData.shortName));
 		obj_TexItem.replaceChild(obj_Item, obj_TexItem.childNodes[2]);
 		
 		var obj_Item = createElement("span");

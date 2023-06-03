@@ -26,6 +26,8 @@ function showDataForTitle(nID)
 		{
 			if(ary_SongData[i][TRACK_TITLES].has(ary_TitleData[nID]))
 			{
+				const titleData = getTitleData(ary_SongData[i][TRACK_TITLE_DATA]);
+
 				const row = tableBody.insertRow(-1);
 
 				// Name
@@ -44,7 +46,7 @@ function showDataForTitle(nID)
 				// Image
 				const imageCell = row.insertCell(-1);
 				const image = imageCell.appendChild(createElement('img'));
-				image.src = "../images/" + ary_SongData[i][TRACK_IMAGE];
+				image.src = "../images/" + titleData.image;
 
 				// Youtube
 				const youtubeCell = row.insertCell(-1);
@@ -56,11 +58,11 @@ function showDataForTitle(nID)
 				
 				// Title name
 				const titleName = row.insertCell(-1);
-				titleName.appendChild(createText(ary_SongData[i][TRACK_TITLE_NAME]));
+				titleName.appendChild(createText(titleData.shortName));
 
 				// Abbreviation
 				const abbrev = row.insertCell(-1);
-				abbrev.appendChild(createText(ary_SongData[i][TRACK_TITLE_ABBREV]));
+				abbrev.appendChild(createText(titleData.abbrev));
 
 				// Stage
 				const stage = row.insertCell(-1);
