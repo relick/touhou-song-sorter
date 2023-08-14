@@ -62,7 +62,7 @@ const TITLE = deepFreeze({
 	SFW: { name: "17.5: 東方剛欲異聞 ~ 水没した沈愁地獄 (Sunken Fossil World)", image: "shoss.jpg", shortName: "Sunken Fossil World", abbrev: "SFW", },
 	UM: { name: "18: 東方虹龍洞 ~ Unconnected Marketeers", image: "um.jpg", shortName: "Unconnected Marketeers", abbrev: "UM", },
 	HBM: { name: "18.5: バレットフィリア達の闇市場 ~ 100th Black Market", image: "100bm.png", shortName: "100th Black Market", abbrev: "100BM", },
-	UDoALG: { name: "19: 東方獣王園 〜 Unfinished Dream of All Living Ghost (trial)", image: "udoalg.png", shortName: "Unfinished Dream of All Living Ghost", abbrev: "UDoALG", },
+	UDoALG: { name: "19: 東方獣王園 〜 Unfinished Dream of All Living Ghost", image: "udoalg.png", shortName: "Unfinished Dream of All Living Ghost", abbrev: "UDoALG", },
 	SG: { name: "秋霜玉 (Shuusou Gyoku)", image: "bz6cubk.jpg", shortName: "Shuusou Gyoku", abbrev: "SG", },
 	KG: { name: "稀翁玉 (Kioh Gyoku)", image: "eQsoLaw.jpg", shortName: "Kioh Gyoku", abbrev: "KG", },
 	AUS1: { name: "幺樂団の歴史1 ~ Akyu's Untouched Score vol.1", image: "JJYLLmO.jpg", shortName: "Akyu's Untouched Score vol.1", abbrev: "AUS1", },
@@ -1079,11 +1079,28 @@ var ary_SongData = [
 	//["A Rainbow-Colored World",											new Set([TITLE.UM, TITLE.HBM]), { title: "UM", }, "AUFP1wxuncs", "Staff Roll", ORIGINAL_TRACK, OTHER_THEME]
 	
 	//Unfinished Dream of All Living Ghost
-	["A Beast's Intelligence",								new Set([TITLE.UDoALG]), { title: "UDoALG", }, "ny71diO8QYY", "Title Screen", ORIGINAL_TRACK, OTHER_THEME],
-	["The World Is Made in an Adorable Way",				new Set([TITLE.UDoALG]), { title: "UDoALG", }, "9PMdjMiKzSo", "Reimu Hakurei's theme & Stage Theme 1", ORIGINAL_TRACK, STAGE_AND_BOSS_THEME],
-	["Magical Beast Scramble",								new Set([TITLE.UDoALG]), { title: "UDoALG", }, "Tmcz1C6WHjw", "Marisa Kirisame's theme & Stage Theme 2", ORIGINAL_TRACK, STAGE_AND_BOSS_THEME],
-	["A Pair of Divine Beasts",								new Set([TITLE.UDoALG]), { title: "UDoALG", }, "rQ4rZBes55Q", "Aunn Komano's theme", ARRANGED_TRACK, BOSS_THEME],
-	["At the Harbor of Spring",								new Set([TITLE.UDoALG]), { title: "UDoALG", }, "6U6Y5313Ys0", "Nazrin's theme", ARRANGED_TRACK, BOSS_THEME],
-	["Unforgettable, the Nostalgic Greenery",				new Set([TITLE.UDoALG]), { title: "UDoALG", }, "ec63ytQUhr0", "Seiran's theme", ARRANGED_TRACK, BOSS_THEME],
-	["Unnamed Pre-Battle Theme",							new Set([TITLE.UDoALG]), { title: "UDoALG", }, "D1EdRbBwXQs", "Pre-Battle Conversation", ORIGINAL_TRACK, OTHER_THEME]
+	["A Beast's Intelligence",										new Set([TITLE.UDoALG]), { title: "UDoALG", }, "5iD_8B1Pjaw", "Title Screen", ORIGINAL_TRACK, OTHER_THEME],
+	["The World Is Made in an Adorable Way",						new Set([TITLE.UDoALG]), { title: "UDoALG", }, "IIzf9JDL4pc", "Reimu Hakurei's theme & Stage Theme 1", ORIGINAL_TRACK, STAGE_AND_BOSS_THEME],
+	["Magical Beast Scramble",										new Set([TITLE.UDoALG]), { title: "UDoALG", }, "gJ11GJvzZHg", "Marisa Kirisame's theme & Stage Theme 2", ORIGINAL_TRACK, STAGE_AND_BOSS_THEME],
+	["The Oni Go to the Perpetual Mountain",						new Set([TITLE.UDoALG]), { title: "UDoALG", }, "LEba9U2KerI", "Suika Ibuki's theme & Stage Theme 3", ORIGINAL_TRACK, STAGE_AND_BOSS_THEME],
+	["Tiny Shangri-La",												new Set([TITLE.UDoALG]), { title: "UDoALG", }, "DKjcJBBQs6M", "Biten Son's theme", ORIGINAL_TRACK, BOSS_THEME],
+	["A Brave and Leisurely Beast",									new Set([TITLE.UDoALG]), { title: "UDoALG", }, "9VpsYwWxA7Q", "Enoko Mitsugashira's theme", ORIGINAL_TRACK, BOSS_THEME],
+	["Vampiric Cryptid Chupacabra",									new Set([TITLE.UDoALG]), { title: "UDoALG", }, "EvF04aZ_XPY", "Chiyari Tenkajin's theme", ORIGINAL_TRACK, BOSS_THEME],
+	["The Path to Yomi Where None Turn Back",						new Set([TITLE.UDoALG]), { title: "UDoALG", }, "3OmOxuma1cM", "Hisami Yomotsu's theme", ORIGINAL_TRACK, BOSS_THEME],
+	["The Deviants' Unobstructed Light ~ Kingdom of Nothingness.",	new Set([TITLE.UDoALG]), { title: "UDoALG", }, "mHVF3JnsaEs", "Zanmu Nippaku's theme", ORIGINAL_TRACK, BOSS_THEME],
+	["The Primal Scene of Japan the Girl Saw",						new Set([TITLE.UDoALG]), { title: "UDoALG", }, "qIxnqwoeCfY", "Sanae Kochiya's theme", ARRANGED_TRACK, BOSS_THEME],
+	["Spiritual Domination ~ Who done it!",							new Set([TITLE.UDoALG]), { title: "UDoALG", }, "Fz1g3ZrIQQI", "Ran Yakumo's theme", ARRANGED_TRACK, BOSS_THEME],
+	["A Pair of Divine Beasts",										new Set([TITLE.UDoALG]), { title: "UDoALG", }, "W5gDSaHqM8w", "Aunn Komano's theme", ARRANGED_TRACK, BOSS_THEME],
+	["At the Harbor of Spring",										new Set([TITLE.UDoALG]), { title: "UDoALG", }, "g9znnk7lb4w", "Nazrin's theme", ARRANGED_TRACK, BOSS_THEME],
+	["Unforgettable, the Nostalgic Greenery",						new Set([TITLE.UDoALG]), { title: "UDoALG", }, "Y6-cwmrmiBo", "Seiran's theme", ARRANGED_TRACK, BOSS_THEME],
+	["Corpse Voyage ~ Be of good cheer!",							new Set([TITLE.UDoALG]), { title: "UDoALG", }, "eC9tgf7c4Uc", "Rin Kaenbyou's theme", ARRANGED_TRACK, BOSS_THEME],
+	["The Long-Awaited Oumagatoki",									new Set([TITLE.UDoALG]), { title: "UDoALG", }, "Jeo5sw36FNM", "Tsukasa Kudamaki's theme", ARRANGED_TRACK, BOSS_THEME],
+	["Futatsuiwa from Sado",										new Set([TITLE.UDoALG]), { title: "UDoALG", }, "VLa0OGzeKzo", "Mamizou Futatsuiwa's theme", ARRANGED_TRACK, BOSS_THEME],
+	["Tortoise Dragon ~ Fortune and Misfortune",					new Set([TITLE.UDoALG]), { title: "UDoALG", }, "WBULUzizopY", "Yachie Kicchou's theme", ARRANGED_TRACK, BOSS_THEME],
+	["Prince Shoutoku's Pegasus ~ Dark Pegasus",					new Set([TITLE.UDoALG]), { title: "UDoALG", }, "UVRCEgKANhA", "Saki Kurokoma's theme", ARRANGED_TRACK, BOSS_THEME],
+	["Memento of the Avaricious Beast",								new Set([TITLE.UDoALG]), { title: "UDoALG", }, "IkZ1jq3HJ7w", "Yuuma Toutetsu's theme", ARRANGED_TRACK, BOSS_THEME],
+	["Beast Kings' Rest",											new Set([TITLE.UDoALG]), { title: "UDoALG", }, "8XfvmgnReH0", "Ending", ORIGINAL_TRACK, OTHER_THEME],
+	["Do Beasts Have Intelligence?",								new Set([TITLE.UDoALG]), { title: "UDoALG", }, "T8r1dHwiSRc", "Staff Roll", ORIGINAL_TRACK, OTHER_THEME],
+	["Unnamed Pre-Battle Theme (Early Stages)",						new Set([TITLE.UDoALG]), { title: "UDoALG", }, "VYOW4zgexDg", "Pre-Battle Conversation", ORIGINAL_TRACK, OTHER_THEME]
+	["Unnamed Pre-Battle Theme (Late Stages)",						new Set([TITLE.UDoALG]), { title: "UDoALG", }, "uW9Z0UXKFmA", "Pre-Battle Conversation", ORIGINAL_TRACK, OTHER_THEME]
 ];
