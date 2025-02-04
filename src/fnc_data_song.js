@@ -57,12 +57,12 @@ const TITLE = deepFreeze({
 	LoLK: { name: "15: 東方紺珠伝 ~ Legacy of Lunatic Kingdom", image: "5OWvYpC.jpg", shortName: "Legacy of Lunatic Kingdom", abbrev: "LoLK", },
 	AoCF: { name: "15.5: 東方憑依華 ~ Antinomy of Common Flowers", image: "gOk6DEl.jpg", shortName: "Antinomy of Common Flowers", abbrev: "AoCF", },
 	HSiFS: { name: "16: 東方天空璋 ~ Hidden Star in Four Seasons", image: "hsifs.png", shortName: "Hidden Star in Four Seasons", abbrev: "HSiFS", },
-	VD: { name: "16.5: 秘封ナイトメアダイアリー 〜 Violet Detector", image: "XaPCFK9.jpg", shortName: "Violet Detector", abbrev: "VD", },
+	VD: { name: "16.5: 秘封ナイトメアダイアリー ~ Violet Detector", image: "XaPCFK9.jpg", shortName: "Violet Detector", abbrev: "VD", },
 	WBaWC: { name: "17: 東方鬼形獣 ~ Wily Beast and Weakest Creature", image: "wbawc.png", shortName: "Wily Beast and Weakest Creature", abbrev: "WBaWC", },
 	SFW: { name: "17.5: 東方剛欲異聞 ~ 水没した沈愁地獄 (Sunken Fossil World)", image: "shoss.jpg", shortName: "Sunken Fossil World", abbrev: "SFW", },
 	UM: { name: "18: 東方虹龍洞 ~ Unconnected Marketeers", image: "um.jpg", shortName: "Unconnected Marketeers", abbrev: "UM", },
 	HBM: { name: "18.5: バレットフィリア達の闇市場 ~ 100th Black Market", image: "100bm.png", shortName: "100th Black Market", abbrev: "100BM", },
-	UDoALG: { name: "19: 東方獣王園 〜 Unfinished Dream of All Living Ghost", image: "udoalg.png", shortName: "Unfinished Dream of All Living Ghost", abbrev: "UDoALG", },
+	UDoALG: { name: "19: 東方獣王園 ~ Unfinished Dream of All Living Ghost", image: "udoalg.png", shortName: "Unfinished Dream of All Living Ghost", abbrev: "UDoALG", },
 	SG: { name: "秋霜玉 (Shuusou Gyoku)", image: "bz6cubk.jpg", shortName: "Shuusou Gyoku", abbrev: "SG", },
 	KG: { name: "稀翁玉 (Kioh Gyoku)", image: "eQsoLaw.jpg", shortName: "Kioh Gyoku", abbrev: "KG", },
 	AUS1: { name: "幺樂団の歴史1 ~ Akyu's Untouched Score vol.1", image: "JJYLLmO.jpg", shortName: "Akyu's Untouched Score vol.1", abbrev: "AUS1", },
@@ -81,6 +81,7 @@ const TITLE = deepFreeze({
 	DLFR: { name: "8: 燕石博物誌 ~ Dr. Latency's Freak Report", image: "dlfr.png", shortName: "Dr. Latency's Freak Report", abbrev: "DLFR", },
 	DBOA: { name: "9: 旧約酒場 ~ Dateless Bar \"Old Adam\"", image: "dboa.png", shortName: "Dateless Bar \"Old Adam\"", abbrev: "DBOA", },
 	RCS: { name: "9.5: 虹色のセプテントリオン (Rainbow-Colored Septentrion)", image: "sept.jpg", shortName: "Rainbow-Colored Septentrion", abbrev: "RCS", },
+	TJD: { name: "10: 七夕坂夢幻能 ~ Taboo Japan Disentanglement", image: "tjd.png", shortName: "Taboo Japan Disentanglement", abbrev: "TJD", },
 	BONUS: { name: "Bonus CDs + Other Tracks", image: "daisakusen.png", shortName: "Bonus CDs + Other Tracks", abbrev: "BONUS", },
 });
 
@@ -1103,5 +1104,18 @@ var ary_SongData = [
 	["Beast Kings' Rest",											new Set([TITLE.UDoALG]), { title: "UDoALG", }, "8XfvmgnReH0", "Ending", ORIGINAL_TRACK, OTHER_THEME],
 	["Do Beasts Have Intelligence?",								new Set([TITLE.UDoALG]), { title: "UDoALG", }, "T8r1dHwiSRc", "Staff Roll", ORIGINAL_TRACK, OTHER_THEME],
 	["Unnamed Pre-Battle Theme (Early Stages)",						new Set([TITLE.UDoALG]), { title: "UDoALG", }, "VYOW4zgexDg", "Pre-Battle Conversation", ORIGINAL_TRACK, OTHER_THEME]
-	["Unnamed Pre-Battle Theme (Late Stages)",						new Set([TITLE.UDoALG]), { title: "UDoALG", }, "uW9Z0UXKFmA", "Pre-Battle Conversation", ORIGINAL_TRACK, OTHER_THEME]
+	["Unnamed Pre-Battle Theme (Late Stages)",						new Set([TITLE.UDoALG]), { title: "UDoALG", }, "uW9Z0UXKFmA", "Pre-Battle Conversation", ORIGINAL_TRACK, OTHER_THEME],
+
+	//Taboo Japan Disentanglement
+	["Dawn Breaks on Tanabatazaka",											new Set([TITLE.TJD]), { title: "TJD", }, "prPSIalBRUg", "Track 1", ORIGINAL_TRACK, OTHER_THEME],
+	["Tinkerbell of Inequality",											new Set([TITLE.TJD]), { title: "TJD", }, "GQ06ZzUPHgo", "Track 2", ORIGINAL_TRACK, OTHER_THEME],
+	["Does the Forbidden Door Lead to This World, or the World Beyond?",	new Set([TITLE.TJD]), { title: "TJD", }, "PUOa3CGIbrM", "Track 3", ARRANGED_TRACK, OTHER_THEME],
+	["Smoking Dragon",														new Set([TITLE.TJD]), { title: "TJD", }, "MLXijFBfdrU", "Track 4", ARRANGED_TRACK, OTHER_THEME],
+	["Mugen Noh ~ Taboo Marionette",										new Set([TITLE.TJD]), { title: "TJD", }, "gJ_JHVbA6MM", "Track 5", ORIGINAL_TRACK, OTHER_THEME],
+	["Crazy Backup Dancers",												new Set([TITLE.TJD]), { title: "TJD", }, "9TkANBqv42k", "Track 6", ARRANGED_TRACK, OTHER_THEME],
+	["Yorimashi Between Dreams and Reality ~ Necro-Fantasia",				new Set([TITLE.TJD]), { title: "TJD", }, "umpQW5pZyFA", "Track 7", ARRANGED_TRACK, OTHER_THEME],
+	["The Lonely Road of Hitachi",											new Set([TITLE.TJD]), { title: "TJD", }, "M9TGEXzzOJ0", "Track 8", ORIGINAL_TRACK, OTHER_THEME],
+	["The Lamentations Known Only by Jizo",									new Set([TITLE.TJD]), { title: "TJD", }, "qeAIyFygAfI", "Track 9", ARRANGED_TRACK, OTHER_THEME],
+	["The Concealed Four Seasons",											new Set([TITLE.TJD]), { title: "TJD", }, "XRTU74Zun2E", "Track 10", ARRANGED_TRACK, OTHER_THEME],
+	["Ghosts Exist Even When It's Not Night",								new Set([TITLE.TJD]), { title: "TJD", }, "rEUzj32oXWM", "Track 11", ORIGINAL_TRACK, OTHER_THEME]
 ];
