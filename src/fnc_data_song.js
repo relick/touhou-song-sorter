@@ -27,9 +27,10 @@ const deepFreeze = obj => {
 };
 
 // * Game and album titles
-// name: used during the sort and in the final result table
-// abbrev: abbreviated form (also used during the sort and in the final result table)
-// selectionName: used in the initial option table for selecting which titles to sort over
+// name: used in the selection table before starting a sort
+// image: 180x180px CD artwork
+// shortName: used during the sort
+// abbrev: abbreviated form (used in the final result table)
 const TITLE = deepFreeze({
 	HRtP: { name: "1: 東方靈異伝 ~ Highly Responsive to Prayers", image: "fZ2BDUV.jpg", shortName: "Highly Responsive to Prayers", abbrev: "HRtP", },
 	SoEW: { name: "2: 東方封魔録 ~ Story of Eastern Wonderland", image: "XHi6YmD.jpg", shortName: "Story of Eastern Wonderland", abbrev: "SoEW", },
@@ -127,7 +128,7 @@ const CATEGORY = deepFreeze({
 		"IN", "PoFV", "StB", "MoF", "SWR", "SA", "UFO", "Soku", "DS",
 		"GFW", "TD", "HM", "DDC", "ISC", "ULiL", "LoLK", "AoCF", "HSiFS",
 		"VD", "WBaWC", "SFW", "UM", "HBM", "UDoALG"], },
-	Hifuu: { name: "秘封倶楽部 - Secret Sealing Club", titles: ["DiPP", "GFC", "CoSD", "R53m", "MA", "UFMJ", "TGA", "NToJ", "DLFR", "DBOA", "RCS"], },
+	Hifuu: { name: "秘封倶楽部 - Secret Sealing Club", titles: ["DiPP", "GFC", "CoSD", "R53m", "MA", "UFMJ", "TGA", "NToJ", "DLFR", "DBOA", "RCS", "TJD"], },
 	Seihou: { name: "西方 - Seihou", titles: ["SG", "KG"], },
 	Akyu: { name: "幺樂団の歴史 - Akyu's Untouched Score", titles: ["AUS1", "AUS2", "AUS3", "AUS4", "AUS5"], },
 	Other: { name: "Other", titles: ["BONUS"], },
