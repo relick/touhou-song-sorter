@@ -1063,10 +1063,10 @@ var ary_SongData = [
 	//["Player's Score",												new Set([TITLE.GFW, TITLE.TD, TITLE.DDC, TITLE.LoLK, TITLE.HSiFS, TITLE.WBaWC, TITLE.UM]), { title: "GFW", }, "t3hBNsqiwL8", "", ORIGINAL_TRACK, OTHER_THEME],
 	
 	//Rainbow-Colored Septentrion
-	//TODO: update with vids if they're ever uploaded
-	["The Wolves of Nanatsuishi Dash to Seize the Clouds",				new Set([TITLE.RCS]), { title: "RCS", }, "4G78gVVd4qY", "Track 1", ORIGINAL_TRACK, OTHER_THEME],
-	["Illusionary White Traveler",										new Set([TITLE.RCS]), { title: "RCS", }, "na", "Track 2", ARRANGED_TRACK, OTHER_THEME],
-	["Where Is That Bustling Marketplace Now ~ Immemorial Marketeers",	new Set([TITLE.RCS]), { title: "RCS", }, "na", "Track 3", ARRANGED_TRACK, OTHER_THEME],
+	//TODO: update with non-premium vids if they're ever uploaded
+	["The Wolves of Nanatsuishi Dash to Seize the Clouds",				new Set([TITLE.RCS]), { title: "RCS", }, "EEIrE9qC1Ro", "Track 1", ORIGINAL_TRACK, OTHER_THEME],
+	["Illusionary White Traveler",										new Set([TITLE.RCS]), { title: "RCS", }, "6Ip2g-GUh2w", "Track 2", ARRANGED_TRACK, OTHER_THEME],
+	["Where Is That Bustling Marketplace Now ~ Immemorial Marketeers",	new Set([TITLE.RCS]), { title: "RCS", }, "2L_waa-A8SI", "Track 3", ARRANGED_TRACK, OTHER_THEME],
 
 	//100th Black Market
 	["The Collector's Melancholy Afternoon",								new Set([TITLE.HBM]), { title: "HBM", }, "bOJwXZLtzcA", "Title Screen", ORIGINAL_TRACK, OTHER_THEME],
@@ -1107,6 +1107,7 @@ var ary_SongData = [
 	["Unnamed Pre-Battle Theme (Late Stages)",						new Set([TITLE.UDoALG]), { title: "UDoALG", }, "uW9Z0UXKFmA", "Pre-Battle Conversation", ORIGINAL_TRACK, OTHER_THEME],
 
 	//Taboo Japan Disentanglement
+	//TODO: update with non-premium vids if they're ever uploaded
 	["Dawn Breaks on Tanabatazaka",											new Set([TITLE.TJD]), { title: "TJD", }, "prPSIalBRUg", "Track 1", ORIGINAL_TRACK, OTHER_THEME],
 	["Tinkerbell of Inequality",											new Set([TITLE.TJD]), { title: "TJD", }, "GQ06ZzUPHgo", "Track 2", ORIGINAL_TRACK, OTHER_THEME],
 	["Does the Forbidden Door Lead to This World, or the World Beyond?",	new Set([TITLE.TJD]), { title: "TJD", }, "PUOa3CGIbrM", "Track 3", ARRANGED_TRACK, OTHER_THEME],
