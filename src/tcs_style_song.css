@@ -180,7 +180,6 @@ body {
 	flex-wrap: wrap;
 	justify-content: flex-start;
 	column-gap: 10px;
-	max-height: 360px;
 }
 }
 .cbox {

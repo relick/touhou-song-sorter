@@ -151,6 +151,7 @@ function startup()
 
 		const div_Titles = createElement('div');
 		setClass(div_Titles, 'categoryList');
+		div_Titles.setAttribute('style', "max-height: " + category.height);
 		div_Select.appendChild(div_Titles);
 
 		for (let i = 0; i < category.titles.length; i++) {

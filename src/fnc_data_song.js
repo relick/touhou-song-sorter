@@ -65,8 +65,6 @@ const TITLE = deepFreeze({
 	HBM: { name: "18.5: バレットフィリア達の闇市場 ~ 100th Black Market", image: "100bm.png", shortName: "100th Black Market", abbrev: "100BM", },
 	UDoALG: { name: "19: 東方獣王園 ~ Unfinished Dream of All Living Ghost", image: "udoalg.png", shortName: "Unfinished Dream of All Living Ghost", abbrev: "UDoALG", },
 	FW: { name: "20: 東方錦上京 ~ Fossilized Wonders", image: "FW.png", shortName: "Fossilized Wonders", abbrev: "FW", },
-	SG: { name: "秋霜玉 (Shuusou Gyoku)", image: "bz6cubk.jpg", shortName: "Shuusou Gyoku", abbrev: "SG", },
-	KG: { name: "稀翁玉 (Kioh Gyoku)", image: "eQsoLaw.jpg", shortName: "Kioh Gyoku", abbrev: "KG", },
 	AUS1: { name: "幺樂団の歴史1 ~ Akyu's Untouched Score vol.1", image: "JJYLLmO.jpg", shortName: "Akyu's Untouched Score vol.1", abbrev: "AUS1", },
 	AUS2: { name: "幺樂団の歴史2 ~ Akyu's Untouched Score vol.2", image: "8YV2A7P.jpg", shortName: "Akyu's Untouched Score vol.2", abbrev: "AUS2", },
 	AUS3: { name: "幺樂団の歴史3 ~ Akyu's Untouched Score vol.3", image: "rHPHyai.jpg", shortName: "Akyu's Untouched Score vol.3", abbrev: "AUS3", },
@@ -84,20 +82,34 @@ const TITLE = deepFreeze({
 	DBOA: { name: "9: 旧約酒場 ~ Dateless Bar \"Old Adam\"", image: "dboa.png", shortName: "Dateless Bar \"Old Adam\"", abbrev: "DBOA", },
 	RCS: { name: "9.5: 虹色のセプテントリオン (Rainbow-Colored Septentrion)", image: "sept.jpg", shortName: "Rainbow-Colored Septentrion", abbrev: "RCS", },
 	TJD: { name: "10: 七夕坂夢幻能 ~ Taboo Japan Disentanglement", image: "tjd.png", shortName: "Taboo Japan Disentanglement", abbrev: "TJD", },
-	BONUS: { name: "Bonus CDs + Other Tracks", image: "daisakusen.png", shortName: "Bonus CDs + Other Tracks", abbrev: "BONUS", },
+	ZSW: { name: "ZUN's Strange Works", image: "zsw.png", shortName: "ZUN's Strange Works", abbrev: "ZSW", },
+	SG: { name: "秋霜玉 (Shuusou Gyoku)", image: "bz6cubk.jpg", shortName: "Shuusou Gyoku", abbrev: "SG", },
+	TLM: { name: "トルテルマジック (Torte Le Magic)", image: "tlm.png", shortName: "Torte Le Magic", abbrev: "TLM", },
+	KG: { name: "稀翁玉 (Kioh Gyoku)", image: "eQsoLaw.jpg", shortName: "Kioh Gyoku", abbrev: "KG", },
+	BAiJR: { name: "東方文花帖 ~ Bohemian Archive in Japanese Red [Bonus CD]", image: "w9FZqDn.jpg", shortName: "Bohemian Archive in Japanese Red", abbrev: "BAiJR", },
+	EaLND: { name: "東方三月精 ~ Eastern and Little Nature Deity [Bonus CD]", image: "YfoRCHQ.jpg", shortName: "Eastern and Little Nature Deity", abbrev: "EaLND", },
+	PMiSS: { name: "東方求聞史紀 ~ Perfect Memento in Strict Sense [Bonus CD]", image: "mu8UUhH.jpg", shortName: "Perfect Memento in Strict Sense", abbrev: "PMiSS", },
+	SaBND: { name: "東方三月精 ~ Strange and Bright Nature Deity [Bonus CDs]", image: "MGwqCJo.jpg", shortName: "Strange and Bright Nature Deity", abbrev: "SaBND", },
+	SSiB: { name: "東方儚月抄 ~ Silent Sinner in Blue [Bonus CD]", image: "p8GtjLf.jpg", shortName: "Silent Sinner in Blue", abbrev: "SSiB", },
+	GoM: { name: "The Grimoire of Marisa [Bonus CD]", image: "FI9IsdC.jpg", shortName: "The Grimoire of Marisa", abbrev: "GoM", },
+	OSP: { name: "東方三月精 ~ Oriental Sacred Place [Bonus CDs]", image: "Kw2uOqV.jpg", shortName: "Oriental Sacred Place", abbrev: "OSP", },
+	FS: { name: "東方鈴奈庵 ~ Forbidden Scrollery [Bonus CD]", image: "fs.jpg", shortName: "Forbidden Scrollery", abbrev: "FS", },
+	SCoOW: { name: "東方外來韋編 Strange Creators of Outer World [Mini Album 2]", image: "fs.jpg", shortName: "Strange Creators of Outer World", abbrev: "SCoOW", },
+	ULiL2: { name: "東方深秘録 ~ Urban Legend in Limbo [OST 2]", image: "fs.jpg", shortName: "Urban Legend in Limbo", abbrev: "ULiL", },
+	DOUJIN: { name: "Miscellaneous Collaborations", image: "indie.png", shortName: "Misc. Collabs", abbrev: "DOUJIN", },
 });
 
 // Not included in main filters, but used for song data display
 const EXTRA_TITLES = deepFreeze({
-	BAiJR: { image: "w9FZqDn.jpg", shortName: "Bohemian Archive in Japanese Red", abbrev: "BAiJR", },
-	EaLND: { image: "YfoRCHQ.jpg", shortName: "Eastern and Little Nature Deity", abbrev: "EaLND", },
-	PMiSS: { image: "mu8UUhH.jpg", shortName: "Perfect Memento in Strict Sense", abbrev: "PMiSS", },
-	SaBND: { image: "MGwqCJo.jpg", shortName: "Strange and Bright Nature Deity", abbrev: "SaBND", },
-	SSiB: { image: "p8GtjLf.jpg", shortName: "Silent Sinner in Blue", abbrev: "SSiB", },
-	GoM: { image: "FI9IsdC.jpg", shortName: "The Grimoire of Marisa", abbrev: "GoM", },
-	OSP: { image: "Kw2uOqV.jpg", shortName: "Oriental Sacred Place", abbrev: "OSP", },
-	FS: { image: "fs.jpg", shortName: "Forbidden Scrollery", abbrev: "FS", },
-	TO: { image: "daisakusen.png", shortName: "Touhou Otohanabi", abbrev: "TO", },
+	Cradle: { image: "cradle.png", shortName: "Cradle -東方幻樂祀典", abbrev: "DOUJIN", },
+	SDV: { image: "sdv.png", shortName: "東方紫香花 ~ Seasonal Dream Vision", abbrev: "DOUJIN", },
+	UB: { image: "ub.png", shortName: "黄昏酒場~Uwabami Breakers~", abbrev: "DOUJIN", },
+	MiMG: { image: "mimg.png", shortName: "神魔討綺伝 ~ Magus in Mystic Geometries", abbrev: "DOUJIN", },
+	TUM: { image: "tum.png", shortName: "東方幻想麻雀 (Touhou Unreal Mahjong)", abbrev: "DOUJIN", },
+	MPF: { image: "8bmpf.png", shortName: "8BIT MUSIC POWER FINAL", abbrev: "DOUJIN", },
+	INDIE: { image: "indie.png", shortName: "INDIE Live Expo 2020", abbrev: "DOUJIN", },
+	TSF: { image: "otohanabi.png", shortName: "東方オトハナビ (Touhou Sound Fireworks)", abbrev: "DOUJIN", },
+	DanKagu: { image: "dankagu.png", shortName: "東方ダンマクカグラ PHANTASIA LOST (Touhou Danmaku Kagura)", abbrev: "DOUJIN", },
 });
 
 const getTitleData = function (songTitleDataObj) {
@@ -128,15 +140,11 @@ const CATEGORY = deepFreeze({
 	Touhou: { name: "東方 - Touhou", titles: ["HRtP", "SoEW", "PoDD", "LLS", "MS", "EoSD", "PCB", "IaMP",
 		"IN", "PoFV", "StB", "MoF", "SWR", "SA", "UFO", "Soku", "DS",
 		"GFW", "TD", "HM", "DDC", "ISC", "ULiL", "LoLK", "AoCF", "HSiFS",
-		"VD", "WBaWC", "SFW", "UM", "HBM", "UDoALG", "FW"], },
-	Hifuu: { name: "秘封倶楽部 - Secret Sealing Club", titles: ["DiPP", "GFC", "CoSD", "R53m", "MA", "UFMJ", "TGA", "NToJ", "DLFR", "DBOA", "RCS", "TJD"], },
-	Seihou: { name: "西方 - Seihou", titles: ["SG", "KG"], },
-	Akyu: { name: "幺樂団の歴史 - Akyu's Untouched Score", titles: ["AUS1", "AUS2", "AUS3", "AUS4", "AUS5"], },
-	Other: { name: "Other", titles: ["BONUS"], },
+		"VD", "WBaWC", "SFW", "UM", "HBM", "UDoALG", "FW"], height: "340px", },
+	Hifuu: { name: "秘封倶楽部 - Secret Sealing Club", titles: ["DiPP", "GFC", "CoSD", "R53m", "MA", "UFMJ", "TGA", "NToJ", "DLFR", "DBOA", "RCS", "TJD"], height: "120px", },
+	Akyu: { name: "幺樂団の歴史 - Akyu's Untouched Score", titles: ["AUS1", "AUS2", "AUS3", "AUS4", "AUS5"], height: "120px", },
+	Other: { name: "Other", titles: ["ZSW", "SG", "TLM", "KG", "BAiJR", "EaLND", "PMiSS", "SaBND", "SSiB", "GoM", "OSP", "FS", "SCoOW", "ULiL2", "DOUJIN"], height: "160px", },
 });
-
-// Number of columns in the selection list.
-var int_Colspan = 3;
 
 // * Music information
 // [Index: Meaning]
@@ -310,6 +318,14 @@ var ary_SongData = [
 	["Soul's Resting Place",						new Set([TITLE.MS, TITLE.AUS2]), { title: "MS", }, "N5L5XE-N3fU", "Name Registration", ORIGINAL_TRACK, OTHER_THEME],
 	["Peaceful Romancer",							new Set([TITLE.MS, TITLE.AUS2]), { title: "MS", }, "-BZUMv5gAkk", "Extra Ending", ORIGINAL_TRACK, OTHER_THEME],
 
+	// ZUN's Strange Works
+	["Magician of the Twilight",	new Set([TITLE.ZSW]), { title: "ZSW", }, "ijniBZWR5D0", "Track 1", ORIGINAL_TRACK, OTHER_THEME],
+	["Magic of Life",				new Set([TITLE.ZSW]), { title: "ZSW", }, "tXbyIX0x1mQ", "Track 2", ORIGINAL_TRACK, OTHER_THEME],
+	["Plastic Space",				new Set([TITLE.ZSW]), { title: "ZSW", }, "dXpe2RzOyp4", "Track 3", ORIGINAL_TRACK, OTHER_THEME],
+	["Inventive City",				new Set([TITLE.ZSW]), { title: "ZSW", }, "ijTMUcryVWI", "Track 4", ORIGINAL_TRACK, OTHER_THEME],
+	["Fantasy Corridor",			new Set([TITLE.ZSW]), { title: "ZSW", }, "h5_qkmiCIJk", "Track 5", ORIGINAL_TRACK, OTHER_THEME],
+	["Hourai Illusion ~ far East",	new Set([TITLE.ZSW]), { title: "ZSW", }, "J8TDTbhpNuE", "Track 6", ORIGINAL_TRACK, OTHER_THEME],
+
 	// Shuusou Gyoku
 	["Autumn Frost Orb ~ Clockworks",				new Set([TITLE.SG]), { title: "SG", }, "coZsnhQyozM", "Title Screen", ORIGINAL_TRACK, OTHER_THEME],
 	["False Strawberry",							new Set([TITLE.SG]), { title: "SG", }, "QyDHN8zHJps", "Stage 1", ORIGINAL_TRACK, STAGE_THEME],
@@ -332,6 +348,11 @@ var ary_SongData = [
 	["Herselves",									new Set([TITLE.SG]), { title: "SG", }, "SRbwQahZBsE", "Ending", ORIGINAL_TRACK, OTHER_THEME],
 	["Titled Maid",									new Set([TITLE.SG]), { title: "SG", }, "eXU3XDJy6Cg", "Name Registration", ORIGINAL_TRACK, OTHER_THEME],
 	["Fly Above Hatoyama at Night",					new Set([TITLE.SG]), { title: "SG", }, "OxZ0PQY0zTE", "Unused", ORIGINAL_TRACK, OTHER_THEME],
+
+	// Torte Le Magic
+	["Witch of Love Potion",	new Set([TITLE.TLM]), { title: "TLM", }, "AhQYf2knIxQ", "Stage Theme", ORIGINAL_TRACK, STAGE_THEME],
+	["Magical and Hopeless",	new Set([TITLE.TLM]), { title: "TLM", }, "dKGTTvv9Cno", "Chou's Theme", ORIGINAL_TRACK, BOSS_THEME],
+	["Sacred Battle",			new Set([TITLE.TLM]), { title: "TLM", }, "UwEyDvewwz4", "Cointreau's Theme", ORIGINAL_TRACK, BOSS_THEME],
 
 	// Kioh Gyoku
 	["Rare Venerable Orb ~ Fairy Dance",					new Set([TITLE.KG]), { title: "KG", }, "m98DAAZ3WsE", "Title Screen", ORIGINAL_TRACK, OTHER_THEME],
@@ -648,7 +669,7 @@ var ary_SongData = [
 	["Let's Live in a Lovely Cemetery",		new Set([TITLE.TD]), { title: "TD", }, "zpfzXsB2UPo", "Stage 3", ORIGINAL_TRACK, STAGE_THEME],
 	["Rigid Paradise",						new Set([TITLE.TD]), { title: "TD", }, "vaw8WyORAZY", "Yoshika Miyako's theme", ORIGINAL_TRACK, BOSS_THEME],
 	["Desire Drive",						new Set([TITLE.TD]), { title: "TD", }, "jHbGKNLKr8A", "Stage 4", ORIGINAL_TRACK, STAGE_THEME],
-	["Old Yuanxian",						new Set([TITLE.TD, TITLE.BONUS]), { title: "TD", }, "K96VIem5os4", "Seiga Kaku's theme", ORIGINAL_TRACK, BOSS_THEME],
+	["Old Yuanxian",						new Set([TITLE.TD]), { title: "TD", }, "K96VIem5os4", "Seiga Kaku's theme", ORIGINAL_TRACK, BOSS_THEME],
 	["The Hall of Dreams' Great Mausoleum",	new Set([TITLE.TD]), { title: "TD", }, "IUKsMBN7dS4", "Stage 5", ORIGINAL_TRACK, STAGE_THEME],
 	["Omiwa Legend",						new Set([TITLE.TD]), { title: "TD", }, "POUxrKNkbA4", "Mononobe no Futo's theme", ORIGINAL_TRACK, BOSS_THEME],
 	["Starry Sky of Small Desires",			new Set([TITLE.TD]), { title: "TD", }, "FPpwwPYgoAc", "Stage 6", ORIGINAL_TRACK, STAGE_THEME],
@@ -808,45 +829,86 @@ var ary_SongData = [
 	["Gathering the Mysterious from All Around Japan",					new Set([TITLE.NToJ]), { title: "NToJ", }, "-IAfbTRg4Xs", "Track 9", ORIGINAL_TRACK, OTHER_THEME],
 	["Let's Live in a Lovely Cemetery",									new Set([TITLE.NToJ]), { title: "NToJ", }, "uFRat7FhPyM", "Track 10", ARRANGED_TRACK, OTHER_THEME],
 	
-	//Book bonus CDs (the only section that really overrides a lot of data right now)
-	["Wind God Girl",								new Set([TITLE.BONUS]), { title: "BONUS", extra: "BAiJR", }, "5YAstNIBRTk", "Track 1", ARRANGED_TRACK, OTHER_THEME],
-	["Adventure of the Lovestruck Tomboy",			new Set([TITLE.BONUS]), { title: "BONUS", extra: "BAiJR", }, "5jJhBJO-La8", "Track 2", ARRANGED_TRACK, OTHER_THEME],
-	["Flower Reflecting Mound ~ after Higan Retour",new Set([TITLE.BONUS]), { title: "BONUS", extra: "BAiJR", }, "mY_zudHGi_8", "Track 3", ARRANGED_TRACK, OTHER_THEME],
-	["Sunny Rutile Flection",						new Set([TITLE.BONUS]), { title: "BONUS", extra: "EaLND", }, "6l_4mM4Iv_8", "Track 1", ORIGINAL_TRACK, OTHER_THEME],
-	["Can't Sleep Because It's Nighttime",			new Set([TITLE.BONUS]), { title: "BONUS", extra: "EaLND", }, "_o103KWJZDE", "Track 2", ORIGINAL_TRACK, OTHER_THEME],
-	["Like the Brilliance of Fairies",				new Set([TITLE.BONUS]), { title: "BONUS", extra: "EaLND", }, "LEWghCf96ss", "Track 3", ORIGINAL_TRACK, OTHER_THEME],
-	["Japanese Saga",								new Set([TITLE.BONUS]), { title: "BONUS", extra: "PMiSS", }, "sbFWaqWIkrQ", "Track 1", ORIGINAL_TRACK, OTHER_THEME],
-	["Child of Are",								new Set([TITLE.BONUS]), { title: "BONUS", extra: "PMiSS", }, "05uWWAXo55c", "Track 2", ORIGINAL_TRACK, OTHER_THEME],
-	["Fly above Hatoyama at night - Power MIX",		new Set([TITLE.BONUS]), { title: "BONUS", extra: "PMiSS", }, "rraKfn4GHL4", "Track 3", ARRANGED_TRACK, OTHER_THEME],
-	["Sunny Milk's Scarlet Mist Incident",			new Set([TITLE.BONUS]), { title: "BONUS", extra: "SaBND", }, "BO1_B_ejI3U", "Album 1 - Track 1", ARRANGED_TRACK, OTHER_THEME],
-	["A Land Resplendent With Nature's Beauty",		new Set([TITLE.BONUS]), { title: "BONUS", extra: "SaBND", }, "HYWCnUtPKag", "Album 1 - Track 2", ORIGINAL_TRACK, OTHER_THEME],
-	["Star Voyage 2008",							new Set([TITLE.BONUS]), { title: "BONUS", extra: "SaBND", }, "tbRmIfyPlLs", "Album 1 - Track 3", ORIGINAL_TRACK, OTHER_THEME],
-	["The Refrain of the Lovely Great War",			new Set([TITLE.BONUS]), { title: "BONUS", extra: "SaBND", }, "5K0Ty9DO2PU", "Album 2 - Track 1", ARRANGED_TRACK, OTHER_THEME],
-	//["Sunny Rutile Flection",						new Set([TITLE.BONUS]), { title: "BONUS", extra: "SaBND", }, "PIfo_Fiseg4", "Album 2 - Track 2", ARRANGED_TRACK, OTHER_THEME],
-	//["Can't Sleep Because It's Nighttime",		new Set([TITLE.BONUS]), { title: "BONUS", extra: "SaBND", }, "6NjWcjNKmDI", "Album 3 - Track 3", ARRANGED_TRACK, OTHER_THEME],
-	//["Like the Brilliance of Fairies",			new Set([TITLE.BONUS]), { title: "BONUS", extra: "SaBND", }, "VO9-mBdGwiY", "Album 3 - Track 4", ARRANGED_TRACK, OTHER_THEME],
-	["The Fairy's Adventurous Tale",				new Set([TITLE.BONUS]), { title: "BONUS", extra: "SaBND", }, "WdG-5Fix88c", "Album 3 - Track 1", ORIGINAL_TRACK, OTHER_THEME],
-	["Two Worlds",									new Set([TITLE.BONUS]), { title: "BONUS", extra: "SaBND", }, "rn0U_OqnNwU", "Album 3 - Track 2", ORIGINAL_TRACK, OTHER_THEME],
-	["Youkai Space Travel",							new Set([TITLE.BONUS]), { title: "BONUS", extra: "SSiB", }, "pYeQl5bScX8", "Track 1", ORIGINAL_TRACK, OTHER_THEME],
-	["Watatsuki's Spell Card ~ Lunatic Blue",		new Set([TITLE.BONUS]), { title: "BONUS", extra: "SSiB", }, "AC8wo0xHyJc", "Track 2", ORIGINAL_TRACK, OTHER_THEME],
-	["A Drunkard's Lemuria (Retro Ver)",			new Set([TITLE.BONUS]), { title: "BONUS", extra: "SSiB", }, "29ME1-RBC48", "Track 3", ORIGINAL_TRACK, OTHER_THEME],
-	["Magician's Melancholy",						new Set([TITLE.BONUS]), { title: "BONUS", extra: "GoM", }, "pup9y7rDzOc", "Track 1", ORIGINAL_TRACK, OTHER_THEME],
-	["Illusionary Sputnik Night",					new Set([TITLE.BONUS]), { title: "BONUS", extra: "GoM", }, "ZEQjf7TOffI", "Track 2", ARRANGED_TRACK, OTHER_THEME],
-	["The Hide-and-Seek Lifestyle at the Shrine",	new Set([TITLE.BONUS]), { title: "BONUS", extra: "OSP", }, "fJsBj479YSU", "Album 1 - Track 1", ORIGINAL_TRACK, OTHER_THEME],
-	["Youkai Modern Colony",						new Set([TITLE.BONUS]), { title: "BONUS", extra: "OSP", }, "VDYHmdY5glw", "Album 1 - Track 2", ARRANGED_TRACK, OTHER_THEME],
-	["Year-Round Absorbed Curiosity",				new Set([TITLE.BONUS]), { title: "BONUS", extra: "OSP", }, "mPYB_kgzbbc", "Album 2 - Track 1", ARRANGED_TRACK, OTHER_THEME],
-	["A Midnight Fairy Dance",						new Set([TITLE.BONUS]), { title: "BONUS", extra: "OSP", }, "YOOQvpMzI_k", "Album 2 - Track 2", ARRANGED_TRACK, OTHER_THEME],
-	["Great Fairy Wars ~ Fairy Wars",				new Set([TITLE.BONUS]), { title: "BONUS", extra: "OSP", }, "SY21CBySBYs", "Album 2 - Track 3", ARRANGED_TRACK, OTHER_THEME],
-	["Magus Night",									new Set([TITLE.BONUS]), { title: "BONUS", extra: "OSP", }, "bL3KnIqMfAU", "Album 3 - Track 1", ARRANGED_TRACK, OTHER_THEME],
-	["Staking Your Life on a Prank",				new Set([TITLE.BONUS]), { title: "BONUS", extra: "OSP", }, "PLsgoWJOJB4", "Album 3 - Track 2", ARRANGED_TRACK, OTHER_THEME],
-	//["Old Yuanxian",								new Set([TITLE.TD, TITLE.BONUS]), { title: "TD", }, "K96VIem5os4", "", ORIGINAL_TRACK, OTHER_THEME],
-	//Forbidden Scrollery
-	["Bibliophile with a Deciphering Eye",			new Set([TITLE.BONUS]), { title: "BONUS", extra: "FS", }, "9sLMkF6_ndM", "Track 1", ORIGINAL_TRACK, OTHER_THEME],
-	["Humans and Youkai Traversing the Canal",		new Set([TITLE.BONUS]), { title: "BONUS", extra: "FS", }, "TxPpzGp25QQ", "Track 2", ARRANGED_TRACK, OTHER_THEME],
-	["The Rabbit Has Landed",						new Set([TITLE.BONUS]), { title: "BONUS", extra: "FS", }, "lD8Tmu8VY2I", "Track 3", ARRANGED_TRACK, OTHER_THEME],
-	//Daisakusen
-	["Every Day is Scarlet ~ Folksy Touhou days.",	new Set([TITLE.BONUS]), { title: "BONUS", extra: "TO", }, "hURordnvoeg", "Track 1", ARRANGED_TRACK, OTHER_THEME],
-	
+	// Bohemian Archive in Japanese Red [Bonus CD]
+	["Wind God Girl",									new Set([TITLE.BAiJR]), { title: "BAiJR", }, "5YAstNIBRTk", "Track 1", ARRANGED_TRACK, OTHER_THEME],
+	["Adventure of the Lovestruck Tomboy",				new Set([TITLE.BAiJR]), { title: "BAiJR", }, "5jJhBJO-La8", "Track 2", ARRANGED_TRACK, OTHER_THEME],
+	["Flower Reflecting Mound ~ after Higan Retour",	new Set([TITLE.BAiJR]), { title: "BAiJR", }, "mY_zudHGi_8", "Track 3", ARRANGED_TRACK, OTHER_THEME],
+
+	// Eastern and Little Nature Deity [Bonus CD]
+	["Sunny Rutile Flection",				new Set([TITLE.EaLND, TITLE.SaBND]), { title: "EaLND", }, "6l_4mM4Iv_8", "Track 1", ORIGINAL_TRACK, OTHER_THEME],
+	["Can't Sleep Because It's Nighttime",	new Set([TITLE.EaLND, TITLE.SaBND]), { title: "EaLND", }, "_o103KWJZDE", "Track 2", ORIGINAL_TRACK, OTHER_THEME],
+	["Like the Brilliance of Fairies",		new Set([TITLE.EaLND, TITLE.SaBND]), { title: "EaLND", }, "LEWghCf96ss", "Track 3", ORIGINAL_TRACK, OTHER_THEME],
+
+	// Perfect Memento in Strict Sense [Bonus CD]
+	["Japanese Saga",							new Set([TITLE.PMiSS]), { title: "PMiSS", }, "sbFWaqWIkrQ", "Track 1", ORIGINAL_TRACK, OTHER_THEME],
+	["Child of Are",							new Set([TITLE.PMiSS]), { title: "PMiSS", }, "05uWWAXo55c", "Track 2", ORIGINAL_TRACK, OTHER_THEME],
+	["Fly above Hatoyama at night - Power MIX",	new Set([TITLE.PMiSS]), { title: "PMiSS", }, "rraKfn4GHL4", "Track 3", ARRANGED_TRACK, OTHER_THEME],
+
+	// Strange and Bright Nature Deity [Bonus CDs]
+	["Sunny Milk's Scarlet Mist Incident",		new Set([TITLE.SaBND]), { title: "SaBND", }, "BO1_B_ejI3U", "Album 1 - Track 1", ARRANGED_TRACK, OTHER_THEME],
+	["A Land Resplendent With Nature's Beauty",	new Set([TITLE.SaBND]), { title: "SaBND", }, "HYWCnUtPKag", "Album 1 - Track 2", ORIGINAL_TRACK, OTHER_THEME],
+	["Star Voyage 2008",						new Set([TITLE.SaBND]), { title: "SaBND", }, "tbRmIfyPlLs", "Album 1 - Track 3", ORIGINAL_TRACK, OTHER_THEME],
+	["The Refrain of the Lovely Great War",		new Set([TITLE.SaBND]), { title: "SaBND", }, "5K0Ty9DO2PU", "Album 2 - Track 1", ARRANGED_TRACK, OTHER_THEME],
+	//["Sunny Rutile Flection",					new Set([TITLE.SaBND]), { title: "SaBND", }, "PIfo_Fiseg4", "Album 2 - Track 2", ARRANGED_TRACK, OTHER_THEME],
+	//["Can't Sleep Because It's Nighttime",	new Set([TITLE.SaBND]), { title: "SaBND", }, "6NjWcjNKmDI", "Album 3 - Track 3", ARRANGED_TRACK, OTHER_THEME],
+	//["Like the Brilliance of Fairies",		new Set([TITLE.SaBND]), { title: "SaBND", }, "VO9-mBdGwiY", "Album 3 - Track 4", ARRANGED_TRACK, OTHER_THEME],
+	["The Fairy's Adventurous Tale",			new Set([TITLE.SaBND]), { title: "SaBND", }, "WdG-5Fix88c", "Album 3 - Track 1", ORIGINAL_TRACK, OTHER_THEME],
+	["Two Worlds",								new Set([TITLE.SaBND]), { title: "SaBND", }, "rn0U_OqnNwU", "Album 3 - Track 2", ORIGINAL_TRACK, OTHER_THEME],
+
+	// Silent Sinner in Blue [Bonus CD]
+	["Youkai Space Travel",						new Set([TITLE.SSiB]), { title: "SSiB", }, "pYeQl5bScX8", "Track 1", ORIGINAL_TRACK, OTHER_THEME],
+	["Watatsuki's Spell Card ~ Lunatic Blue",	new Set([TITLE.SSiB]), { title: "SSiB", }, "AC8wo0xHyJc", "Track 2", ORIGINAL_TRACK, OTHER_THEME],
+	["A Drunkard's Lemuria (Retro Ver)",		new Set([TITLE.SSiB]), { title: "SSiB", }, "29ME1-RBC48", "Track 3", ARRANGED_TRACK, OTHER_THEME],
+
+	// The Grimoire of Marisa [Bonus CD]
+	["Magician's Melancholy",		new Set([TITLE.GoM]), { title: "GoM", }, "pup9y7rDzOc", "Track 1", ORIGINAL_TRACK, OTHER_THEME],
+	["Illusionary Sputnik Night",	new Set([TITLE.GoM]), { title: "GoM", }, "ZEQjf7TOffI", "Track 2", ARRANGED_TRACK, OTHER_THEME],
+
+	// Oriental Sacred Place [Bonus CDs]
+	["The Hide-and-Seek Lifestyle at the Shrine",	new Set([TITLE.OSP]), { title: "OSP", }, "fJsBj479YSU", "Album 1 - Track 1", ORIGINAL_TRACK, OTHER_THEME],
+	["Youkai Modern Colony",						new Set([TITLE.OSP]), { title: "OSP", }, "VDYHmdY5glw", "Album 1 - Track 2", ARRANGED_TRACK, OTHER_THEME],
+	["Year-Round Absorbed Curiosity",				new Set([TITLE.OSP]), { title: "OSP", }, "mPYB_kgzbbc", "Album 2 - Track 1", ARRANGED_TRACK, OTHER_THEME],
+	["A Midnight Fairy Dance",						new Set([TITLE.OSP]), { title: "OSP", }, "YOOQvpMzI_k", "Album 2 - Track 2", ARRANGED_TRACK, OTHER_THEME],
+	["Great Fairy Wars ~ Fairy Wars",				new Set([TITLE.OSP]), { title: "OSP", }, "SY21CBySBYs", "Album 2 - Track 3", ARRANGED_TRACK, OTHER_THEME],
+	["Magus Night",									new Set([TITLE.OSP]), { title: "OSP", }, "bL3KnIqMfAU", "Album 3 - Track 1", ARRANGED_TRACK, OTHER_THEME],
+	["Staking Your Life on a Prank",				new Set([TITLE.OSP]), { title: "OSP", }, "PLsgoWJOJB4", "Album 3 - Track 2", ARRANGED_TRACK, OTHER_THEME],
+	["Old Yuanxian",								new Set([TITLE.OSP]), { title: "OSP", }, "cXmNy1On5Yw", "Album 3 - Track 3", ARRANGED_TRACK, OTHER_THEME],
+
+	// Forbidden Scrollery [Bonus CD]
+	["Bibliophile with a Deciphering Eye",		new Set([TITLE.FS]), { title: "FS", }, "9sLMkF6_ndM", "Track 1", ORIGINAL_TRACK, OTHER_THEME],
+	["Humans and Youkai Traversing the Canal",	new Set([TITLE.FS]), { title: "FS", }, "TxPpzGp25QQ", "Track 2", ARRANGED_TRACK, OTHER_THEME],
+	["The Rabbit Has Landed",					new Set([TITLE.FS]), { title: "FS", }, "lD8Tmu8VY2I", "Track 3", ARRANGED_TRACK, OTHER_THEME],
+
+	// Urban Legend in Limbo [OST 2]
+	["Lunatic Eyes ~ Invisible Full Moon",	new Set([TITLE.ULiL2]), { title: "ULiL", }, "jpyaiOpRccU", "Track 1", ARRANGED_TRACK, OTHER_THEME],
+	["Neo Bamboo Forest in Flames",			new Set([TITLE.ULiL2]), { title: "ULiL", }, "GDnjaTCrZHY", "Track 2", ARRANGED_TRACK, OTHER_THEME],
+	["Bell of Aeons",						new Set([TITLE.ULiL2]), { title: "ULiL", }, "ivpHWuKl6oI", "Track 3", ARRANGED_TRACK, OTHER_THEME],
+	["Occult Attract",						new Set([TITLE.ULiL2, TITLE.SCoOW]), { title: "ULiL", }, "Tw42gpaGFqQ", "Track 4", ARRANGED_TRACK, OTHER_THEME],
+	["Boundary Folklore",					new Set([TITLE.ULiL2]), { title: "ULiL", }, "QIHxd6leYoQ", "Track 5", ARRANGED_TRACK, OTHER_THEME],
+	["Unknown X ~ Occultly Madness",		new Set([TITLE.ULiL2]), { title: "ULiL", }, "VnyytOH5JGI", "Track 6", ARRANGED_TRACK, OTHER_THEME],
+	["Madness of Visages ~ Horrible Night",	new Set([TITLE.ULiL2]), { title: "ULiL", }, "5unw-soUqjY", "Track 7", ARRANGED_TRACK, OTHER_THEME],
+
+	// Strange Creators of Outer World [Bonus CD 2]
+	//["Occult Attract",						new Set([TITLE.ULiL2, TITLE.SCoOW]), { title: "ULiL", }, "Tw42gpaGFqQ", "Track 4", ARRANGED_TRACK, OTHER_THEME],
+	["Retribution for the Eternal Night ~ Pipes and Fiddle",	new Set([TITLE.SCoOW]), { title: "SCoOW", }, "VppbM-_Xz4s", "Track 2", ARRANGED_TRACK, OTHER_THEME],
+	["Last Occultism ~ Esotericist of the Present World",		new Set([TITLE.SCoOW]), { title: "SCoOW", }, "5HspL0SBAEw", "Track 3", ARRANGED_TRACK, OTHER_THEME],
+
+	// Other Collaborations
+	["Cinderella Cage ~ Kagome-Kagome",				new Set([TITLE.DOUJIN]), { title: "DOUJIN", extra: "Cradle", }, "lTZB3uwK53I", "Track 16", ARRANGED_TRACK, OTHER_THEME],
+	["Spiritual Domination ~ Speed Fox!",			new Set([TITLE.DOUJIN]), { title: "DOUJIN", extra: "Cradle", }, "4gobR4EAqiE", "Track 17", ARRANGED_TRACK, OTHER_THEME],
+	["Eastern Judgement in the Sixtieth Year",		new Set([TITLE.DOUJIN]), { title: "DOUJIN", extra: "SDV", }, "myc2vCPnRNw", "Track 13", ARRANGED_TRACK, OTHER_THEME],
+	["A Drunkard's Lemuria",						new Set([TITLE.DOUJIN]), { title: "DOUJIN", extra: "UB", }, "G4-qAZbQ4fY", "Amakasu Barley Tenji's Theme", ARRANGED_TRACK, OTHER_THEME],
+	["Unnamed Title Theme",							new Set([TITLE.DOUJIN]), { title: "DOUJIN", extra: "MiMG", }, "620Gw83OdLk", "Title Screen", ARRANGED_TRACK, OTHER_THEME],
+	["Unnamed Stage Theme 1",						new Set([TITLE.DOUJIN]), { title: "DOUJIN", extra: "MiMG", }, "6wKx9FaznUA", "Stage 1/3/6", ARRANGED_TRACK, STAGE_THEME],
+	["Unnamed Stage Theme 2",						new Set([TITLE.DOUJIN]), { title: "DOUJIN", extra: "MiMG", }, "ES9PzVOdE1c", "Stage 2/4", ARRANGED_TRACK, STAGE_THEME],
+	["AN ORDEAL FROM GOD",							new Set([TITLE.DOUJIN]), { title: "DOUJIN", extra: "MiMG", }, "6p7qZ-87cSk", "Stage 5 / Shinki's Theme", ORIGINAL_TRACK, STAGE_AND_BOSS_THEME],
+	["Curious Old Shanghai Tile",					new Set([TITLE.DOUJIN]), { title: "DOUJIN", extra: "TUM", }, "M4HOYuOm1Qk", "Track 17", ORIGINAL_TRACK, OTHER_THEME],
+	["Mysterious Shrine",							new Set([TITLE.DOUJIN]), { title: "DOUJIN", extra: "MPF", }, "inWHquXW1JQ", "Track 12", ORIGINAL_TRACK, OTHER_THEME],
+	["Independant Simulacrum",						new Set([TITLE.DOUJIN]), { title: "DOUJIN", extra: "INDIE", }, "pSdjKImDTzU", "Theme of INDIE Live Expo", ORIGINAL_TRACK, OTHER_THEME],
+	["Every Day is Scarlet ~ Folksy Touhou days.",	new Set([TITLE.DOUJIN]), { title: "DOUJIN", extra: "TSF", }, "hURordnvoeg", "Track 1", ORIGINAL_TRACK, OTHER_THEME],
+	["U.N. Owen Was Hero?",							new Set([TITLE.DOUJIN]), { title: "DOUJIN", extra: "DanKagu", }, "AZfd_Lz1fcU", "Toby Fox x ZUN Collab 1", ARRANGED_TRACK, OTHER_THEME],
+	["Megalovania of the Empty Corse",				new Set([TITLE.DOUJIN]), { title: "DOUJIN", extra: "DanKagu", }, "Dc_hpNSXWKo", "Toby Fox x ZUN Collab 2", ARRANGED_TRACK, OTHER_THEME],
+
 	//Urban Legend in Limbo
 	["Heart-Stirring Urban Legends",						new Set([TITLE.ULiL]), { title: "ULiL", }, "PWhN1akadiQ", "Title/Menu Screen", ORIGINAL_TRACK, OTHER_THEME],
 	["Gensokyo Mystery Discovery",							new Set([TITLE.ULiL]), { title: "ULiL", }, "7TyQzWU6Zz8", "Character Select", ORIGINAL_TRACK, OTHER_THEME],
