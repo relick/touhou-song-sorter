@@ -843,7 +843,7 @@ var ary_SongData = [
 	//Forbidden Scrollery
 	["Bibliophile with a Deciphering Eye",			new Set([TITLE.BONUS]), { title: "BONUS", extra: "FS", }, "i0Wt3lN7-mk", "Track 1", ORIGINAL_TRACK, OTHER_THEME],
 	["Humans and Youkai Traversing the Canal",		new Set([TITLE.BONUS]), { title: "BONUS", extra: "FS", }, "m3S9Nsd1puU", "Track 2", ARRANGED_TRACK, OTHER_THEME],
-	["The Rabbit Has Landed",						new Set([TITLE.BONUS]), { title: "BONUS", extra: "FS", }, "mxlnkzshWCU", "Track 3", ARRANGED_TRACK, OTHER_THEME],
+	["The Rabbit Has Landed",						new Set([TITLE.BONUS]), { title: "BONUS", extra: "FS", }, "uWJ_5CG3T5Q", "Track 3", ARRANGED_TRACK, OTHER_THEME],
 	//Daisakusen
 	["Every Day is Scarlet ~ Folksy Touhou days.",	new Set([TITLE.BONUS]), { title: "BONUS", extra: "TO", }, "A3g3MgxcVOE", "Track 1", ARRANGED_TRACK, OTHER_THEME],
 	
