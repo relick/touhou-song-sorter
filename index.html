@@ -57,13 +57,13 @@
 				<tr>
 					<td id="texLeft" onclick="fnc_Sort(-1);" rowspan="2"><span id="nameLeft">Song here!</span><br><span id="gameLeft">This song's game!</span><br><br><span id="detailLeft">This song's description!</span></td>
 					<td style="border: 0; width: 7px;"></td>
-					<td id="fldMiddleS" class="inactive" onclick="fnc_Save();">Save Progress</td>
+					<td id="fldMiddleS" class="inactive" onclick="fnc_Save(false);">Save Progress</td>
 					<td style="border: 0; width: 7px;"></td>
 					<td id="texRight" onclick="fnc_Sort(1);" rowspan="2"><span id="nameRight">Another song here!</span><br><span id="gameRight">The other song's game!</span><br><br><span id="detailRight">The other song's description!</span></td>
 				</tr>
 				<tr>
 					<td style="border: 0; width: 7px;"></td>
-					<td id="fldMiddleL" class="inactive" onclick="fnc_Load();">Load Progress</td>
+					<td id="fldMiddleL" class="inactive" onclick="fnc_Load(false);">Load Progress</td>
 					<td style="border: 0; width: 7px;"></td>
 				</tr>
 				<tr>
@@ -104,7 +104,21 @@
 	<div id="optSelectList"></div>
 	<br>
 
+	<div id="saveTable" style="display:inline;">
+		<hr>
+		<form>
+			<p>The Save and Load buttons will use your device's storage.
+			<br>If you need to transfer progress between devices, use the following buttons to get a text version of the save data that you can copy and paste instead.
+			<br>Note that dumping progress to text will not save the data to this device's storage. It will only create the text version for you to copy.
+			</p>
+			<input id="dump" value="Dump Progress to Text" disabled="true" onclick="fnc_Save(true)" type="button">
+			<script>getID("dump").toggleAttribute("disabled", true)</script>
+			<input value="Load Progress from Text" onclick="fnc_Load(true)" type="button">
+		</form>
+	</div>
+
 	<div id="ranTable" class="tb" style="display:none;">
+		<hr>
 		<form>
 			<input value="Raw Text Results" onclick="OpenWnd()" type="button">
 			<input value="Switch Display Type" onclick="fnc_ShowData()" type="button">
@@ -113,6 +127,7 @@
 		</form>
 	</div>
 
+	<hr>
 	<div class="bottom-text" id="resultField">
 		<p>
 			If any albums/games are missing, please press CTRL+F5 first before reporting! The latest update was 4th February 2025 (Fixed videos and added Taboo Japan Disentanglement).<br>

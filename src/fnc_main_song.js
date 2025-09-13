@@ -261,6 +261,7 @@ function init()
 
 	// And enable save visual
 	setClass(getID('fldMiddleS'), null);
+	getID('dump').toggleAttribute("disabled", false);
 
 	int_Total = 0;
 
@@ -322,54 +323,125 @@ function init()
 // Save and load is super dumb, literally just throw all the working data into local storage.
 // At least an advantage of this is, changing the data doesn't affect old in-progress sorts.
 // At the same time, it means someone with old data doesn't get bug fixes.
-function fnc_Save()
+function fnc_Save(bool_toText)
 {
 	if (int_Status == 0)
 	{
 		return;
 	}
 
-	// jStorage.set(key, data, {TTL});
+	if (bool_toText === true)
+	{
+		const dumpObj = {
+			saveVersion: SAVE_VERSION.ReduceSongData,
 
-	$.jStorage.set("TohoSongSorter_saveVersion", SAVE_VERSION.ReduceSongData, null);
+			ary_EqualData: ary_EqualData,
+			ary_ParentData: ary_ParentData,
+			ary_RecordData: ary_RecordData,
+			ary_SortData: ary_SortData,
+			ary_TempData: ary_TempData,
+			
+			back_ary_EqualData: back_ary_EqualData,
+			back_ary_ParentData: back_ary_ParentData,
+			back_ary_RecordData: back_ary_RecordData,
+			back_ary_SortData: back_ary_SortData,
+			back_int_Completed: back_int_Completed,
+			
+			back_int_LeftID: back_int_LeftID,
+			back_int_LeftList: back_int_LeftList,
+			back_int_RecordID: back_int_RecordID,
+			back_int_RightID: back_int_RightID,
+			back_int_RightList: back_int_RightList,
+			
+			back_int_Total: back_int_Total,
+			int_Completed: int_Completed,
+			int_Count: int_Count,
+			int_LeftID: int_LeftID,
+			int_LeftList: int_LeftList,
+			
+			int_RecordID: int_RecordID,
+			int_RightID: int_RightID,
+			int_RightList: int_RightList,
+			int_Status: int_Status,
+			int_Total: int_Total,
+		};
 
-	$.jStorage.set("TohoSongSorter_ary_EqualData", ary_EqualData, null)
-	$.jStorage.set("TohoSongSorter_ary_ParentData", ary_ParentData, null)
-	$.jStorage.set("TohoSongSorter_ary_RecordData", ary_RecordData, null)
-	$.jStorage.set("TohoSongSorter_ary_SortData", ary_SortData, null)
-	$.jStorage.set("TohoSongSorter_ary_TempData", ary_TempData, null)
-	
-	$.jStorage.set("TohoSongSorter_back_ary_EqualData", back_ary_EqualData, null)
-	$.jStorage.set("TohoSongSorter_back_ary_ParentData", back_ary_ParentData, null)
-	$.jStorage.set("TohoSongSorter_back_ary_RecordData", back_ary_RecordData, null)
-	$.jStorage.set("TohoSongSorter_back_ary_SortData", back_ary_SortData, null)
-	$.jStorage.set("TohoSongSorter_back_int_Completed", back_int_Completed, null)
-	
-	$.jStorage.set("TohoSongSorter_back_int_LeftID", back_int_LeftID, null)
-	$.jStorage.set("TohoSongSorter_back_int_LeftList", back_int_LeftList, null)
-	$.jStorage.set("TohoSongSorter_back_int_RecordID", back_int_RecordID, null)
-	$.jStorage.set("TohoSongSorter_back_int_RightID", back_int_RightID, null)
-	$.jStorage.set("TohoSongSorter_back_int_RightList", back_int_RightList, null)
-	
-	$.jStorage.set("TohoSongSorter_back_int_Total", back_int_Total, null)
-	$.jStorage.set("TohoSongSorter_int_Completed", int_Completed, null)
-	$.jStorage.set("TohoSongSorter_int_Count", int_Count, null)
-	$.jStorage.set("TohoSongSorter_int_LeftID", int_LeftID, null)
-	$.jStorage.set("TohoSongSorter_int_LeftList", int_LeftList, null)
-	
-	$.jStorage.set("TohoSongSorter_int_RecordID", int_RecordID, null)
-	$.jStorage.set("TohoSongSorter_int_RightID", int_RightID, null)
-	$.jStorage.set("TohoSongSorter_int_RightList", int_RightList, null)
-	$.jStorage.set("TohoSongSorter_int_Status", int_Status, null)
-	$.jStorage.set("TohoSongSorter_int_Total", int_Total, null)
+		let oWindow = window.open("", "");
+		let d = oWindow.document;
+		d.write(JSON.stringify(dumpObj));
+		d.close();
+	}
+	else
+	{
+		// jStorage.set(key, data, {TTL});
 
-	// Successfully saved, enable load button (if not already)
-	setClass(getID('fldMiddleL'), null);
+		$.jStorage.set("TohoSongSorter_saveVersion", SAVE_VERSION.ReduceSongData, null);
+
+		$.jStorage.set("TohoSongSorter_ary_EqualData", ary_EqualData, null)
+		$.jStorage.set("TohoSongSorter_ary_ParentData", ary_ParentData, null)
+		$.jStorage.set("TohoSongSorter_ary_RecordData", ary_RecordData, null)
+		$.jStorage.set("TohoSongSorter_ary_SortData", ary_SortData, null)
+		$.jStorage.set("TohoSongSorter_ary_TempData", ary_TempData, null)
+		
+		$.jStorage.set("TohoSongSorter_back_ary_EqualData", back_ary_EqualData, null)
+		$.jStorage.set("TohoSongSorter_back_ary_ParentData", back_ary_ParentData, null)
+		$.jStorage.set("TohoSongSorter_back_ary_RecordData", back_ary_RecordData, null)
+		$.jStorage.set("TohoSongSorter_back_ary_SortData", back_ary_SortData, null)
+		$.jStorage.set("TohoSongSorter_back_int_Completed", back_int_Completed, null)
+		
+		$.jStorage.set("TohoSongSorter_back_int_LeftID", back_int_LeftID, null)
+		$.jStorage.set("TohoSongSorter_back_int_LeftList", back_int_LeftList, null)
+		$.jStorage.set("TohoSongSorter_back_int_RecordID", back_int_RecordID, null)
+		$.jStorage.set("TohoSongSorter_back_int_RightID", back_int_RightID, null)
+		$.jStorage.set("TohoSongSorter_back_int_RightList", back_int_RightList, null)
+		
+		$.jStorage.set("TohoSongSorter_back_int_Total", back_int_Total, null)
+		$.jStorage.set("TohoSongSorter_int_Completed", int_Completed, null)
+		$.jStorage.set("TohoSongSorter_int_Count", int_Count, null)
+		$.jStorage.set("TohoSongSorter_int_LeftID", int_LeftID, null)
+		$.jStorage.set("TohoSongSorter_int_LeftList", int_LeftList, null)
+		
+		$.jStorage.set("TohoSongSorter_int_RecordID", int_RecordID, null)
+		$.jStorage.set("TohoSongSorter_int_RightID", int_RightID, null)
+		$.jStorage.set("TohoSongSorter_int_RightList", int_RightList, null)
+		$.jStorage.set("TohoSongSorter_int_Status", int_Status, null)
+		$.jStorage.set("TohoSongSorter_int_Total", int_Total, null)
+
+		// Successfully saved, enable load button (if not already)
+		setClass(getID('fldMiddleL'), null);
+	}
 }
 
-function fnc_Load()
+function fnc_Load(bool_fromText)
 {
-	const saveVersion = fnc_GetSavedDataVersion();
+	$.jStorage.reInit()
+
+	let saveVersion = fnc_GetSavedDataVersion();
+
+	let dumpObj = null
+	if (bool_fromText)
+	{
+		try
+		{
+			const dumpTxt = window.prompt("Paste dumped progress:", "");
+			dumpObj = JSON.parse(dumpTxt);
+
+			if (dumpObj.saveVersion !== null)
+			{
+				saveVersion = dumpObj.saveVersion;
+			}
+			else
+			{
+				window.alert("Invalid data");
+				return;
+			}
+		}
+		catch (e)
+		{
+			window.alert("Invalid data");
+			return;
+		}
+	}
 
 	if (saveVersion !== null)
 	{
@@ -377,41 +449,74 @@ function fnc_Load()
 		{
 			fnc_Sort(0);
 		}
-		
-		$.jStorage.reInit()
 
 		// jStorage.get(key, default value)
 
-		ary_EqualData = $.jStorage.get("TohoSongSorter_ary_EqualData");
-		ary_ParentData = $.jStorage.get("TohoSongSorter_ary_ParentData");
-		ary_RecordData = $.jStorage.get("TohoSongSorter_ary_RecordData");
-		ary_SortData = $.jStorage.get("TohoSongSorter_ary_SortData");
-		ary_TempData = $.jStorage.get("TohoSongSorter_ary_TempData");
-		
-		back_ary_EqualData = $.jStorage.get("TohoSongSorter_back_ary_EqualData");
-		back_ary_ParentData = $.jStorage.get("TohoSongSorter_back_ary_ParentData");
-		back_ary_RecordData = $.jStorage.get("TohoSongSorter_back_ary_RecordData");
-		back_ary_SortData = $.jStorage.get("TohoSongSorter_back_ary_SortData");
-		back_int_Completed = $.jStorage.get("TohoSongSorter_back_int_Completed");
-		
-		back_int_LeftID = $.jStorage.get("TohoSongSorter_back_int_LeftID");
-		back_int_LeftList = $.jStorage.get("TohoSongSorter_back_int_LeftList");
-		back_int_RecordID = $.jStorage.get("TohoSongSorter_back_int_RecordID");
-		back_int_RightID = $.jStorage.get("TohoSongSorter_back_int_RightID");
-		back_int_RightList = $.jStorage.get("TohoSongSorter_back_int_RightList");
-		
-		back_int_Total = $.jStorage.get("TohoSongSorter_back_int_Total");
-		int_Completed = $.jStorage.get("TohoSongSorter_int_Completed");
-		int_Count = $.jStorage.get("TohoSongSorter_int_Count");
-		int_LeftID = $.jStorage.get("TohoSongSorter_int_LeftID");
-		int_LeftList = $.jStorage.get("TohoSongSorter_int_LeftList");
-		
-		int_RecordID = $.jStorage.get("TohoSongSorter_int_RecordID");
-		int_RightID = $.jStorage.get("TohoSongSorter_int_RightID");
-		int_RightList = $.jStorage.get("TohoSongSorter_int_RightList");
-		int_Status = $.jStorage.get("TohoSongSorter_int_Status");
-		int_Total = $.jStorage.get("TohoSongSorter_int_Total");
-		
+		if (dumpObj !== null)
+		{
+			ary_EqualData = dumpObj.ary_EqualData;
+			ary_ParentData = dumpObj.ary_ParentData;
+			ary_RecordData = dumpObj.ary_RecordData;
+			ary_SortData = dumpObj.ary_SortData;
+			ary_TempData = dumpObj.ary_TempData;
+			
+			back_ary_EqualData = dumpObj.back_ary_EqualData;
+			back_ary_ParentData = dumpObj.back_ary_ParentData;
+			back_ary_RecordData = dumpObj.back_ary_RecordData;
+			back_ary_SortData = dumpObj.back_ary_SortData;
+			back_int_Completed = dumpObj.back_int_Completed;
+			
+			back_int_LeftID = dumpObj.back_int_LeftID;
+			back_int_LeftList = dumpObj.back_int_LeftList;
+			back_int_RecordID = dumpObj.back_int_RecordID;
+			back_int_RightID = dumpObj.back_int_RightID;
+			back_int_RightList = dumpObj.back_int_RightList;
+			
+			back_int_Total = dumpObj.back_int_Total;
+			int_Completed = dumpObj.int_Completed;
+			int_Count = dumpObj.int_Count;
+			int_LeftID = dumpObj.int_LeftID;
+			int_LeftList = dumpObj.int_LeftList;
+			
+			int_RecordID = dumpObj.int_RecordID;
+			int_RightID = dumpObj.int_RightID;
+			int_RightList = dumpObj.int_RightList;
+			int_Status = dumpObj.int_Status;
+			int_Total = dumpObj.int_Total;
+		}
+		else
+		{
+			ary_EqualData = $.jStorage.get("TohoSongSorter_ary_EqualData");
+			ary_ParentData = $.jStorage.get("TohoSongSorter_ary_ParentData");
+			ary_RecordData = $.jStorage.get("TohoSongSorter_ary_RecordData");
+			ary_SortData = $.jStorage.get("TohoSongSorter_ary_SortData");
+			ary_TempData = $.jStorage.get("TohoSongSorter_ary_TempData");
+			
+			back_ary_EqualData = $.jStorage.get("TohoSongSorter_back_ary_EqualData");
+			back_ary_ParentData = $.jStorage.get("TohoSongSorter_back_ary_ParentData");
+			back_ary_RecordData = $.jStorage.get("TohoSongSorter_back_ary_RecordData");
+			back_ary_SortData = $.jStorage.get("TohoSongSorter_back_ary_SortData");
+			back_int_Completed = $.jStorage.get("TohoSongSorter_back_int_Completed");
+			
+			back_int_LeftID = $.jStorage.get("TohoSongSorter_back_int_LeftID");
+			back_int_LeftList = $.jStorage.get("TohoSongSorter_back_int_LeftList");
+			back_int_RecordID = $.jStorage.get("TohoSongSorter_back_int_RecordID");
+			back_int_RightID = $.jStorage.get("TohoSongSorter_back_int_RightID");
+			back_int_RightList = $.jStorage.get("TohoSongSorter_back_int_RightList");
+			
+			back_int_Total = $.jStorage.get("TohoSongSorter_back_int_Total");
+			int_Completed = $.jStorage.get("TohoSongSorter_int_Completed");
+			int_Count = $.jStorage.get("TohoSongSorter_int_Count");
+			int_LeftID = $.jStorage.get("TohoSongSorter_int_LeftID");
+			int_LeftList = $.jStorage.get("TohoSongSorter_int_LeftList");
+			
+			int_RecordID = $.jStorage.get("TohoSongSorter_int_RecordID");
+			int_RightID = $.jStorage.get("TohoSongSorter_int_RightID");
+			int_RightList = $.jStorage.get("TohoSongSorter_int_RightList");
+			int_Status = $.jStorage.get("TohoSongSorter_int_Status");
+			int_Total = $.jStorage.get("TohoSongSorter_int_Total");
+		}
+
 		if (saveVersion < SAVE_VERSION.InitialTidying)
 		{
 			// Removes the 'unused' data at the start of each entry

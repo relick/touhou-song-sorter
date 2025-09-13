@@ -247,6 +247,12 @@ a:hover {
 	color: #FF6600;
 }
 
+#saveTable {
+	font-size: 11px;
+	text-align: center;
+	width: 640px;
+}
+
 #ranTable {
 	text-align: center;
 	width: 640px;
