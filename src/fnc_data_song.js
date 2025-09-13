@@ -64,6 +64,7 @@ const TITLE = deepFreeze({
 	UM: { name: "18: 東方虹龍洞 ~ Unconnected Marketeers", image: "um.jpg", shortName: "Unconnected Marketeers", abbrev: "UM", },
 	HBM: { name: "18.5: バレットフィリア達の闇市場 ~ 100th Black Market", image: "100bm.png", shortName: "100th Black Market", abbrev: "100BM", },
 	UDoALG: { name: "19: 東方獣王園 ~ Unfinished Dream of All Living Ghost", image: "udoalg.png", shortName: "Unfinished Dream of All Living Ghost", abbrev: "UDoALG", },
+	FW: { name: "20: 東方錦上京 ~ Fossilized Wonders", image: "FW.png", shortName: "Fossilized Wonders", abbrev: "FW", },
 	SG: { name: "秋霜玉 (Shuusou Gyoku)", image: "bz6cubk.jpg", shortName: "Shuusou Gyoku", abbrev: "SG", },
 	KG: { name: "稀翁玉 (Kioh Gyoku)", image: "eQsoLaw.jpg", shortName: "Kioh Gyoku", abbrev: "KG", },
 	AUS1: { name: "幺樂団の歴史1 ~ Akyu's Untouched Score vol.1", image: "JJYLLmO.jpg", shortName: "Akyu's Untouched Score vol.1", abbrev: "AUS1", },
@@ -127,7 +128,7 @@ const CATEGORY = deepFreeze({
 	Touhou: { name: "東方 - Touhou", titles: ["HRtP", "SoEW", "PoDD", "LLS", "MS", "EoSD", "PCB", "IaMP",
 		"IN", "PoFV", "StB", "MoF", "SWR", "SA", "UFO", "Soku", "DS",
 		"GFW", "TD", "HM", "DDC", "ISC", "ULiL", "LoLK", "AoCF", "HSiFS",
-		"VD", "WBaWC", "SFW", "UM", "HBM", "UDoALG"], },
+		"VD", "WBaWC", "SFW", "UM", "HBM", "UDoALG", "FW"], },
 	Hifuu: { name: "秘封倶楽部 - Secret Sealing Club", titles: ["DiPP", "GFC", "CoSD", "R53m", "MA", "UFMJ", "TGA", "NToJ", "DLFR", "DBOA", "RCS", "TJD"], },
 	Seihou: { name: "西方 - Seihou", titles: ["SG", "KG"], },
 	Akyu: { name: "幺樂団の歴史 - Akyu's Untouched Score", titles: ["AUS1", "AUS2", "AUS3", "AUS4", "AUS5"], },
@@ -526,7 +527,7 @@ var ary_SongData = [
 	["Hartmann's Youkai Girl",						new Set([TITLE.SA]), { title: "SA", }, "7wEHo_uUgZ0", "Koishi Komeiji's theme", ORIGINAL_TRACK, BOSS_THEME],
 	["The Earth Spirits' Homecoming",				new Set([TITLE.SA]), { title: "SA", }, "Bf8wcOYctqA", "Ending", ORIGINAL_TRACK, OTHER_THEME],
 	["Energy Daybreak ~ Future Dream...",			new Set([TITLE.SA]), { title: "SA", }, "Ruy9z2NsAmo", "Staff Roll", ORIGINAL_TRACK, OTHER_THEME],
-	//["Player's Score",							new Set([TITLE.MoF, TITLE.SA, TITLE.UFO]), { title: "MoF", }, "7jrqZShXtZw", "", ORIGINAL_TRACK, OTHER_THEME],
+	//["Player's Score",							new Set([TITLE.MoF]), { title: "MoF", }, "", "", ORIGINAL_TRACK, OTHER_THEME],
 	
 	//Touhou Hisoutensoku
 	["Did You See that Shadow?",									new Set([TITLE.Soku]), { title: "Soku", }, "CSluXtLcCyM", "Title Screen", ORIGINAL_TRACK, OTHER_THEME],
@@ -597,7 +598,7 @@ var ary_SongData = [
 	["Heian Alien",											new Set([TITLE.UFO]), { title: "UFO", }, "qbMPHa-ncZk", "Nue Houjuu's theme", ORIGINAL_TRACK, BOSS_THEME],
 	["Youkai Temple",										new Set([TITLE.UFO]), { title: "UFO", }, "ioR-AXXOY6s", "Ending", ORIGINAL_TRACK, OTHER_THEME],
 	["Returning Home From the Sky ~ Sky Dream",				new Set([TITLE.UFO]), { title: "UFO", }, "N3nec9I10tA", "Staff Roll", ORIGINAL_TRACK, OTHER_THEME],
-	//["Player's Score",									new Set([TITLE.MoF, TITLE.SA, TITLE.UFO]), { title: "MoF", }, "7jrqZShXtZw", "", ORIGINAL_TRACK, OTHER_THEME],
+	//["Player's Score",									new Set([TITLE.MoF]), { title: "MoF", }, "", "", ORIGINAL_TRACK, OTHER_THEME],
 	
 	//Double Spoiler
 	["Newshound",									new Set([TITLE.DS]), { title: "DS", }, "eCVFE0XUOHc", "Title/Menu Screen", ORIGINAL_TRACK, OTHER_THEME],
@@ -618,7 +619,7 @@ var ary_SongData = [
 	["Loose Rain",							new Set([TITLE.GFW]), { title: "GFW", }, "0WzALopXC84", "Extra Stage", ORIGINAL_TRACK, STAGE_THEME],
 	["Magus Night",							new Set([TITLE.GFW]), { title: "GFW", }, "LI1gNmUnD_M", "Marisa Kirisame's theme", ORIGINAL_TRACK, BOSS_THEME],
 	["An Ice Fairy in Spring - Still -",	new Set([TITLE.GFW]), { title: "GFW", }, "NHoquwHU2v4", "Ending", ORIGINAL_TRACK, OTHER_THEME],
-	["Player's Score",						new Set([TITLE.GFW, TITLE.TD, TITLE.DDC, TITLE.LoLK, TITLE.HSiFS, TITLE.WBaWC, TITLE.UM]), { title: "GFW", }, "OJ5vmLeq1r4", "Score", ARRANGED_TRACK, OTHER_THEME],
+	["Player's Score",						new Set([TITLE.GFW, TITLE.TD, TITLE.DDC, TITLE.LoLK, TITLE.HSiFS, TITLE.WBaWC, TITLE.UM, TITLE.FW]), { title: "GFW", }, "OJ5vmLeq1r4", "Score", ARRANGED_TRACK, OTHER_THEME],
 	
 	//Ten Desires
 	["Spirit of Avarice",					new Set([TITLE.TD]), { title: "TD", }, "_s53iSvSeso", "Title Screen", ORIGINAL_TRACK, OTHER_THEME],
@@ -638,7 +639,7 @@ var ary_SongData = [
 	["Futatsuiwa from Sado",				new Set([TITLE.TD]), { title: "TD", }, "F-mrUZIMTbU", "Mamizou Futatsuiwa's theme", ORIGINAL_TRACK, BOSS_THEME],
 	["A New Wind at the Shrine",			new Set([TITLE.TD]), { title: "TD", }, "NSZRXeTX9yc", "Ending", ORIGINAL_TRACK, OTHER_THEME],
 	["Desire Dream",						new Set([TITLE.TD]), { title: "TD", }, "PWk-2HLhE_M", "Staff Roll", ORIGINAL_TRACK, OTHER_THEME],
-	//["Player's Score",					new Set([TITLE.GFW, TITLE.TD, TITLE.DDC, TITLE.LoLK, TITLE.HSiFS, TITLE.WBaWC, TITLE.UM]), { title: "GFW", }, "t3hBNsqiwL8", "", ORIGINAL_TRACK, OTHER_THEME],
+	//["Player's Score",					new Set([TITLE.GFW]), { title: "GFW", }, "", "", ORIGINAL_TRACK, OTHER_THEME],
 	
 	//Hopeless Masquerade
 	["This Dull World's Unchanging Pessimism",				new Set([TITLE.HM]), { title: "HM", }, "3t1aJTxYZ7A", "Intro", ORIGINAL_TRACK, OTHER_THEME],
@@ -681,7 +682,7 @@ var ary_SongData = [
 	["Primordial Beat ~ Pristine Beat",						new Set([TITLE.DDC]), { title: "DDC", }, "ioQLlX2ELbg", "Raiko Horikawa's theme", ORIGINAL_TRACK, BOSS_THEME],
 	["Magical Power of the Mallet",							new Set([TITLE.DDC]), { title: "DDC", }, "VAdcF2IdyZY", "Ending", ORIGINAL_TRACK, OTHER_THEME],
 	["Mysterious, Mysterious Tools",						new Set([TITLE.DDC]), { title: "DDC", }, "-YVCLjnMK6E", "Staff Roll", ORIGINAL_TRACK, OTHER_THEME],
-	//["Player's Score",									new Set([TITLE.GFW, TITLE.TD, TITLE.DDC, TITLE.LoLK, TITLE.HSiFS, TITLE.WBaWC, TITLE.UM]), { title: "GFW", }, "t3hBNsqiwL8", "", ORIGINAL_TRACK, OTHER_THEME],
+	//["Player's Score",									new Set([TITLE.GFW]), { title: "GFW", }, "", "", ORIGINAL_TRACK, OTHER_THEME],
 	
 	//Impossible Spell Card
 	["Raise the Signal Fire of Cheating",			new Set([TITLE.ISC]), { title: "ISC", }, "PM0X913-T3Q", "Title/Menu Screen", ORIGINAL_TRACK, OTHER_THEME],
@@ -878,7 +879,7 @@ var ary_SongData = [
 	["Pandemonic Planet",									new Set([TITLE.LoLK]), { title: "LoLK", }, "z6EQlZaB7v8", "Hecatia Lapislazuli's theme", ORIGINAL_TRACK, BOSS_THEME],
 	["The Moon as Seen from the Shrine",					new Set([TITLE.LoLK]), { title: "LoLK", }, "A6bnKLBF-vM", "Ending", ORIGINAL_TRACK, OTHER_THEME],
 	["The Space Shrine Maiden Returns Home",				new Set([TITLE.LoLK]), { title: "LoLK", }, "QWYewZVbWc0", "Staff Roll", ORIGINAL_TRACK, OTHER_THEME],
-	//["Player's Score",									new Set([TITLE.GFW, TITLE.TD, TITLE.DDC, TITLE.LoLK, TITLE.HSiFS, TITLE.WBaWC, TITLE.UM]), { title: "GFW", }, "t3hBNsqiwL8", "", ORIGINAL_TRACK, OTHER_THEME],
+	//["Player's Score",									new Set([TITLE.GFW]), { title: "GFW", }, "", "", ORIGINAL_TRACK, OTHER_THEME],
 
 	//Hidden Star in Four Seasons
 	["The Sky Where Cherry Blossoms Flutter Down",							new Set([TITLE.HSiFS]), { title: "HSiFS", }, "3B207i_YzE0", "Title Screen", ORIGINAL_TRACK, OTHER_THEME],
@@ -898,7 +899,7 @@ var ary_SongData = [
 	["Secret God Matara ~ Hidden Star in All Seasons.",						new Set([TITLE.HSiFS]), { title: "HSiFS", }, "BZx5KydoqHQ", "Okina Matara's 2nd theme", ORIGINAL_TRACK, BOSS_THEME],
 	["Unnatural Nature",													new Set([TITLE.HSiFS]), { title: "HSiFS", }, "HZICG3R6xWc", "Ending", ORIGINAL_TRACK, OTHER_THEME],
 	["White Traveler",														new Set([TITLE.HSiFS]), { title: "HSiFS", }, "I_IjW7cJ7T8", "Staff Roll", ORIGINAL_TRACK, OTHER_THEME],
-	//["Player's Score",													new Set([TITLE.GFW, TITLE.TD, TITLE.DDC, TITLE.LoLK, TITLE.HSiFS, TITLE.WBaWC, TITLE.UM]), { title: "GFW", }, "t3hBNsqiwL8", "", ORIGINAL_TRACK, OTHER_THEME],
+	//["Player's Score",													new Set([TITLE.GFW]), { title: "GFW", }, "", "", ORIGINAL_TRACK, OTHER_THEME],
 
 	//Antinomy of Common Flowers
 	//["Dichromatic Lotus Butterfly ~ Red and White",						new Set([TITLE.ULiL, TITLE.AoCF]), { title: "ULiL", }, "TCqhL73lohE", "Reimu Hakurei's theme", ARRANGED_TRACK, STAGE_AND_BOSS_THEME],
@@ -1013,7 +1014,7 @@ var ary_SongData = [
 	["Prince Shoutoku's Pegasus ~ Dark Pegasus",			new Set([TITLE.WBaWC]), { title: "WBaWC", }, "ZRdXeRkijZI", "Saki Kurokoma's theme", ORIGINAL_TRACK, BOSS_THEME],
 	["The Animals' Rest",									new Set([TITLE.WBaWC]), { title: "WBaWC", }, "F15o3TXcnxA", "Ending", ORIGINAL_TRACK, OTHER_THEME],
 	["Returning Home from the Underground",					new Set([TITLE.WBaWC]), { title: "WBaWC", }, "zXiC7YFQngk", "Staff Roll", ORIGINAL_TRACK, OTHER_THEME],
-	//["Player's Score",									new Set([TITLE.GFW, TITLE.TD, TITLE.DDC, TITLE.LoLK, TITLE.HSiFS, TITLE.WBaWC, TITLE.UM]), { title: "GFW", }, "t3hBNsqiwL8", "", ORIGINAL_TRACK, OTHER_THEME],
+	//["Player's Score",									new Set([TITLE.GFW]), { title: "GFW", }, "", "", ORIGINAL_TRACK, OTHER_THEME],
 	
 	//Touhou Gouyoku Ibun
 	["Submerged Hell of Sunken Sorrow",							new Set([TITLE.SFW]), { title: "SFW", }, "DfU31yb8eNo", "Title Screen", ORIGINAL_TRACK, OTHER_THEME],
@@ -1061,7 +1062,7 @@ var ary_SongData = [
 	["The Princess Who Slays Dragon Kings",								new Set([TITLE.UM]), { title: "UM", }, "AiGYjSW6dZk", "Momoyo Himemushi's theme", ORIGINAL_TRACK, BOSS_THEME],
 	["The Sunday After the Storm",										new Set([TITLE.UM]), { title: "UM", }, "_kESz8ND7Mk", "Ending", ORIGINAL_TRACK, OTHER_THEME],
 	["A Rainbow-Colored World",											new Set([TITLE.UM, TITLE.HBM]), { title: "UM", }, "AUFP1wxuncs", "Staff Roll", ORIGINAL_TRACK, OTHER_THEME],
-	//["Player's Score",												new Set([TITLE.GFW, TITLE.TD, TITLE.DDC, TITLE.LoLK, TITLE.HSiFS, TITLE.WBaWC, TITLE.UM]), { title: "GFW", }, "t3hBNsqiwL8", "", ORIGINAL_TRACK, OTHER_THEME],
+	//["Player's Score",												new Set([TITLE.GFW]), { title: "GFW", }, "", "", ORIGINAL_TRACK, OTHER_THEME],
 	
 	//Rainbow-Colored Septentrion
 	//TODO: update with non-premium vids if they're ever uploaded
@@ -1119,5 +1120,26 @@ var ary_SongData = [
 	["The Lonely Road of Hitachi",											new Set([TITLE.TJD]), { title: "TJD", }, "M9TGEXzzOJ0", "Track 8", ORIGINAL_TRACK, OTHER_THEME],
 	["The Lamentations Known Only by Jizo",									new Set([TITLE.TJD]), { title: "TJD", }, "qeAIyFygAfI", "Track 9", ARRANGED_TRACK, OTHER_THEME],
 	["The Concealed Four Seasons",											new Set([TITLE.TJD]), { title: "TJD", }, "XRTU74Zun2E", "Track 10", ARRANGED_TRACK, OTHER_THEME],
-	["Ghosts Exist Even When It's Not Night",								new Set([TITLE.TJD]), { title: "TJD", }, "rEUzj32oXWM", "Track 11", ORIGINAL_TRACK, OTHER_THEME]
+	["Ghosts Exist Even When It's Not Night",								new Set([TITLE.TJD]), { title: "TJD", }, "rEUzj32oXWM", "Track 11", ORIGINAL_TRACK, OTHER_THEME],
+	
+	//Unconnected Marketeers
+	["Shrine Maiden Crowned with Glory",							new Set([TITLE.FW]), { title: "FW", }, "Lt4M5V_218M", "Title Screen", ORIGINAL_TRACK, OTHER_THEME],
+	["Beloved Dwelling of Dust",									new Set([TITLE.FW]), { title: "FW", }, "rrYm3OgRvk8", "Stage 1", ORIGINAL_TRACK, STAGE_THEME],
+	["Even if Forgotten by the World",								new Set([TITLE.FW]), { title: "FW", }, "hZH4O6qEnf0", "Ubame Chirizuka's theme", ORIGINAL_TRACK, BOSS_THEME],
+	["Sacred Forest",												new Set([TITLE.FW]), { title: "FW", }, "t1MU46689gg", "Stage 2", ORIGINAL_TRACK, STAGE_THEME],
+	["There's a Monster in the Woods",								new Set([TITLE.FW]), { title: "FW", }, "KID9jAtTX3w", "Chimi Houjuu's Theme", ORIGINAL_TRACK, BOSS_THEME],
+	["Golden Land of Prester John",									new Set([TITLE.FW]), { title: "FW", }, "XTp4QX_rZ7E", "Stage 3", ORIGINAL_TRACK, STAGE_THEME],
+	["Might as Well Stake Your Life to Solve the Riddle",			new Set([TITLE.FW]), { title: "FW", }, "s1ovTVhVaPg", "Nareko Michigami's theme", ORIGINAL_TRACK, BOSS_THEME],
+	["Four-Color Labyrinth",										new Set([TITLE.FW]), { title: "FW", }, "9SHUd2c_vbs", "Stage 4", ORIGINAL_TRACK, STAGE_THEME],
+	["Reminiscence of Deer Hunting",								new Set([TITLE.FW]), { title: "FW", }, "trxVOWrzx2o", "Yuiman Asama's Theme", ORIGINAL_TRACK, BOSS_THEME],
+	["The Maiden Sinking into the Deep Sea of Memory",				new Set([TITLE.FW]), { title: "FW", }, "8B5_ILdyJSs", "Stage 5", ORIGINAL_TRACK, STAGE_THEME],
+	["Watatsuki's Spell Card ~ Divine Sea Battle",					new Set([TITLE.FW]), { title: "FW", }, "-iEKwsjrdgc", "Watatsuki no Toyohime's theme", ORIGINAL_TRACK, BOSS_THEME],
+	["Sacred Precincts of the Pyramid",								new Set([TITLE.FW]), { title: "FW", }, "optK4n1wslU", "Stage 6", ORIGINAL_TRACK, STAGE_THEME],
+	["Because I'm Used to Being the Last One Left ~ Stone Goddess",	new Set([TITLE.FW]), { title: "FW", }, "4sHAGlL2_B4", "Ariya Iwanaga's Theme", ORIGINAL_TRACK, BOSS_THEME],
+	["Fantastic Drift",												new Set([TITLE.FW]), { title: "FW", }, "BNS1e6ZJyOQ", "Extra Stage", ORIGINAL_TRACK, STAGE_THEME],
+	["Hallucination Atop a Bivalve",								new Set([TITLE.FW]), { title: "FW", }, "Tj8SbjztSgM", "Nina Watari's theme", ORIGINAL_TRACK, BOSS_THEME],
+	["Unchanging Daily Life",										new Set([TITLE.FW]), { title: "FW", }, "uxUEWvDh5T4", "Ending 1", ORIGINAL_TRACK, OTHER_THEME],
+	["Beloved Daily Life",											new Set([TITLE.FW]), { title: "FW", }, "0y7abSjHj-E", "Ending 2", ORIGINAL_TRACK, OTHER_THEME],
+	["To a World With Life and Death",								new Set([TITLE.FW]), { title: "FW", }, "WKU3qZzSwk0", "Staff Roll", ORIGINAL_TRACK, OTHER_THEME]
+	//["Player's Score",											new Set([TITLE.GFW]), { title: "GFW", }, "", "", ORIGINAL_TRACK, OTHER_THEME],
 ];
